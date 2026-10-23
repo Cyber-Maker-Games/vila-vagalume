@@ -1,0 +1,3346 @@
+<!doctype html>
+<html data-saved=""><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link id="icon-font" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.42.0/dist/tabler-icons.min.css" media="print" onload="this.media='all'"><noscript><link id="icon-font" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.42.0/dist/tabler-icons.min.css"></noscript><style>
+:root{--font-anthropic-sans:"anthropic-sans", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;--font-anthropic-serif:"anthropic-serif", ui-serif, Georgia, "Times New Roman", serif}
+:root {
+  --radius: calc(0.5rem * var(--cds-rem-scale, 1));
+  --radius-composer: calc(0.875rem * var(--cds-rem-scale, 1));
+  --h-control: calc(2rem * var(--cds-rem-scale, 1));
+  --h-control-nested: calc(1.375rem * var(--cds-rem-scale, 1));
+  --icon: calc(1.25rem * var(--cds-rem-scale, 1));
+  --pad-xs: calc(0.375rem * var(--cds-rem-scale, 1));
+  --pad-sm: calc(0.5rem * var(--cds-rem-scale, 1));
+  --pad-md: calc(0.75rem * var(--cds-rem-scale, 1));
+  --pad-lg: calc(1rem * var(--cds-rem-scale, 1));
+  --pad-xl: calc(1.5rem * var(--cds-rem-scale, 1));
+  --gap-xs: calc(0.5rem * var(--cds-rem-scale, 1));
+  --gap-sm: calc(0.75rem * var(--cds-rem-scale, 1));
+  --gap-md: calc(1rem * var(--cds-rem-scale, 1));
+  --gap-lg: calc(1.75rem * var(--cds-rem-scale, 1));
+  --gap-xl: calc(2.5rem * var(--cds-rem-scale, 1));
+  --outset-x: 0px;
+  --outset-y: 0px;
+  --border-editor-comment-target: var(--yellow-450);
+  --shadow-drop-ring: inset 0 0 0 2px var(--fill-accent);
+  --shadow-drop-ring-danger: inset 0 0 0 2px var(--fill-danger);
+  --shadow-drop-glow: inset 0 0 24px -2px hsl(from var(--fill-accent) h s l / 20%);
+  --shadow-drop-glow-danger: inset 0 0 24px -2px hsl(from var(--fill-danger) h s l / 20%);
+  --ring-hairline: 1px;
+  --font-mono: var(--font-mono-override,) var(--font-anthropic-mono, "SF Mono"), "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+  --font-mono-ui: var(--font-anthropic-mono, "SF Mono"), "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+  --font-system: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "PingFang SC", "PingFang TC", "Hiragino Sans", "Apple SD Gothic Neo", sans-serif;
+  --font-sans: var(--font-anthropic-sans, var(--font-system)), var(--font-system);
+  --font-sans-display: var(--font-anthropic-sans-display, var(--font-sans)), var(--font-sans);
+  --font-voice: var(--font-anthropic-serif, ui-serif), ui-serif, Georgia, "Times New Roman", serif;
+  --ease-out: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --ease-snap: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-overshoot: cubic-bezier(0.34, 1.3, 0.64, 1);
+  --dur-fast: 60ms;
+  --dur-snap: 120ms;
+  --dur-base: 200ms;
+  --dur-sheet: 300ms;
+  --dur-slow: 450ms;
+  --btn-spring: linear(0, 0.2459, 0.6526, 0.9468, 1.0764, 1.0915, 1.0585, 1.0219, 0.9993, 0.9914, 0.9921, 0.9957, 0.9988, 1.0004, 1);
+  --black: #000000;
+  --oncolor-200: hsl(60 6.7% 97.1% / 0.75);
+  --oncolor-300: hsl(60 6.7% 97.1% / 0.5);
+  --clay: #d97757;
+  --clay-emphasized: #c6613f;
+  --heather: #cbcadb;
+  --plum: #827dbd;
+  --cactus: #bcd1ca;
+  --mineral: #629987;
+  --gray-0: #ffffff;
+  --gray-10: #fcfcfb;
+  --gray-20: #f9f9f7;
+  --gray-30: #f6f6f4;
+  --gray-40: #f3f3f0;
+  --gray-50: #f0efec;
+  --gray-60: #edece8;
+  --gray-70: #eae9e4;
+  --gray-80: #e7e6e1;
+  --gray-90: #e4e3dd;
+  --gray-100: #e1e0d9;
+  --gray-150: #d2d1c7;
+  --gray-200: #c3c2b7;
+  --gray-250: #b4b3a8;
+  --gray-300: #a5a49a;
+  --gray-350: #97958d;
+  --gray-400: #898781;
+  --gray-450: #7b7974;
+  --gray-500: #6d6b67;
+  --gray-550: #5f5e5a;
+  --gray-600: #52514e;
+  --gray-650: #454442;
+  --gray-700: #383835;
+  --gray-750: #2c2c2a;
+  --gray-800: #20201f;
+  --gray-810: #1e1e1d;
+  --gray-820: #1c1c1b;
+  --gray-830: #1a1a19;
+  --gray-840: #181817;
+  --gray-850: #151515;
+  --gray-860: #131313;
+  --gray-870: #111111;
+  --gray-880: #0f0f0f;
+  --gray-890: #0d0d0d;
+  --gray-900: #0b0b0b;
+  --red-0: #ffffff;
+  --red-10: #fffbfb;
+  --red-20: #fef7f7;
+  --red-30: #fef3f3;
+  --red-40: #fdefef;
+  --red-50: #fbebeb;
+  --red-60: #fae7e7;
+  --red-70: #fae3e3;
+  --red-80: #fadfdf;
+  --red-90: #fadada;
+  --red-100: #fad6d6;
+  --red-150: #f7c1c1;
+  --red-200: #f4abab;
+  --red-250: #f09595;
+  --red-300: #ec7e7e;
+  --red-350: #e66767;
+  --red-400: #e34948;
+  --red-450: #d03b3b;
+  --red-500: #b93535;
+  --red-550: #a32c2c;
+  --red-600: #8e2626;
+  --red-650: #791e1e;
+  --red-700: #641919;
+  --red-750: #511212;
+  --red-800: #3c0e0e;
+  --red-810: #380d0d;
+  --red-820: #340c0c;
+  --red-830: #310b0b;
+  --red-840: #2d0a0a;
+  --red-850: #280a0a;
+  --red-860: #230b0a;
+  --red-870: #1d0b0a;
+  --red-880: #170c0b;
+  --red-890: #110c0b;
+  --red-900: #0b0b0b;
+  --orange-0: #ffffff;
+  --orange-10: #fefbfa;
+  --orange-20: #fdf7f5;
+  --orange-30: #fcf4f0;
+  --orange-40: #faf0ec;
+  --orange-50: #f9ece7;
+  --orange-60: #f8e9e2;
+  --orange-70: #f7e5dd;
+  --orange-80: #f7e1d7;
+  --orange-90: #f7dcd1;
+  --orange-100: #f7d8cb;
+  --orange-150: #f3c5b2;
+  --orange-200: #f4ae94;
+  --orange-250: #f09978;
+  --orange-300: #ec835a;
+  --orange-350: #eb6834;
+  --orange-400: #d95926;
+  --orange-450: #c25124;
+  --orange-500: #ae461c;
+  --orange-550: #993d19;
+  --orange-600: #863311;
+  --orange-650: #712b0f;
+  --orange-700: #5d230b;
+  --orange-750: #4b1b08;
+  --orange-800: #371407;
+  --orange-810: #341307;
+  --orange-820: #301106;
+  --orange-830: #2d1006;
+  --orange-840: #290f06;
+  --orange-850: #240e07;
+  --orange-860: #1f0e08;
+  --orange-870: #1a0e09;
+  --orange-880: #150d0a;
+  --orange-890: #100c0b;
+  --orange-900: #0b0b0b;
+  --yellow-0: #ffffff;
+  --yellow-10: #fefcf8;
+  --yellow-20: #fcf8f1;
+  --yellow-30: #fbf5ea;
+  --yellow-40: #f9f2e4;
+  --yellow-50: #f9eeda;
+  --yellow-60: #faebce;
+  --yellow-70: #fae7c2;
+  --yellow-80: #fae3b8;
+  --yellow-90: #f9e0b0;
+  --yellow-100: #f9dca4;
+  --yellow-150: #f9c868;
+  --yellow-200: #fab219;
+  --yellow-250: #eda100;
+  --yellow-300: #db9300;
+  --yellow-350: #c98500;
+  --yellow-400: #b77700;
+  --yellow-450: #a66a00;
+  --yellow-500: #945d00;
+  --yellow-550: #835100;
+  --yellow-600: #734500;
+  --yellow-650: #623900;
+  --yellow-700: #512e00;
+  --yellow-750: #412400;
+  --yellow-800: #311a00;
+  --yellow-810: #2e1800;
+  --yellow-820: #2b1700;
+  --yellow-830: #271500;
+  --yellow-840: #231402;
+  --yellow-850: #1f1204;
+  --yellow-860: #1b1106;
+  --yellow-870: #171007;
+  --yellow-880: #130e09;
+  --yellow-890: #0f0d0a;
+  --yellow-900: #0b0b0b;
+  --green-0: #ffffff;
+  --green-10: #fafdfa;
+  --green-20: #f5fbf4;
+  --green-30: #f0f9ef;
+  --green-40: #ebf7e9;
+  --green-50: #e5f4e4;
+  --green-60: #e0f2de;
+  --green-70: #dbf0d8;
+  --green-80: #d5eed3;
+  --green-90: #d0eccd;
+  --green-100: #caeac7;
+  --green-150: #aee0a9;
+  --green-200: #91d68b;
+  --green-250: #73cb6d;
+  --green-300: #55bf50;
+  --green-350: #35b231;
+  --green-400: #0ca30c;
+  --green-450: #009300;
+  --green-500: #008300;
+  --green-550: #007300;
+  --green-600: #006300;
+  --green-650: #005400;
+  --green-700: #074506;
+  --green-750: #0f350d;
+  --green-800: #11260f;
+  --green-810: #10230f;
+  --green-820: #10210f;
+  --green-830: #101e0f;
+  --green-840: #101b0f;
+  --green-850: #0f180e;
+  --green-860: #0e160e;
+  --green-870: #0e130d;
+  --green-880: #0d100d;
+  --green-890: #0c0e0c;
+  --green-900: #0b0b0b;
+  --aqua-0: #ffffff;
+  --aqua-10: #f9fdfb;
+  --aqua-20: #f3fbf8;
+  --aqua-30: #edf9f4;
+  --aqua-40: #e8f7f1;
+  --aqua-50: #e2f4ed;
+  --aqua-60: #dcf2ea;
+  --aqua-70: #d5f0e6;
+  --aqua-80: #ceefe2;
+  --aqua-90: #c7eddf;
+  --aqua-100: #bfebdb;
+  --aqua-150: #a0e1c9;
+  --aqua-200: #7ad7b4;
+  --aqua-250: #5acba0;
+  --aqua-300: #3bbd8c;
+  --aqua-350: #1baf7a;
+  --aqua-400: #199e70;
+  --aqua-450: #138e65;
+  --aqua-500: #0f7e5c;
+  --aqua-550: #0e6e53;
+  --aqua-600: #065f49;
+  --aqua-650: #095040;
+  --aqua-700: #034235;
+  --aqua-750: #02342b;
+  --aqua-800: #022720;
+  --aqua-810: #02241e;
+  --aqua-820: #02221c;
+  --aqua-830: #021f1a;
+  --aqua-840: #031c18;
+  --aqua-850: #051a16;
+  --aqua-860: #071713;
+  --aqua-870: #081411;
+  --aqua-880: #0a110f;
+  --aqua-890: #0b0e0d;
+  --aqua-900: #0b0b0b;
+  --blue-0: #ffffff;
+  --blue-10: #fafcff;
+  --blue-20: #f5f9fe;
+  --blue-30: #f0f7fe;
+  --blue-40: #ebf4fc;
+  --blue-50: #e7f1fb;
+  --blue-60: #e2eefa;
+  --blue-70: #ddebfa;
+  --blue-80: #d7e8fa;
+  --blue-90: #d2e5fa;
+  --blue-100: #cde2fb;
+  --blue-150: #b7d3f6;
+  --blue-200: #9ec5f4;
+  --blue-250: #86b6ef;
+  --blue-300: #6da7ec;
+  --blue-350: #5598e7;
+  --blue-400: #3987e5;
+  --blue-450: #2a78d6;
+  --blue-500: #256abf;
+  --blue-550: #1c5cab;
+  --blue-600: #184f95;
+  --blue-650: #104281;
+  --blue-700: #0d366b;
+  --blue-750: #062b57;
+  --blue-800: #032042;
+  --blue-810: #031e3d;
+  --blue-820: #021c39;
+  --blue-830: #021a36;
+  --blue-840: #021831;
+  --blue-850: #03162c;
+  --blue-860: #051426;
+  --blue-870: #07121f;
+  --blue-880: #091018;
+  --blue-890: #0a0d11;
+  --blue-900: #0b0b0b;
+  --violet-0: #ffffff;
+  --violet-10: #fcfbff;
+  --violet-20: #f8f8ff;
+  --violet-30: #f5f4ff;
+  --violet-40: #f2f1ff;
+  --violet-50: #efedff;
+  --violet-60: #ebeafe;
+  --violet-70: #e8e6fe;
+  --violet-80: #e5e2fd;
+  --violet-90: #e2dffd;
+  --violet-100: #dfdbfd;
+  --violet-150: #cfcafb;
+  --violet-200: #bfb9f5;
+  --violet-250: #b0a7f2;
+  --violet-300: #a096eb;
+  --violet-350: #9085e9;
+  --violet-400: #8173e3;
+  --violet-450: #7161e0;
+  --violet-500: #6250d6;
+  --violet-550: #5645be;
+  --violet-600: #4a3aa7;
+  --violet-650: #3e318e;
+  --violet-700: #322777;
+  --violet-750: #271e60;
+  --violet-800: #1d1649;
+  --violet-810: #1b1544;
+  --violet-820: #19133f;
+  --violet-830: #17123b;
+  --violet-840: #151036;
+  --violet-850: #130f32;
+  --violet-860: #110e2b;
+  --violet-870: #0f0e23;
+  --violet-880: #0e0d1b;
+  --violet-890: #0c0c13;
+  --violet-900: #0b0b0b;
+  --magenta-0: #ffffff;
+  --magenta-10: #fefbfc;
+  --magenta-20: #fef6f9;
+  --magenta-30: #fdf2f6;
+  --magenta-40: #fbeff3;
+  --magenta-50: #faebf0;
+  --magenta-60: #f9e6ed;
+  --magenta-70: #f9e2eb;
+  --magenta-80: #f9dee8;
+  --magenta-90: #f9d9e5;
+  --magenta-100: #f9d4e2;
+  --magenta-150: #f3c0d3;
+  --magenta-200: #f3a8c3;
+  --magenta-250: #ed93b4;
+  --magenta-300: #e87ba4;
+  --magenta-350: #e46191;
+  --magenta-400: #d55181;
+  --magenta-450: #c04873;
+  --magenta-500: #ad3d66;
+  --magenta-550: #993458;
+  --magenta-600: #862a4c;
+  --magenta-650: #722340;
+  --magenta-700: #5e1c34;
+  --magenta-750: #4c1429;
+  --magenta-800: #390f1f;
+  --magenta-810: #360d1c;
+  --magenta-820: #320c1a;
+  --magenta-830: #2f0b18;
+  --magenta-840: #2b0a16;
+  --magenta-850: #270a14;
+  --magenta-860: #220a12;
+  --magenta-870: #1c0b11;
+  --magenta-880: #170b0f;
+  --magenta-890: #110b0d;
+  --magenta-900: #0b0b0b;
+  --role-accent-50: var(--blue-50);
+  --role-accent-100: var(--blue-100);
+  --role-accent-250: var(--blue-250);
+  --role-accent-300: var(--blue-300);
+  --role-accent-400: var(--blue-400);
+  --role-accent-450: var(--blue-450);
+  --role-accent-600: var(--blue-600);
+  --role-accent-700: var(--blue-700);
+  --role-accent-800: var(--blue-800);
+  --role-accent-850: var(--blue-850);
+  --role-accent-fill: var(--role-accent-450);
+  --role-accent-fill-hover: var(--role-accent-400);
+  --role-accent-on: var(--gray-0);
+  --role-danger-100: var(--red-100);
+  --role-danger-250: var(--red-250);
+  --role-danger-300: var(--red-300);
+  --role-danger-400: var(--red-400);
+  --role-danger-450: var(--red-450);
+  --role-danger-600: var(--red-600);
+  --role-danger-700: var(--red-700);
+  --role-danger-800: var(--red-800);
+  --role-danger-fill: var(--role-danger-450);
+  --role-danger-fill-hover: var(--role-danger-400);
+  --role-danger-on: var(--gray-0);
+  --role-success-100: var(--green-100);
+  --role-success-250: var(--green-250);
+  --role-success-400: var(--green-400);
+  --role-success-450: var(--green-450);
+  --role-success-600: var(--green-600);
+  --role-success-700: var(--green-700);
+  --role-success-800: var(--green-800);
+  --role-success-fill: var(--role-success-450);
+  --role-success-fill-hover: var(--role-success-400);
+  --role-success-on: var(--gray-900);
+  --role-warning-100: var(--yellow-100);
+  --role-warning-200: var(--yellow-200);
+  --role-warning-250: var(--yellow-250);
+  --role-warning-300: var(--yellow-300);
+  --role-warning-600: var(--yellow-600);
+  --role-warning-700: var(--yellow-700);
+  --role-warning-800: var(--yellow-800);
+  --role-warning-fill: var(--role-warning-200);
+  --role-warning-fill-hover: var(--role-warning-250);
+  --role-warning-on: var(--gray-900);
+  --role-pro-100: var(--violet-100);
+  --role-pro-250: var(--violet-250);
+  --role-pro-300: var(--violet-300);
+  --role-pro-400: var(--violet-400);
+  --role-pro-450: var(--violet-450);
+  --role-pro-600: var(--violet-600);
+  --role-pro-700: var(--violet-700);
+  --role-pro-800: var(--violet-800);
+  --role-pro-fill: var(--role-pro-450);
+  --role-pro-fill-hover: var(--role-pro-400);
+  --role-pro-on: var(--gray-0);
+  --role-tooltip-bg: var(--gray-900);
+  --role-tooltip-fg: var(--gray-0);
+  --fill-accent: var(--role-accent-fill);
+  --fill-accent-hover: var(--role-accent-fill-hover);
+  --fill-danger: var(--role-danger-fill);
+  --fill-danger-hover: var(--role-danger-fill-hover);
+  --fill-success: var(--role-success-fill);
+  --fill-success-hover: var(--role-success-fill-hover);
+  --fill-warning: var(--role-warning-fill);
+  --fill-warning-hover: var(--role-warning-fill-hover);
+  --fill-pro: var(--role-pro-fill);
+  --fill-pro-hover: var(--role-pro-fill-hover);
+  --fill-brand: var(--clay-emphasized);
+  --fill-brand-hover: var(--clay);
+  --bg-accent-muted: color-mix(in srgb, var(--fill-accent) 10%, transparent);
+  --bg-highlight: color-mix(in srgb, var(--fill-warning) 33%, transparent);
+  --bg-editor-claude-pending: color-mix(in srgb, var(--clay) 22%, transparent);
+  --bg-editor-highlight-yellow: var(--bg-highlight);
+  --bg-editor-highlight-green: color-mix(in srgb, var(--green-300) 33%, transparent);
+  --bg-editor-highlight-blue: color-mix(in srgb, var(--blue-300) 33%, transparent);
+  --bg-editor-highlight-magenta: color-mix(in srgb, var(--magenta-300) 33%, transparent);
+  --bg-editor-highlight-violet: color-mix(in srgb, var(--violet-300) 33%, transparent);
+  --bg-editor-highlight-gray: color-mix(in srgb, var(--gray-300) 33%, transparent);
+  --bg-editor-collaborator-1: color-mix(in srgb, var(--editor-collaborator-1) 22%, transparent);
+  --bg-editor-collaborator-2: color-mix(in srgb, var(--editor-collaborator-2) 22%, transparent);
+  --bg-editor-collaborator-3: color-mix(in srgb, var(--editor-collaborator-3) 22%, transparent);
+  --bg-editor-collaborator-4: color-mix(in srgb, var(--editor-collaborator-4) 22%, transparent);
+  --bg-editor-collaborator-5: color-mix(in srgb, var(--editor-collaborator-5) 22%, transparent);
+  --bg-editor-collaborator-6: color-mix(in srgb, var(--editor-collaborator-6) 22%, transparent);
+  --bg-editor-comment: color-mix(in srgb, var(--fill-warning) 20%, transparent);
+  --bg-editor-comment-active: color-mix(in srgb, var(--fill-warning) 45%, transparent);
+  --font-size-caption: calc(0.75rem * var(--cds-rem-scale, 1));
+  --font-size-footnote: calc(0.8125rem * var(--cds-rem-scale, 1));
+  --font-size-code: calc(0.8125rem * var(--cds-rem-scale, 1));
+  --font-size-body: calc(0.875rem * var(--cds-rem-scale, 1));
+  --font-size-prose: 1rem;
+  --font-size-heading: calc(0.9375rem * var(--cds-rem-scale, 1));
+  --font-size-title: calc(1.375rem * var(--cds-rem-scale, 1));
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 580;
+  --font-weight-bold: 600;
+  --leading-caption: calc(1.0625rem * var(--cds-rem-scale, 1));
+  --leading-footnote: calc(1.0625rem * var(--cds-rem-scale, 1));
+  --leading-code: calc(1.1875rem * var(--cds-rem-scale, 1));
+  --leading-body: calc(1.25rem * var(--cds-rem-scale, 1));
+  --leading-prose: 1.5rem;
+  --leading-heading: calc(1.25rem * var(--cds-rem-scale, 1));
+  --leading-title: calc(1.75rem * var(--cds-rem-scale, 1));
+  --on-accent: var(--role-accent-on);
+  --on-danger: var(--role-danger-on);
+  --on-success: var(--role-success-on);
+  --on-warning: var(--role-warning-on);
+  --on-pro: var(--role-pro-on);
+  --on-brand: #ffffff;
+  --editor-collaborator-1: var(--violet-450);
+  --editor-collaborator-2: var(--magenta-450);
+  --editor-collaborator-3: var(--aqua-500);
+  --editor-collaborator-4: var(--green-500);
+  --editor-collaborator-5: var(--yellow-500);
+  --editor-collaborator-6: var(--gray-500);
+  --opacity-disabled: 0.4;
+  --opacity-icon-secondary: 0.4;
+  --z-modal: 40;
+  --z-coachmark: 35;
+  --z-popover: 50;
+  --z-tooltip: 50;
+  --z-toast: 60;
+}
+:root,
+[data-mode="light"],
+[data-mode="dark"],
+[data-mode="system"] {
+  --border: var(--alpha-2);
+  --border-accent: var(--role-accent-250);
+  --border-danger: var(--role-danger-250);
+  --border-success: var(--role-success-250);
+  --border-warning: var(--role-warning-250);
+  --border-pro: var(--role-pro-250);
+  --border-editor-comment: var(--yellow-400);
+  --border-editor-comment-open: var(--yellow-450);
+  --border-git-added: color-mix(in srgb, var(--text-git-added) 40%, transparent);
+  --border-git-removed: color-mix(in srgb, var(--text-git-removed) 40%, transparent);
+  --border-git-modified: color-mix(in srgb, var(--text-git-modified) 40%, transparent);
+  --border-git-merged: color-mix(in srgb, var(--text-git-merged) 40%, transparent);
+  --border-git-closed: color-mix(in srgb, var(--text-git-closed) 40%, transparent);
+  --border-git-conflicting: color-mix(in srgb, var(--text-git-conflicting) 40%, transparent);
+  --border-git-draft: color-mix(in srgb, var(--text-git-draft) 40%, transparent);
+  --border-git-opened: var(--border-git-added);
+  --border-git-queued: var(--border-git-modified);
+  --border-strong: var(--alpha-3);
+  --border-stronger: hsl(from var(--neutral-900) h s l / 40%);
+  --shadow-sm: 0 1px 2px 0 hsl(from var(--gray-900) h s l / 6%), 0 2px 8px 0 var(--shadow-color);
+  --shadow-md: 0 2px 4px 0 hsl(from var(--gray-900) h s l / 7%), 0 6px 16px 0 var(--shadow-color);
+  --shadow-lg: 0 4px 8px 0 hsl(from var(--gray-900) h s l / 8%), 0 12px 28px -2px var(--shadow-color);
+  --shadow-color: hsl(from var(--gray-900) h s l / 8%);
+  --shadow-popover: 0 8px 24px rgb(0 0 0 / 0.12), 0 2px 6px rgb(0 0 0 / 0.08);
+  --ring-outer: 1px;
+  --ring-inner: 0px;
+  --ring-color: var(--border);
+  --focus-shadow: inset 0 0 0 1px var(--page-bg), 0 0 0 1px var(--fill-accent), 0 0 6px 1px var(--bg-accent);
+  --focus-shadow-danger: inset 0 0 0 1px var(--page-bg), 0 0 0 1px var(--fill-danger), 0 0 6px 1px var(--bg-danger);
+  --pictogram-highlight-default: var(--gray-80);
+  --pictogram-highlight-heather: var(--heather);
+  --pictogram-highlight-cactus: var(--cactus);
+  --neutral-0: var(--gray-0);
+  --neutral-10: var(--gray-10);
+  --neutral-20: var(--gray-20);
+  --neutral-30: var(--gray-30);
+  --neutral-40: var(--gray-40);
+  --neutral-50: var(--gray-50);
+  --neutral-60: var(--gray-60);
+  --neutral-70: var(--gray-70);
+  --neutral-80: var(--gray-80);
+  --neutral-90: var(--gray-90);
+  --neutral-100: var(--gray-100);
+  --neutral-150: var(--gray-150);
+  --neutral-200: var(--gray-200);
+  --neutral-250: var(--gray-250);
+  --neutral-300: var(--gray-300);
+  --neutral-350: var(--gray-350);
+  --neutral-400: var(--gray-400);
+  --neutral-450: var(--gray-450);
+  --neutral-500: var(--gray-500);
+  --neutral-550: var(--gray-550);
+  --neutral-600: var(--gray-600);
+  --neutral-650: var(--gray-650);
+  --neutral-700: var(--gray-700);
+  --neutral-750: var(--gray-750);
+  --neutral-800: var(--gray-800);
+  --neutral-810: var(--gray-810);
+  --neutral-820: var(--gray-820);
+  --neutral-830: var(--gray-830);
+  --neutral-840: var(--gray-840);
+  --neutral-850: var(--gray-850);
+  --neutral-860: var(--gray-860);
+  --neutral-870: var(--gray-870);
+  --neutral-880: var(--gray-880);
+  --neutral-890: var(--gray-890);
+  --neutral-900: var(--gray-900);
+  --alpha-0: hsl(from var(--neutral-900) h s l / 0%);
+  --alpha-1: hsl(from var(--neutral-900) h s l / 5%);
+  --alpha-2: hsl(from var(--neutral-900) h s l / 10%);
+  --alpha-3: hsl(from var(--neutral-900) h s l / 20%);
+  --alpha-4: hsl(from var(--neutral-900) h s l / 35%);
+  --alpha-5: hsl(from var(--neutral-900) h s l / 50%);
+  --alpha-6: hsl(from var(--neutral-900) h s l / 60%);
+  --alpha-7: hsl(from var(--neutral-900) h s l / 70%);
+  --alpha-8: hsl(from var(--neutral-900) h s l / 85%);
+  --alpha-9: hsl(from var(--neutral-900) h s l / 95%);
+  --surface-0: var(--gray-20);
+  --surface-1: var(--gray-10);
+  --surface-2: var(--gray-0);
+  --surface-3: var(--gray-0);
+  --surface-popover: var(--surface-3);
+  --surface-panel: var(--surface-2);
+  --page-bg: var(--surface-0);
+  --fill-git-added: #1a8633;
+  --fill-git-added-hover: #1e9b3b;
+  --fill-git-removed: var(--text-git-removed);
+  --fill-git-removed-hover: #de295f;
+  --fill-git-modified: #8b751c;
+  --fill-git-modified-hover: #a08720;
+  --fill-git-merged: #855fd6;
+  --fill-git-merged-hover: #9473db;
+  --fill-git-closed: #ed0b00;
+  --fill-git-closed-hover: #ff1307;
+  --fill-git-conflicting: #b85b19;
+  --fill-git-conflicting-hover: #c5621b;
+  --fill-git-draft: var(--text-git-draft);
+  --fill-git-draft-hover: #808080;
+  --fill-git-opened: var(--fill-git-added);
+  --fill-git-opened-hover: var(--fill-git-added-hover);
+  --fill-git-queued: var(--fill-git-modified);
+  --fill-git-queued-hover: var(--fill-git-modified-hover);
+  --fill-primary: var(--neutral-900);
+  --fill-primary-hover: var(--neutral-750);
+  --fill-secondary: hsl(0 0% 100% / 0.1);
+  --fill-secondary-hover: var(--alpha-1);
+  --fill-secondary-ring: var(--border);
+  --fill-secondary-pressed-ring: var(--border);
+  --fill-field: hsl(0 0% 100% / 0.5);
+  --fill-field-ring: var(--border);
+  --fill-ghost-hover: var(--alpha-1);
+  --fill-ghost-selected: var(--alpha-2);
+  --fill-disabled: var(--alpha-1);
+  --fill-control: var(--alpha-2);
+  --fill-control-hover: var(--alpha-3);
+  --bg-accent: var(--role-accent-100);
+  --bg-danger: var(--role-danger-100);
+  --bg-success: var(--role-success-100);
+  --bg-warning: var(--role-warning-100);
+  --bg-pro: var(--role-pro-100);
+  --bg-tint-red: rgb(from var(--red-100) calc((r - 163.8) / 0.35) calc((g - 163.8) / 0.35) calc((b - 163.15) / 0.35) / 35%);
+  --bg-tint-red-opaque: var(--red-100);
+  --bg-tint-orange: rgb(from var(--orange-100) calc((r - 163.8) / 0.35) calc((g - 163.8) / 0.35) calc((b - 163.15) / 0.35) / 35%);
+  --bg-tint-orange-opaque: var(--orange-100);
+  --bg-tint-yellow: rgb(from var(--yellow-100) calc((r - 163.8) / 0.35) calc((g - 163.8) / 0.35) calc((b - 163.15) / 0.35) / 35%);
+  --bg-tint-yellow-opaque: var(--yellow-100);
+  --bg-tint-green: rgb(from var(--green-100) calc((r - 163.8) / 0.35) calc((g - 163.8) / 0.35) calc((b - 163.15) / 0.35) / 35%);
+  --bg-tint-green-opaque: var(--green-100);
+  --bg-tint-aqua: rgb(from var(--aqua-100) calc((r - 163.8) / 0.35) calc((g - 163.8) / 0.35) calc((b - 163.15) / 0.35) / 35%);
+  --bg-tint-aqua-opaque: var(--aqua-100);
+  --bg-tint-blue: rgb(from var(--blue-100) calc((r - 163.8) / 0.35) calc((g - 163.8) / 0.35) calc((b - 163.15) / 0.35) / 35%);
+  --bg-tint-blue-opaque: var(--blue-100);
+  --bg-tint-violet: rgb(from var(--violet-100) calc((r - 163.8) / 0.35) calc((g - 163.8) / 0.35) calc((b - 163.15) / 0.35) / 35%);
+  --bg-tint-violet-opaque: var(--violet-100);
+  --bg-tint-magenta: rgb(from var(--magenta-100) calc((r - 163.8) / 0.35) calc((g - 163.8) / 0.35) calc((b - 163.15) / 0.35) / 35%);
+  --bg-tint-magenta-opaque: var(--magenta-100);
+  --bg-git-added: color-mix(in srgb, var(--text-git-added) 20%, transparent);
+  --bg-git-removed: color-mix(in srgb, var(--text-git-removed) 20%, transparent);
+  --bg-git-modified: color-mix(in srgb, var(--text-git-modified) 20%, transparent);
+  --bg-git-merged: color-mix(in srgb, var(--text-git-merged) 20%, transparent);
+  --bg-git-closed: color-mix(in srgb, var(--text-git-closed) 20%, transparent);
+  --bg-git-conflicting: color-mix(in srgb, var(--text-git-conflicting) 20%, transparent);
+  --bg-git-draft: color-mix(in srgb, var(--text-git-draft) 20%, transparent);
+  --bg-git-opened: var(--bg-git-added);
+  --bg-git-queued: var(--bg-git-modified);
+  --bg-editor-canvas: var(--neutral-60);
+  --bg-neutral: var(--alpha-1);
+  --bg-neutral-hover: var(--alpha-2);
+  --bg-user-message: var(--bg-neutral);
+  --backdrop: rgb(0 0 0 / 0.4);
+  --text-accent: var(--role-accent-600);
+  --text-danger: var(--role-danger-600);
+  --text-success: var(--role-success-600);
+  --text-warning: var(--role-warning-600);
+  --text-pro: var(--role-pro-600);
+  --text-tint-red: var(--red-600);
+  --text-tint-orange: var(--orange-600);
+  --text-tint-yellow: var(--yellow-600);
+  --text-tint-green: var(--green-600);
+  --text-tint-aqua: var(--aqua-600);
+  --text-tint-blue: var(--blue-600);
+  --text-tint-violet: var(--violet-600);
+  --text-tint-magenta: var(--magenta-600);
+  --text-git-added: #1e9e3c;
+  --text-git-removed: #cd2054;
+  --text-git-modified: #98801f;
+  --text-git-merged: #8e6bd9;
+  --text-git-closed: #ff3a30;
+  --text-git-conflicting: #c5621b;
+  --text-git-draft: #737373;
+  --text-git-opened: var(--text-git-added);
+  --text-git-queued: var(--text-git-modified);
+  --text-primary: var(--neutral-900);
+  --text-secondary: var(--neutral-600);
+  --text-muted: var(--neutral-400);
+  --text-disabled: var(--alpha-4);
+  --on-primary: var(--neutral-0);
+  --on-git-added: var(--gray-0);
+  --on-git-removed: var(--gray-0);
+  --on-git-modified: var(--gray-0);
+  --on-git-merged: var(--gray-0);
+  --on-git-closed: var(--gray-0);
+  --on-git-conflicting: var(--gray-0);
+  --on-git-draft: var(--gray-0);
+  --on-git-opened: var(--on-git-added);
+  --on-git-queued: var(--on-git-modified);
+  --chart-categorical-1: var(--blue-450);
+  --chart-categorical-2: var(--orange-350);
+  --chart-categorical-3: var(--aqua-350);
+  --chart-categorical-4: var(--yellow-250);
+  --chart-categorical-5: var(--magenta-300);
+  --chart-categorical-6: var(--green-500);
+  --chart-categorical-7: var(--violet-500);
+  --chart-categorical-8: var(--red-400);
+  --chart-sequential-1: var(--blue-100);
+  --chart-sequential-2: var(--blue-200);
+  --chart-sequential-3: var(--blue-300);
+  --chart-sequential-4: var(--blue-400);
+  --chart-sequential-5: var(--blue-500);
+  --chart-sequential-6: var(--blue-600);
+  --chart-sequential-7: var(--blue-700);
+  --chart-diverging-1: var(--blue-500);
+  --chart-diverging-2: var(--blue-350);
+  --chart-diverging-3: var(--blue-200);
+  --chart-diverging-4: var(--gray-50);
+  --chart-diverging-5: var(--red-200);
+  --chart-diverging-6: var(--red-350);
+  --chart-diverging-7: var(--red-500);
+  --chart-status-good: var(--green-400);
+  --chart-status-warning: var(--yellow-200);
+  --chart-status-serious: var(--orange-300);
+  --chart-status-critical: var(--red-450);
+  --chart-muted: var(--gray-200);
+  --chart-reference: var(--gray-400);
+  --chart-reference-tint: hsl(from var(--gray-400) h s l / 15%);
+  --chart-grid: var(--alpha-2);
+  --chart-axis: var(--gray-200);
+  --chart-baseline: var(--gray-200);
+}
+@media screen {
+  [data-mode="dark"] {
+    --border-accent: var(--role-accent-700);
+    --border-danger: var(--role-danger-700);
+    --border-success: var(--role-success-700);
+    --border-warning: var(--role-warning-700);
+    --border-pro: var(--role-pro-700);
+    --border-editor-comment: var(--yellow-300);
+    --border-editor-comment-open: var(--yellow-200);
+    --shadow-color: rgba(0, 0, 0, 0.24);
+    --shadow-popover: 0 8px 24px rgb(0 0 0 / 0.32), 0 2px 6px rgb(0 0 0 / 0.2);
+    --ring-outer: 0px;
+    --ring-inner: 1px;
+    --ring-color: var(--alpha-2);
+    --focus-shadow: inset 0 0 0 1px var(--page-bg), 0 0 0 1px var(--fill-accent), 0 0 6px 1px hsl(from var(--role-accent-600) h s l / 60%);
+    --focus-shadow-danger: inset 0 0 0 1px var(--page-bg), 0 0 0 1px var(--fill-danger), 0 0 6px 1px hsl(from var(--role-danger-600) h s l / 60%);
+    --pictogram-highlight-default: var(--gray-650);
+    --pictogram-highlight-heather: var(--plum);
+    --pictogram-highlight-cactus: var(--mineral);
+    --neutral-0: var(--gray-900);
+    --neutral-10: var(--gray-890);
+    --neutral-20: var(--gray-880);
+    --neutral-30: var(--gray-870);
+    --neutral-40: var(--gray-860);
+    --neutral-50: var(--gray-850);
+    --neutral-60: var(--gray-840);
+    --neutral-70: var(--gray-830);
+    --neutral-80: var(--gray-820);
+    --neutral-90: var(--gray-810);
+    --neutral-100: var(--gray-800);
+    --neutral-150: var(--gray-750);
+    --neutral-200: var(--gray-700);
+    --neutral-250: var(--gray-650);
+    --neutral-300: var(--gray-600);
+    --neutral-350: var(--gray-550);
+    --neutral-400: var(--gray-500);
+    --neutral-450: var(--gray-450);
+    --neutral-500: var(--gray-400);
+    --neutral-550: var(--gray-350);
+    --neutral-600: var(--gray-300);
+    --neutral-650: var(--gray-250);
+    --neutral-700: var(--gray-200);
+    --neutral-750: var(--gray-150);
+    --neutral-800: var(--gray-100);
+    --neutral-810: var(--gray-90);
+    --neutral-820: var(--gray-80);
+    --neutral-830: var(--gray-70);
+    --neutral-840: var(--gray-60);
+    --neutral-850: var(--gray-50);
+    --neutral-860: var(--gray-40);
+    --neutral-870: var(--gray-30);
+    --neutral-880: var(--gray-20);
+    --neutral-890: var(--gray-10);
+    --neutral-900: var(--gray-0);
+    --surface-0: var(--gray-900);
+    --surface-1: var(--gray-850);
+    --surface-2: var(--gray-830);
+    --surface-3: var(--gray-800);
+    --fill-git-added: var(--text-git-added);
+    --fill-git-added-hover: #27c840;
+    --fill-git-removed-hover: #ff1342;
+    --fill-git-modified: var(--text-git-modified);
+    --fill-git-modified-hover: #fac800;
+    --fill-git-merged: var(--text-git-merged);
+    --fill-git-merged-hover: #a67dff;
+    --fill-git-closed: var(--text-git-closed);
+    --fill-git-closed-hover: #ff4940;
+    --fill-git-conflicting: var(--text-git-conflicting);
+    --fill-git-conflicting-hover: #f97a1f;
+    --fill-git-draft-hover: #999999;
+    --fill-primary-hover: var(--gray-100);
+    --fill-secondary: var(--alpha-2);
+    --fill-secondary-hover: hsl(from var(--neutral-900) h s l / 14%);
+    --fill-secondary-ring: transparent;
+    --fill-field: var(--alpha-1);
+    --fill-ghost-hover: hsl(from var(--neutral-900) h s l / 7.5%);
+    --fill-ghost-selected: hsl(from var(--neutral-900) h s l / 15%);
+    --bg-accent: var(--role-accent-800);
+    --bg-danger: var(--role-danger-800);
+    --bg-success: var(--role-success-800);
+    --bg-warning: var(--role-warning-800);
+    --bg-pro: var(--role-pro-800);
+    --bg-tint-red: rgb(from var(--red-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-red-opaque: var(--red-800);
+    --bg-tint-orange: rgb(from var(--orange-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-orange-opaque: var(--orange-800);
+    --bg-tint-yellow: rgb(from var(--yellow-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-yellow-opaque: var(--yellow-800);
+    --bg-tint-green: rgb(from var(--green-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-green-opaque: var(--green-800);
+    --bg-tint-aqua: rgb(from var(--aqua-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-aqua-opaque: var(--aqua-800);
+    --bg-tint-blue: rgb(from var(--blue-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-blue-opaque: var(--blue-800);
+    --bg-tint-violet: rgb(from var(--violet-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-violet-opaque: var(--violet-800);
+    --bg-tint-magenta: rgb(from var(--magenta-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-magenta-opaque: var(--magenta-800);
+    --backdrop: rgb(0 0 0 / 0.5);
+    --text-accent: var(--role-accent-300);
+    --text-danger: var(--role-danger-300);
+    --text-success: var(--role-success-400);
+    --text-warning: var(--role-warning-300);
+    --text-pro: var(--role-pro-300);
+    --text-tint-red: var(--red-300);
+    --text-tint-orange: var(--orange-300);
+    --text-tint-yellow: var(--yellow-300);
+    --text-tint-green: var(--green-300);
+    --text-tint-aqua: var(--aqua-300);
+    --text-tint-blue: var(--blue-300);
+    --text-tint-violet: var(--violet-300);
+    --text-tint-magenta: var(--magenta-300);
+    --text-git-added: #32d74b;
+    --text-git-removed: #ff2c56;
+    --text-git-modified: #ffd014;
+    --text-git-merged: #b796ff;
+    --text-git-closed: #ff6159;
+    --text-git-conflicting: #fa832e;
+    --text-git-draft: #a6a6a6;
+    --text-primary: var(--gray-50);
+    --text-secondary: var(--gray-200);
+    --text-muted: var(--gray-400);
+    --on-git-added: var(--gray-900);
+    --on-git-removed: var(--gray-900);
+    --on-git-modified: var(--gray-900);
+    --on-git-merged: var(--gray-900);
+    --on-git-closed: var(--gray-900);
+    --on-git-conflicting: var(--gray-900);
+    --on-git-draft: var(--gray-900);
+    --chart-categorical-1: var(--blue-400);
+    --chart-categorical-2: var(--orange-400);
+    --chart-categorical-3: var(--aqua-400);
+    --chart-categorical-4: var(--yellow-350);
+    --chart-categorical-5: var(--magenta-400);
+    --chart-categorical-6: var(--green-500);
+    --chart-categorical-7: var(--violet-350);
+    --chart-categorical-8: var(--red-350);
+    --chart-sequential-1: var(--blue-700);
+    --chart-sequential-2: var(--blue-600);
+    --chart-sequential-3: var(--blue-500);
+    --chart-sequential-4: var(--blue-400);
+    --chart-sequential-5: var(--blue-300);
+    --chart-sequential-6: var(--blue-200);
+    --chart-sequential-7: var(--blue-100);
+    --chart-diverging-1: var(--blue-300);
+    --chart-diverging-2: var(--blue-450);
+    --chart-diverging-3: var(--blue-600);
+    --chart-diverging-4: var(--gray-700);
+    --chart-diverging-5: var(--red-600);
+    --chart-diverging-6: var(--red-450);
+    --chart-diverging-7: var(--red-300);
+    --chart-status-good: var(--green-400);
+    --chart-status-warning: var(--yellow-200);
+    --chart-status-serious: var(--orange-300);
+    --chart-status-critical: var(--red-450);
+    --chart-muted: var(--gray-550);
+    --chart-reference: var(--gray-350);
+    --chart-reference-tint: hsl(from var(--gray-350) h s l / 15%);
+    --chart-axis: var(--gray-700);
+    --chart-baseline: var(--gray-700);
+  }
+}
+@media screen and (prefers-color-scheme: dark) {
+  :root:where(:not([data-mode="light"])),
+  [data-mode="system"] {
+    --border-accent: var(--role-accent-700);
+    --border-danger: var(--role-danger-700);
+    --border-success: var(--role-success-700);
+    --border-warning: var(--role-warning-700);
+    --border-pro: var(--role-pro-700);
+    --border-editor-comment: var(--yellow-300);
+    --border-editor-comment-open: var(--yellow-200);
+    --shadow-color: rgba(0, 0, 0, 0.24);
+    --shadow-popover: 0 8px 24px rgb(0 0 0 / 0.32), 0 2px 6px rgb(0 0 0 / 0.2);
+    --ring-outer: 0px;
+    --ring-inner: 1px;
+    --ring-color: var(--alpha-2);
+    --focus-shadow: inset 0 0 0 1px var(--page-bg), 0 0 0 1px var(--fill-accent), 0 0 6px 1px hsl(from var(--role-accent-600) h s l / 60%);
+    --focus-shadow-danger: inset 0 0 0 1px var(--page-bg), 0 0 0 1px var(--fill-danger), 0 0 6px 1px hsl(from var(--role-danger-600) h s l / 60%);
+    --pictogram-highlight-default: var(--gray-650);
+    --pictogram-highlight-heather: var(--plum);
+    --pictogram-highlight-cactus: var(--mineral);
+    --neutral-0: var(--gray-900);
+    --neutral-10: var(--gray-890);
+    --neutral-20: var(--gray-880);
+    --neutral-30: var(--gray-870);
+    --neutral-40: var(--gray-860);
+    --neutral-50: var(--gray-850);
+    --neutral-60: var(--gray-840);
+    --neutral-70: var(--gray-830);
+    --neutral-80: var(--gray-820);
+    --neutral-90: var(--gray-810);
+    --neutral-100: var(--gray-800);
+    --neutral-150: var(--gray-750);
+    --neutral-200: var(--gray-700);
+    --neutral-250: var(--gray-650);
+    --neutral-300: var(--gray-600);
+    --neutral-350: var(--gray-550);
+    --neutral-400: var(--gray-500);
+    --neutral-450: var(--gray-450);
+    --neutral-500: var(--gray-400);
+    --neutral-550: var(--gray-350);
+    --neutral-600: var(--gray-300);
+    --neutral-650: var(--gray-250);
+    --neutral-700: var(--gray-200);
+    --neutral-750: var(--gray-150);
+    --neutral-800: var(--gray-100);
+    --neutral-810: var(--gray-90);
+    --neutral-820: var(--gray-80);
+    --neutral-830: var(--gray-70);
+    --neutral-840: var(--gray-60);
+    --neutral-850: var(--gray-50);
+    --neutral-860: var(--gray-40);
+    --neutral-870: var(--gray-30);
+    --neutral-880: var(--gray-20);
+    --neutral-890: var(--gray-10);
+    --neutral-900: var(--gray-0);
+    --surface-0: var(--gray-900);
+    --surface-1: var(--gray-850);
+    --surface-2: var(--gray-830);
+    --surface-3: var(--gray-800);
+    --fill-git-added: var(--text-git-added);
+    --fill-git-added-hover: #27c840;
+    --fill-git-removed-hover: #ff1342;
+    --fill-git-modified: var(--text-git-modified);
+    --fill-git-modified-hover: #fac800;
+    --fill-git-merged: var(--text-git-merged);
+    --fill-git-merged-hover: #a67dff;
+    --fill-git-closed: var(--text-git-closed);
+    --fill-git-closed-hover: #ff4940;
+    --fill-git-conflicting: var(--text-git-conflicting);
+    --fill-git-conflicting-hover: #f97a1f;
+    --fill-git-draft-hover: #999999;
+    --fill-primary-hover: var(--gray-100);
+    --fill-secondary: var(--alpha-2);
+    --fill-secondary-hover: hsl(from var(--neutral-900) h s l / 14%);
+    --fill-secondary-ring: transparent;
+    --fill-field: var(--alpha-1);
+    --fill-ghost-hover: hsl(from var(--neutral-900) h s l / 7.5%);
+    --fill-ghost-selected: hsl(from var(--neutral-900) h s l / 15%);
+    --bg-accent: var(--role-accent-800);
+    --bg-danger: var(--role-danger-800);
+    --bg-success: var(--role-success-800);
+    --bg-warning: var(--role-warning-800);
+    --bg-pro: var(--role-pro-800);
+    --bg-tint-red: rgb(from var(--red-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-red-opaque: var(--red-800);
+    --bg-tint-orange: rgb(from var(--orange-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-orange-opaque: var(--orange-800);
+    --bg-tint-yellow: rgb(from var(--yellow-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-yellow-opaque: var(--yellow-800);
+    --bg-tint-green: rgb(from var(--green-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-green-opaque: var(--green-800);
+    --bg-tint-aqua: rgb(from var(--aqua-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-aqua-opaque: var(--aqua-800);
+    --bg-tint-blue: rgb(from var(--blue-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-blue-opaque: var(--blue-800);
+    --bg-tint-violet: rgb(from var(--violet-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-violet-opaque: var(--violet-800);
+    --bg-tint-magenta: rgb(from var(--magenta-800) calc((r - 5.25) / 0.75) calc((g - 5.25) / 0.75) calc((b - 5.25) / 0.75) / 75%);
+    --bg-tint-magenta-opaque: var(--magenta-800);
+    --backdrop: rgb(0 0 0 / 0.5);
+    --text-accent: var(--role-accent-300);
+    --text-danger: var(--role-danger-300);
+    --text-success: var(--role-success-400);
+    --text-warning: var(--role-warning-300);
+    --text-pro: var(--role-pro-300);
+    --text-tint-red: var(--red-300);
+    --text-tint-orange: var(--orange-300);
+    --text-tint-yellow: var(--yellow-300);
+    --text-tint-green: var(--green-300);
+    --text-tint-aqua: var(--aqua-300);
+    --text-tint-blue: var(--blue-300);
+    --text-tint-violet: var(--violet-300);
+    --text-tint-magenta: var(--magenta-300);
+    --text-git-added: #32d74b;
+    --text-git-removed: #ff2c56;
+    --text-git-modified: #ffd014;
+    --text-git-merged: #b796ff;
+    --text-git-closed: #ff6159;
+    --text-git-conflicting: #fa832e;
+    --text-git-draft: #a6a6a6;
+    --text-primary: var(--gray-50);
+    --text-secondary: var(--gray-200);
+    --text-muted: var(--gray-400);
+    --on-git-added: var(--gray-900);
+    --on-git-removed: var(--gray-900);
+    --on-git-modified: var(--gray-900);
+    --on-git-merged: var(--gray-900);
+    --on-git-closed: var(--gray-900);
+    --on-git-conflicting: var(--gray-900);
+    --on-git-draft: var(--gray-900);
+    --chart-categorical-1: var(--blue-400);
+    --chart-categorical-2: var(--orange-400);
+    --chart-categorical-3: var(--aqua-400);
+    --chart-categorical-4: var(--yellow-350);
+    --chart-categorical-5: var(--magenta-400);
+    --chart-categorical-6: var(--green-500);
+    --chart-categorical-7: var(--violet-350);
+    --chart-categorical-8: var(--red-350);
+    --chart-sequential-1: var(--blue-700);
+    --chart-sequential-2: var(--blue-600);
+    --chart-sequential-3: var(--blue-500);
+    --chart-sequential-4: var(--blue-400);
+    --chart-sequential-5: var(--blue-300);
+    --chart-sequential-6: var(--blue-200);
+    --chart-sequential-7: var(--blue-100);
+    --chart-diverging-1: var(--blue-300);
+    --chart-diverging-2: var(--blue-450);
+    --chart-diverging-3: var(--blue-600);
+    --chart-diverging-4: var(--gray-700);
+    --chart-diverging-5: var(--red-600);
+    --chart-diverging-6: var(--red-450);
+    --chart-diverging-7: var(--red-300);
+    --chart-status-good: var(--green-400);
+    --chart-status-warning: var(--yellow-200);
+    --chart-status-serious: var(--orange-300);
+    --chart-status-critical: var(--red-450);
+    --chart-muted: var(--gray-550);
+    --chart-reference: var(--gray-350);
+    --chart-reference-tint: hsl(from var(--gray-350) h s l / 15%);
+    --chart-axis: var(--gray-700);
+    --chart-baseline: var(--gray-700);
+  }
+}
+:root,
+[data-platform="web"],
+[data-platform="desktop"] {
+  --cursor-interactive: pointer;
+}
+[data-platform="desktop"] {
+  --cursor-interactive: default;
+}
+[data-mode="light"]:not(:root),
+[data-mode="system"]:not(:root) {
+  color-scheme: light;
+}
+@media screen {
+  [data-mode="dark"]:not(:root) {
+    color-scheme: dark;
+  }
+}
+@media screen and (prefers-color-scheme: dark) {
+  [data-mode="system"]:not(:root) {
+    color-scheme: dark;
+  }
+}
+:root {
+  color-scheme: light dark;
+  --font-serif: "anthropic-serif", Georgia, "Times New Roman", serif;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+}
+body {
+  font-family:
+    "anthropic-sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: transparent;
+}
+html:where(:not([data-saved])),
+:where(html:not([data-saved])) body {
+  scrollbar-width: none;
+}
+html:where(:not([data-saved]))::-webkit-scrollbar,
+:where(html:not([data-saved])) body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+:root {
+  --p: var(--text-primary);
+  --s: var(--text-secondary);
+  --t: var(--text-muted);
+  --bg2: var(--surface-1);
+  --b: var(--border-strong);
+}
+.t {
+  font-size: 14px;
+  fill: var(--p);
+}
+.ts {
+  font-size: 12px;
+  fill: var(--s);
+}
+.th {
+  font-size: 14px;
+  fill: var(--p);
+  font-weight: 500;
+}
+.box {
+  fill: var(--bg2);
+  stroke: var(--b);
+}
+.arr {
+  stroke: var(--t);
+  fill: none;
+  stroke-width: 1.5;
+}
+.node {
+  cursor: pointer;
+}
+.node:hover rect,
+.node:hover .box {
+  filter: brightness(0.97);
+}
+.node:hover text {
+  opacity: 0.8;
+}
+input:not([type="range"]):not([type="checkbox"]):not([type="radio"]):not(
+    form.elicit *
+  ),
+select:not(form.elicit *),
+textarea:not(form.elicit *) {
+  --input-font-size: max(16px, var(--font-text-md-size, 16px));
+  width: 100%;
+  height: calc(var(--input-font-size) * 2.25);
+  padding: 8px 12px;
+  font-size: var(--input-font-size);
+  background: var(--surface-2);
+  color: var(--text-primary);
+  border: 0.5px solid var(--border);
+  border-radius: 6px;
+  outline: none;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+textarea {
+  height: auto;
+  min-height: 80px;
+  resize: vertical;
+}
+input:not([type="range"]):not([type="checkbox"]):not([type="radio"]):not(
+    form.elicit *
+  ):hover,
+select:not(form.elicit *):hover,
+textarea:not(form.elicit *):hover {
+  border-color: var(--border-strong);
+}
+input:not([type="range"]):not([type="checkbox"]):not([type="radio"]):not(
+    form.elicit *
+  ):focus,
+select:not(form.elicit *):focus,
+textarea:not(form.elicit *):focus {
+  border-color: var(--border-accent);
+  box-shadow: 0 0 0 3px var(--bg-accent);
+}
+select {
+  cursor: pointer;
+}
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: light-dark(rgba(0, 0, 0, 0.08), rgba(255, 255, 255, 0.1));
+  border-radius: 2px;
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  border: 1px solid var(--border-strong);
+  cursor: pointer;
+  transition:
+    border-color 0.15s,
+    transform 0.15s;
+}
+input[type="range"]:hover::-webkit-slider-thumb {
+  border-color: var(--border-stronger);
+  transform: scale(1.1);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  border: 1px solid var(--border-strong);
+  cursor: pointer;
+}
+button:not(
+    #action-btns button,
+    :where(#vis-container ~ #larger-btns) button
+  ):not(form.elicit button) {
+  padding: 8px 16px;
+  font-size: var(--font-text-sm-size, 14px);
+  background: transparent;
+  color: var(--text-primary);
+  border: 0.5px solid var(--border-strong);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    transform 0.1s;
+}
+button:not(
+    #action-btns button,
+    :where(#vis-container ~ #larger-btns) button
+  ):not(form.elicit button):hover {
+  background: var(--surface-1);
+}
+button:not(
+    #action-btns button,
+    :where(#vis-container ~ #larger-btns) button
+  ):not(form.elicit button):active {
+  background: var(--border);
+  transform: scale(0.98);
+}
+form.elicit {
+  background: var(--surface-2);
+  border: 0.5px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.04);
+  margin: 4px 20px 24px;
+  overflow: hidden;
+  font-family: var(--font-sans);
+  font-size: var(--font-text-sm-size, 14px);
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition:
+    background-color 200ms ease-out,
+    box-shadow 200ms ease-out,
+    border-radius 200ms ease-out,
+    padding 200ms ease-out,
+    margin 200ms ease-out;
+  --elicit-border-faint: color-mix(in srgb, var(--border) 25%, transparent);
+  --elicit-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+form.elicit :is(button, input, textarea) {
+  font: inherit;
+}
+form.elicit .elicit-header,
+form.elicit .elicit-question {
+  font-family: var(--font-voice);
+  font-size: var(--font-text-md-size, 16px);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+form.elicit .elicit-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: calc(var(--font-text-md-size, 16px) * 2.75);
+  padding: 0 16px;
+  border-bottom: 0.5px solid var(--border);
+}
+form.elicit .elicit-header > svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  fill: currentColor;
+}
+form.elicit .elicit-header > span {
+  flex: 1;
+}
+form.elicit .elicit-body {
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+form.elicit .elicit-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+form.elicit .elicit-question {
+  margin: 0;
+}
+form.elicit .elicit-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+form.elicit .elicit-pill {
+  padding: 8px 12px;
+  border: 0.5px solid var(--border);
+  border-radius: 9999px;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition:
+    border-color 120ms ease,
+    background-color 120ms ease;
+}
+form.elicit .elicit-pill:hover {
+  border-color: var(--border-strong);
+}
+form.elicit .elicit-pill[data-accent="warning"] {
+  border-color: var(--text-warning);
+  background: color-mix(in srgb, var(--text-warning) 15%, transparent);
+  color: var(--text-warning);
+}
+form.elicit .elicit-pill[data-accent="danger"] {
+  border-color: var(--text-danger);
+  background: color-mix(in srgb, var(--text-danger) 15%, transparent);
+  color: var(--text-danger);
+}
+form.elicit .elicit-pill[data-accent="success"] {
+  border-color: var(--text-success);
+  background: color-mix(in srgb, var(--text-success) 15%, transparent);
+  color: var(--text-success);
+}
+form.elicit .elicit-pill[aria-pressed="true"] {
+  border: 0.5px solid var(--text-accent);
+  background: color-mix(in srgb, var(--text-accent) 15%, transparent);
+  color: var(--text-accent);
+}
+form.elicit .elicit-other {
+  margin-top: 8px;
+  height: calc(var(--font-text-sm-size, 14px) * 40 / 14);
+  padding: 0 12px;
+  border: 0.5px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+  color: var(--text-primary);
+  width: 100%;
+  box-sizing: border-box;
+}
+form.elicit .elicit-other[hidden] {
+  display: none;
+}
+form.elicit .elicit-textarea {
+  min-height: 84px;
+  padding: 12px;
+  border: 0.5px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+  color: var(--text-primary);
+  resize: vertical;
+  box-sizing: border-box;
+  width: 100%;
+}
+form.elicit .elicit-textarea::placeholder {
+  color: var(--text-muted);
+}
+form.elicit .elicit-date {
+  padding: 12px 16px;
+  border: 0.5px solid var(--border);
+  border-radius: 12px;
+  background: transparent;
+  color: var(--text-primary);
+  width: fit-content;
+  cursor: pointer;
+}
+form.elicit .elicit-other:focus,
+form.elicit .elicit-textarea:focus,
+form.elicit .elicit-date:focus {
+  outline: none;
+  border-color: var(--border-accent);
+  box-shadow: 0 0 0 3px var(--bg-accent);
+}
+form.elicit .elicit-files {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px;
+}
+:root[data-host-platform="mobile"] form.elicit .elicit-files {
+  display: none !important;
+}
+form.elicit .elicit-dropzone {
+  width: 120px;
+  height: 120px;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  box-shadow: var(--elicit-shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  background: color-mix(in srgb, var(--text-primary) 2%, var(--surface-2));
+  color: var(--text-muted);
+  transition:
+    border-color 120ms ease,
+    background-color 120ms ease;
+}
+form.elicit .elicit-dropzone:hover {
+  border-color: var(--text-accent);
+  background: color-mix(in srgb, var(--text-accent) 4%, transparent);
+}
+form.elicit .elicit-dropzone svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+form.elicit .elicit-dropzone input[type="file"] {
+  display: none;
+}
+form.elicit .elicit-file-tile {
+  width: 120px;
+  height: 120px;
+  border: 0.5px solid var(--elicit-border-faint);
+  border-radius: 8px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  background: var(--surface-2);
+  box-shadow: var(--elicit-shadow-sm);
+  box-sizing: border-box;
+  position: relative;
+}
+form.elicit .elicit-file-tile .name {
+  font-size: var(--font-text-xs-size, 12px);
+  color: var(--text-primary);
+  word-break: break-word;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+form.elicit .elicit-file-tile .badge {
+  align-self: flex-start;
+  height: calc(var(--font-text-xs-size, 12px) * 1.5);
+  padding: 0 4px;
+  display: inline-flex;
+  align-items: center;
+  border: 0.5px solid var(--elicit-border-faint);
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--surface-2) 70%, transparent);
+  box-shadow: var(--elicit-shadow-sm);
+  font-size: calc(var(--font-text-xs-size, 12px) * 0.75);
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+form.elicit .elicit-file-tile .remove {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 0.5px solid var(--elicit-border-faint);
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--surface-2) 90%, transparent);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    color 120ms ease,
+    background-color 120ms ease;
+}
+form.elicit .elicit-file-tile .remove:hover {
+  color: var(--text-secondary);
+  background: color-mix(in srgb, var(--surface-2) 50%, transparent);
+}
+form.elicit .elicit-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  height: calc(var(--font-text-sm-size, 14px) * 68 / 14);
+  padding: 0 24px;
+  border-top: 0.5px solid var(--border);
+}
+form.elicit .elicit-skip,
+form.elicit .elicit-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(var(--font-text-sm-size, 14px) * 36 / 14);
+  min-width: 80px;
+  padding: 0 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color 100ms ease-out,
+    border-color 100ms ease-out,
+    transform 150ms cubic-bezier(0.165, 0.85, 0.45, 1);
+}
+form.elicit .elicit-skip:active,
+form.elicit .elicit-submit:active {
+  transform: scale(0.96);
+}
+form.elicit .elicit-skip {
+  border: 0.5px solid color-mix(in srgb, var(--border-strong) 30%, transparent);
+  background: transparent;
+  color: var(--text-primary);
+}
+form.elicit .elicit-skip:hover {
+  background: var(--surface-1);
+  border-color: transparent;
+}
+form.elicit .elicit-submit {
+  border: none;
+  background: var(--text-primary);
+  color: var(--surface-2);
+}
+form.elicit .elicit-submit:hover {
+  transform: scaleX(1.005) scaleY(1.015);
+}
+form.elicit .elicit-submit:hover:active {
+  transform: scale(0.96);
+}
+form.elicit .elicit-optout {
+  min-width: 0;
+  min-height: calc(var(--font-text-sm-size, 14px) * 36 / 14);
+  padding: 0 8px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: none;
+  color: var(--text-secondary);
+  line-height: 1.2;
+  text-align: start;
+  cursor: pointer;
+  user-select: none;
+  transition: color 100ms ease-out;
+}
+form.elicit .elicit-optout ~ .elicit-skip,
+form.elicit .elicit-optout ~ .elicit-submit {
+  flex-shrink: 0;
+}
+@media (hover: hover) {
+  form.elicit .elicit-optout:hover {
+    color: var(--text-primary);
+  }
+}
+form.elicit .elicit-optout[aria-disabled="true"] {
+  color: var(--text-secondary);
+  opacity: 0.5;
+  cursor: default;
+}
+form.elicit .elicit-footer.elicit-footer-stacked {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  row-gap: 4px;
+  height: auto;
+  padding-block: calc(var(--font-text-sm-size, 14px) * 16 / 14) 12px;
+  interpolate-size: allow-keywords;
+}
+form.elicit .elicit-footer-stacked > .elicit-skip {
+  grid-area: 1 / 2;
+}
+form.elicit .elicit-footer-stacked > .elicit-submit {
+  grid-area: 1 / 3;
+}
+form.elicit:not(.elicit-submitted) .elicit-footer.elicit-footer-stacked {
+  transition: none;
+}
+form.elicit .elicit-footer-stacked > .elicit-optout {
+  grid-column: 1 / -1;
+  justify-self: start;
+  margin-inline-start: -9px;
+}
+form.elicit .elicit-body {
+  transition: opacity 150ms ease-out;
+}
+form.elicit.elicit-transitioning .elicit-body {
+  opacity: 0;
+}
+form.elicit.elicit-submitted {
+  background: transparent;
+  border-radius: 12px;
+  box-shadow: none;
+  padding: 16px;
+  margin: 4px;
+}
+form.elicit .elicit-header,
+form.elicit .elicit-footer {
+  transition:
+    opacity 200ms ease-out,
+    height 200ms ease-out,
+    padding 200ms ease-out,
+    border-width 200ms ease-out,
+    visibility 0s linear 200ms;
+}
+form.elicit.elicit-submitted .elicit-header,
+form.elicit.elicit-submitted .elicit-footer {
+  opacity: 0;
+  height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-width: 0;
+  overflow: hidden;
+  pointer-events: none;
+  visibility: hidden;
+}
+form.elicit.elicit-submitted .elicit-body {
+  padding: 0;
+}
+form.elicit.elicit-submitted .elicit-body:not(:has(.elicit-summary)) {
+  pointer-events: none;
+  opacity: 0.5;
+}
+form.elicit.elicit-restored,
+form.elicit.elicit-restored .elicit-body,
+form.elicit.elicit-restored .elicit-header,
+form.elicit.elicit-restored .elicit-footer {
+  transition: none;
+}
+form.elicit .elicit-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+form.elicit .elicit-summary-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+form.elicit .elicit-summary-q {
+  font-family: var(--font-voice);
+  font-size: var(--font-text-sm-size, 14px);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+form.elicit .elicit-summary-a {
+  font-weight: 430;
+  color: var(--text-muted);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-primary);
+}
+.leader {
+  stroke: var(--t);
+  stroke-width: 0.5;
+  stroke-dasharray: 4 3;
+  fill: none;
+}
+g.c-purple > rect,
+g.c-purple > ellipse,
+g.c-purple > circle,
+g.c-purple > polygon,
+rect.c-purple,
+ellipse.c-purple,
+circle.c-purple,
+polygon.c-purple {
+  fill: light-dark(#eeedfe, #3c3489);
+  stroke: light-dark(#534ab7, #afa9ec);
+}
+.c-purple > .th,
+.c-purple > .t {
+  fill: light-dark(#3c3489, #cecbf6);
+}
+.c-purple > .ts {
+  fill: light-dark(#534ab7, #afa9ec);
+}
+g.c-teal > rect,
+g.c-teal > ellipse,
+g.c-teal > circle,
+g.c-teal > polygon,
+rect.c-teal,
+ellipse.c-teal,
+circle.c-teal,
+polygon.c-teal {
+  fill: light-dark(#e1f5ee, #085041);
+  stroke: light-dark(#0f6e56, #5dcaa5);
+}
+.c-teal > .th,
+.c-teal > .t {
+  fill: light-dark(#085041, #9fe1cb);
+}
+.c-teal > .ts {
+  fill: light-dark(#0f6e56, #5dcaa5);
+}
+g.c-coral > rect,
+g.c-coral > ellipse,
+g.c-coral > circle,
+g.c-coral > polygon,
+rect.c-coral,
+ellipse.c-coral,
+circle.c-coral,
+polygon.c-coral {
+  fill: light-dark(#faece7, #712b13);
+  stroke: light-dark(#993c1d, #f0997b);
+}
+.c-coral > .th,
+.c-coral > .t {
+  fill: light-dark(#712b13, #f5c4b3);
+}
+.c-coral > .ts {
+  fill: light-dark(#993c1d, #f0997b);
+}
+g.c-pink > rect,
+g.c-pink > ellipse,
+g.c-pink > circle,
+g.c-pink > polygon,
+rect.c-pink,
+ellipse.c-pink,
+circle.c-pink,
+polygon.c-pink {
+  fill: light-dark(#fbeaf0, #72243e);
+  stroke: light-dark(#993556, #ed93b1);
+}
+.c-pink > .th,
+.c-pink > .t {
+  fill: light-dark(#72243e, #f4c0d1);
+}
+.c-pink > .ts {
+  fill: light-dark(#993556, #ed93b1);
+}
+g.c-gray > rect,
+g.c-gray > ellipse,
+g.c-gray > circle,
+g.c-gray > polygon,
+rect.c-gray,
+ellipse.c-gray,
+circle.c-gray,
+polygon.c-gray {
+  fill: light-dark(#f1efe8, #444441);
+  stroke: light-dark(#5f5e5a, #b4b2a9);
+}
+.c-gray > .th,
+.c-gray > .t {
+  fill: light-dark(#444441, #d3d1c7);
+}
+.c-gray > .ts {
+  fill: light-dark(#5f5e5a, #b4b2a9);
+}
+g.c-blue > rect,
+g.c-blue > ellipse,
+g.c-blue > circle,
+g.c-blue > polygon,
+rect.c-blue,
+ellipse.c-blue,
+circle.c-blue,
+polygon.c-blue {
+  fill: light-dark(#e6f1fb, #0c447c);
+  stroke: light-dark(#185fa5, #85b7eb);
+}
+.c-blue > .th,
+.c-blue > .t {
+  fill: light-dark(#0c447c, #b5d4f4);
+}
+.c-blue > .ts {
+  fill: light-dark(#185fa5, #85b7eb);
+}
+g.c-green > rect,
+g.c-green > ellipse,
+g.c-green > circle,
+g.c-green > polygon,
+rect.c-green,
+ellipse.c-green,
+circle.c-green,
+polygon.c-green {
+  fill: light-dark(#eaf3de, #27500a);
+  stroke: light-dark(#3b6d11, #97c459);
+}
+.c-green > .th,
+.c-green > .t {
+  fill: light-dark(#27500a, #c0dd97);
+}
+.c-green > .ts {
+  fill: light-dark(#3b6d11, #97c459);
+}
+g.c-amber > rect,
+g.c-amber > ellipse,
+g.c-amber > circle,
+g.c-amber > polygon,
+rect.c-amber,
+ellipse.c-amber,
+circle.c-amber,
+polygon.c-amber {
+  fill: light-dark(#faeeda, #633806);
+  stroke: light-dark(#854f0b, #ef9f27);
+}
+.c-amber > .th,
+.c-amber > .t {
+  fill: light-dark(#633806, #fac775);
+}
+.c-amber > .ts {
+  fill: light-dark(#854f0b, #ef9f27);
+}
+g.c-red > rect,
+g.c-red > ellipse,
+g.c-red > circle,
+g.c-red > polygon,
+rect.c-red,
+ellipse.c-red,
+circle.c-red,
+polygon.c-red {
+  fill: light-dark(#fcebeb, #791f1f);
+  stroke: light-dark(#a32d2d, #f09595);
+}
+.c-red > .th,
+.c-red > .t {
+  fill: light-dark(#791f1f, #f7c1c1);
+}
+.c-red > .ts {
+  fill: light-dark(#a32d2d, #f09595);
+}
+svg.classDiagram,
+svg.erDiagram {
+  font-size: 13px;
+  max-width: 100%;
+  height: auto;
+}
+svg.classDiagram foreignObject,
+svg.erDiagram foreignObject {
+  overflow: visible;
+}
+svg.classDiagram foreignObject > div,
+svg.erDiagram foreignObject > div {
+  max-width: none !important;
+}
+svg.classDiagram .nodeLabel,
+svg.erDiagram .nodeLabel,
+svg.classDiagram .label foreignObject div,
+svg.erDiagram .label foreignObject div {
+  font-family: var(--font-sans) !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  color: var(--text-secondary) !important;
+}
+svg.classDiagram .label-group .nodeLabel,
+svg.erDiagram .name .nodeLabel {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: var(--text-primary) !important;
+}
+svg.classDiagram .label-group .label {
+  font-weight: 500 !important;
+}
+svg.classDiagram .edgeLabel,
+svg.classDiagram .edgeLabel span,
+svg.classDiagram .edgeTerminals foreignObject div,
+svg.erDiagram .edgeLabel,
+svg.erDiagram .edgeLabel span {
+  font-size: 11px !important;
+  color: var(--text-muted) !important;
+}
+svg.classDiagram .node path[stroke]:not([stroke="none"]),
+svg.classDiagram .divider path,
+svg.erDiagram .node path[stroke]:not([stroke="none"]),
+svg.erDiagram .divider path {
+  stroke: var(--border) !important;
+  stroke-width: 0.5px !important;
+  fill: none !important;
+}
+svg.classDiagram .node .basic path[fill]:not([fill="none"]) {
+  fill: var(--surface-2) !important;
+  stroke: none !important;
+  stroke-width: 0 !important;
+}
+svg.erDiagram .node > g:first-child > path[fill]:not([fill="none"]) {
+  fill: var(--surface-1) !important;
+}
+svg.erDiagram .row-rect-odd path[fill]:not([fill="none"]) {
+  fill: var(--surface-2) !important;
+}
+svg.erDiagram .row-rect-even path[fill]:not([fill="none"]) {
+  fill: var(--surface-1) !important;
+}
+svg.erDiagram .relationshipLine,
+svg.classDiagram .relation {
+  stroke: var(--text-muted) !important;
+  stroke-width: 1px !important;
+}
+svg.classDiagram .marker,
+svg.classDiagram marker path,
+svg.erDiagram .marker,
+svg.erDiagram marker path {
+  stroke: var(--text-muted) !important;
+  stroke-width: 1px !important;
+}
+svg.classDiagram marker path[fill]:not([fill="none"]):not([fill="transparent"]),
+svg.erDiagram marker path[fill]:not([fill="none"]):not([fill="transparent"]) {
+  fill: var(--text-muted) !important;
+}
+svg.classDiagram .labelBkg,
+svg.erDiagram .labelBkg {
+  background-color: var(--surface-2) !important;
+  opacity: 1 !important;
+}
+body {
+  position: relative;
+}
+#vis-container {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  color: var(--text-primary);
+}
+@property --wide-fade-left {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --wide-fade-right {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+:root:not([data-open-larger]) #vis-container.scrolls-wide:not(.whole-width) {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-padding-inline: 32px;
+  scrollbar-width: none;
+}
+#vis-container.scrolls-wide::-webkit-scrollbar {
+  height: 0;
+}
+:root:not([data-open-larger]) #vis-container.scrolls-wide:focus-visible {
+  outline-offset: -2px;
+}
+:root:not([data-open-larger]):not([data-picture])
+  #vis-container.scrolls-wide:not(.whole-width):not(
+    :focus-visible
+  )[data-wide-more] {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 var(--wide-fade-left),
+    #000 calc(100% - var(--wide-fade-right)),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 var(--wide-fade-left),
+    #000 calc(100% - var(--wide-fade-right)),
+    transparent
+  );
+}
+#vis-container.whole-width {
+  overflow-x: visible;
+  overflow-y: clip;
+}
+#vis-container.whole-width-block {
+  display: flow-root;
+}
+:where(#vis-container.whole-width) {
+  min-width: 0;
+  min-height: 0;
+}
+#vis-container > svg {
+  display: block;
+  margin-inline: auto;
+  max-width: 100%;
+  height: auto;
+  overflow: visible;
+}
+:where(:root[data-center-content] #vis-container) > div:where(:only-of-type) {
+  margin-inline: auto;
+}
+#action-btns {
+  position: absolute;
+  top: min(8px, (100vh - 28px) / 2);
+  right: 8px;
+  z-index: 2147483647;
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+#action-btns[hidden] {
+  display: none;
+}
+body:hover #action-btns,
+#action-btns[data-hold-open] {
+  opacity: 1;
+}
+@media (hover: none) and (pointer: coarse) {
+  #action-btns {
+    display: none;
+  }
+}
+:root[data-keep-menu-clear]
+  #action-btns[data-quiet]:not([data-hold-open]):not(:focus-within) {
+  opacity: 0;
+  pointer-events: none;
+}
+:root[data-keep-menu-clear][data-menu-room]:not([data-open-larger]) body {
+  padding-top: var(--menu-room) !important;
+}
+:root[data-keep-menu-clear][data-menu-held]:not([data-open-larger]) body {
+  min-height: var(--menu-held) !important;
+}
+:root[data-frame-held]:not([data-open-larger]) body {
+  min-height: var(--frame-held) !important;
+}
+:root[data-frame-capped]:not([data-open-larger]) body {
+  max-height: var(--frame-cap) !important;
+  overflow: hidden !important;
+}
+:root[data-frame-empty]:not([data-open-larger]) body {
+  height: var(--frame-empty) !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+#vis-container ~ #larger-btns {
+  all: revert;
+  display: contents !important;
+}
+#vis-container ~ #larger-btns::before,
+#vis-container ~ #larger-btns::after {
+  content: none !important;
+}
+#vis-container ~ #larger-btns button {
+  position: relative !important;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: var(--surface-1);
+  border: 0.5px solid var(--border);
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+#vis-container ~ #larger-btns button::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+}
+#vis-container ~ #larger-btns button[aria-disabled="true"] {
+  opacity: 0.4;
+  cursor: default;
+}
+#vis-container ~ #larger-btns #larger-open {
+  position: absolute !important;
+  top: 8px;
+  top: min(8px, (100vh - 36px) / 2);
+  right: 8px;
+  z-index: 2147483646;
+}
+@media (hover: none) {
+  #vis-container ~ #larger-btns #larger-open[data-resting]:not(:focus-visible) {
+    opacity: 0;
+    pointer-events: none;
+  }
+  #vis-container ~ #larger-btns #larger-open[data-arming] {
+    pointer-events: none;
+  }
+}
+#vis-container ~ #larger-btns #larger-open {
+  transition: opacity 0.2s ease;
+}
+#vis-container ~ #larger-btns #larger-open[hidden],
+#vis-container ~ #larger-btns #larger-zoom[hidden] {
+  display: none !important;
+}
+@media (hover: hover), (pointer: fine) {
+  #vis-container ~ #larger-btns #larger-open {
+    right: 40px;
+  }
+}
+:root[data-open-larger] {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  inset: auto;
+  width: auto;
+  min-width: 0;
+  max-width: none;
+  --larger-button-size: 44px;
+}
+:root[data-open-larger] body {
+  display: grid;
+  position: relative;
+  float: none;
+  margin: 0;
+  border: 0;
+  inset: auto;
+  box-sizing: border-box;
+  min-height: 0;
+  width: auto;
+  min-width: 0;
+  max-width: none;
+  grid: none;
+  gap: 0;
+  place-items: start;
+  justify-content: start;
+  align-content: start;
+  height: 100vh;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: calc(var(--host-inset-top, 0px) + 12px + var(--larger-lead-y, 0px))
+    calc(
+      var(--host-inset-right, 0px) + 12px + var(--larger-button-size) + 2px +
+        12px
+    )
+    calc(var(--host-inset-bottom, 0px) + 12px)
+    calc(var(--host-inset-left, 0px) + 12px + var(--larger-lead-x, 0px));
+}
+:root[data-open-larger][data-zoomed-in] body {
+  padding-top: calc(
+    var(--host-inset-top, 0px) + 12px + 2 * var(--larger-button-size) + 2px +
+      12px + var(--larger-lead-y, 0px)
+  );
+}
+:root[data-open-larger] body {
+  touch-action: pan-x pan-y;
+}
+:root[data-open-larger] #vis-container {
+  overflow: visible;
+}
+:root[data-open-larger] #action-btns {
+  display: none;
+}
+#vis-container ~ #larger-btns #larger-zoom-status {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+}
+#vis-container ~ #larger-btns #larger-zoom {
+  position: fixed !important;
+  margin: 0;
+  top: calc(var(--host-inset-top, 0px) + 12px);
+  right: calc(var(--host-inset-right, 0px) + 12px);
+  z-index: 2147483646;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--surface-1);
+  border: 1px solid var(--alpha-5);
+  box-shadow: 0 1px 3px var(--alpha-2);
+}
+#vis-container ~ #larger-btns #larger-zoom button {
+  width: var(--larger-button-size);
+  height: var(--larger-button-size);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--text-primary);
+}
+#vis-container ~ #larger-btns #larger-zoom button::before {
+  content: none;
+}
+#vis-container ~ #larger-btns #larger-zoom button:focus-visible {
+  outline-offset: -2px;
+}
+#vis-container ~ #larger-btns #larger-zoom button + button {
+  border-top: 1px solid var(--alpha-3);
+}
+#vis-container ~ #larger-btns #larger-zoom button[aria-disabled="true"] {
+  opacity: 1;
+}
+#vis-container ~ #larger-btns #larger-zoom button[aria-disabled="true"] svg {
+  opacity: 0.45;
+}
+#action-btns > button {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: var(--surface-1);
+  border: 1px solid transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+#action-btns > button:hover {
+  background: var(--surface-0);
+}
+:root[data-keep-menu-clear] #action-btns {
+  top: min(4px, (100vh - 22px) / 2);
+  right: 4px;
+}
+:root[data-keep-menu-clear] #action-btns > button {
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  background: transparent;
+  opacity: 0.7;
+  transition:
+    background 0.15s ease,
+    opacity 0.15s ease;
+}
+:root[data-keep-menu-clear] #action-btns:hover > #more-btn,
+:root[data-keep-menu-clear] #action-btns[data-hold-open] > #more-btn,
+:root[data-keep-menu-clear] #action-btns > #more-btn:focus-visible {
+  background: var(--surface-0);
+  opacity: 1;
+}
+:root[data-keep-menu-clear] #action-btns > button > svg {
+  width: 16px;
+  height: 16px;
+  filter: drop-shadow(0 0 1px var(--surface-0));
+}
+#more-popover {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  min-width: 8rem;
+  padding: 6px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  border: 0.5px solid var(--border-strong);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 2px 8px light-dark(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.24));
+  font-family: var(--font-sans);
+  color: var(--text-secondary);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease,
+    visibility 0s linear 0.15s;
+}
+#more-btn:hover ~ #more-popover,
+#more-popover:hover,
+#action-btns[data-hold-open] #more-popover {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease,
+    visibility 0s;
+}
+.more-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-sans) !important;
+  color: inherit;
+  transition: background 0.1s ease;
+  white-space: nowrap;
+}
+.more-item[hidden] {
+  display: none;
+}
+.more-item:hover {
+  background: var(--surface-1);
+  color: var(--text-primary);
+}
+.more-item-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.more-item-icon svg {
+  width: 20px;
+  height: 20px;
+}
+.more-item-label {
+  font-family: var(--font-sans) !important;
+  font-size: var(--font-text-sm-size, 14px);
+  line-height: 1.3;
+  white-space: nowrap;
+}
+#action-btns[data-beside] #more-popover {
+  top: 50%;
+  right: calc(100% + 4px);
+  translate: 0 -50%;
+  display: flex;
+  min-width: 0;
+  max-width: calc(100vw - 48px);
+  padding: 0;
+  border-radius: 8px;
+}
+:root[data-keep-menu-clear] #action-btns[data-beside] #more-popover {
+  max-width: calc(100vw - 34px);
+}
+#action-btns[data-beside] .more-item {
+  width: auto;
+  min-width: 0;
+  padding: 3px 8px;
+  gap: 6px;
+}
+#action-btns[data-beside] .more-item-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#action-btns[data-beside] #copy-btn {
+  flex-shrink: 1000000;
+  min-width: 36px;
+}
+#action-btns[data-beside] #copy-btn[title] .more-item-label {
+  display: none;
+}
+#copy-toast.visible ~ #action-btns[data-beside] #more-popover {
+  opacity: 0;
+  visibility: hidden;
+}
+@media (max-width: 640px) {
+  #copy-toast.visible ~ #action-btns #more-popover {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.more-item[aria-busy="true"] {
+  cursor: progress;
+}
+.more-item[aria-busy="true"] .more-item-icon {
+  position: relative;
+}
+.more-item[aria-busy="true"] .more-item-icon svg {
+  visibility: hidden;
+}
+.more-item[aria-busy="true"] .more-item-icon::before,
+.more-item[aria-busy="true"] .more-item-icon::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 50%;
+}
+.more-item[aria-busy="true"] .more-item-icon::before {
+  border: 1.75px solid color-mix(in srgb, currentColor 25%, transparent);
+}
+.more-item[aria-busy="true"] .more-item-icon::after {
+  background: conic-gradient(transparent 40%, currentColor);
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 1.75px),
+    #000 calc(100% - 1.25px)
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 1.75px),
+    #000 calc(100% - 1.25px)
+  );
+  animation: moreItemSpin 1s linear infinite;
+}
+@keyframes moreItemSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .more-item[aria-busy="true"] .more-item-icon::after {
+    animation: none;
+  }
+}
+#vis-container ~ #not-sent {
+  all: revert;
+  position: absolute;
+}
+body[data-not-sent] {
+  flex-wrap: wrap;
+}
+body[data-not-sent] > #vis-container ~ #not-sent {
+  position: static;
+  width: 100%;
+  grid-column: 1 / -1;
+}
+:root[data-open-larger] body[data-not-sent] > #vis-container ~ #not-sent {
+  max-width: calc(
+    100vw - var(--host-inset-left, 0px) - var(--host-inset-right, 0px) - 24px -
+      var(--larger-button-size) - 14px - var(--larger-lead-x, 0px)
+  );
+}
+#vis-container ~ #not-sent > p {
+  margin-top: 8px;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: calc(var(--font-text-sm-size, 14px) * 13 / 14);
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+#vis-container ~ #not-sent > p[hidden] {
+  display: none;
+}
+#copy-toast {
+  position: fixed;
+  top: 12px;
+  top: min(12px, (100vh - 1lh - 18px) / 2);
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  background: var(--bg-danger);
+  color: var(--text-danger);
+  border: 1px solid var(--border-danger);
+  font-family: var(--font-sans);
+  font-size: calc(var(--font-text-sm-size, 14px) * 13 / 14);
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  z-index: 2147483647;
+  box-sizing: border-box;
+  width: max-content;
+  max-width: calc(100vw - 88px);
+  text-align: center;
+  white-space: pre-line;
+}
+#copy-toast.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+#vis-container.scripts-loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+#vis-container.scripts-loading::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 10000;
+  overflow: hidden;
+}
+#vis-container.scripts-loading::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: 0;
+  width: 60%;
+  height: 200%;
+  z-index: 10001;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    light-dark(rgba(0, 0, 0, 0.06), rgba(255, 255, 255, 0.08)) 50%,
+    transparent 100%
+  );
+  animation: scriptsShimmer 2s ease-in-out infinite;
+}
+@keyframes scriptsShimmer {
+  0% {
+    transform: translateX(-100%) rotate(25deg);
+  }
+  100% {
+    transform: translateX(200%) rotate(25deg);
+  }
+}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@keyframes svgFadeInScale {
+  from {
+    opacity: 0;
+    scale: 0.95;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+#vis-container.streaming
+  :where(
+    svg,
+    circle,
+    rect,
+    path,
+    polygon,
+    polyline,
+    line,
+    ellipse,
+    g,
+    text
+  ):not([transform]):not([opacity]) {
+  transition:
+    fill 0.4s ease-out,
+    stroke 0.4s ease-out,
+    opacity 0.4s ease-out;
+  animation: svgFadeInScale 0.5s ease-out;
+  transform-origin: center;
+}
+:root {
+  --color-background-primary: light-dark(rgba(255, 255, 255, 1), rgba(48, 48, 46, 1));
+  --color-background-secondary: light-dark(rgba(245, 244, 237, 1), rgba(38, 38, 36, 1));
+  --color-background-tertiary: light-dark(rgba(250, 249, 245, 1), rgba(20, 20, 19, 1));
+  --color-background-inverse: light-dark(rgba(20, 20, 19, 1), rgba(250, 249, 245, 1));
+  --color-background-ghost: light-dark(rgba(255, 255, 255, 0), rgba(48, 48, 46, 0));
+  --color-background-info: light-dark(rgba(214, 228, 246, 1), rgba(37, 62, 95, 1));
+  --color-background-danger: light-dark(rgba(247, 236, 236, 1), rgba(96, 42, 40, 1));
+  --color-background-success: light-dark(rgba(233, 241, 220, 1), rgba(27, 70, 20, 1));
+  --color-background-warning: light-dark(rgba(246, 238, 223, 1), rgba(72, 58, 15, 1));
+  --color-background-disabled: light-dark(rgba(255, 255, 255, 0.5), rgba(48, 48, 46, 0.5));
+  --color-text-primary: light-dark(rgba(20, 20, 19, 1), rgba(250, 249, 245, 1));
+  --color-text-secondary: light-dark(rgba(61, 61, 58, 1), rgba(194, 192, 182, 1));
+  --color-text-tertiary: light-dark(rgba(115, 114, 108, 1), rgba(156, 154, 146, 1));
+  --color-text-inverse: light-dark(rgba(255, 255, 255, 1), rgba(20, 20, 19, 1));
+  --color-text-info: light-dark(rgba(50, 102, 173, 1), rgba(128, 170, 221, 1));
+  --color-text-danger: light-dark(rgba(127, 44, 40, 1), rgba(238, 136, 132, 1));
+  --color-text-success: light-dark(rgba(38, 91, 25, 1), rgba(122, 185, 72, 1));
+  --color-text-warning: light-dark(rgba(90, 72, 21, 1), rgba(209, 160, 65, 1));
+  --color-text-disabled: light-dark(rgba(20, 20, 19, 0.5), rgba(250, 249, 245, 0.5));
+  --color-text-ghost: light-dark(rgba(115, 114, 108, 0.5), rgba(156, 154, 146, 0.5));
+  --color-border-primary: light-dark(rgba(31, 30, 29, 0.4), rgba(222, 220, 209, 0.4));
+  --color-border-secondary: light-dark(rgba(31, 30, 29, 0.3), rgba(222, 220, 209, 0.3));
+  --color-border-tertiary: light-dark(rgba(31, 30, 29, 0.15), rgba(222, 220, 209, 0.15));
+  --color-border-inverse: light-dark(rgba(255, 255, 255, 0.3), rgba(20, 20, 19, 0.15));
+  --color-border-ghost: light-dark(rgba(31, 30, 29, 0), rgba(222, 220, 209, 0));
+  --color-border-info: light-dark(rgba(70, 130, 213, 1), rgba(70, 130, 213, 1));
+  --color-border-danger: light-dark(rgba(167, 61, 57, 1), rgba(205, 92, 88, 1));
+  --color-border-success: light-dark(rgba(67, 116, 38, 1), rgba(89, 145, 48, 1));
+  --color-border-warning: light-dark(rgba(128, 92, 31, 1), rgba(168, 120, 41, 1));
+  --color-border-disabled: light-dark(rgba(31, 30, 29, 0.1), rgba(222, 220, 209, 0.1));
+  --color-ring-primary: light-dark(rgba(20, 20, 19, 0.7), rgba(250, 249, 245, 0.7));
+  --color-ring-secondary: light-dark(rgba(61, 61, 58, 0.7), rgba(194, 192, 182, 0.7));
+  --color-ring-inverse: light-dark(rgba(255, 255, 255, 0.7), rgba(20, 20, 19, 0.7));
+  --color-ring-info: light-dark(rgba(50, 102, 173, 0.5), rgba(128, 170, 221, 0.5));
+  --color-ring-danger: light-dark(rgba(167, 61, 57, 0.5), rgba(205, 92, 88, 0.5));
+  --color-ring-success: light-dark(rgba(67, 116, 38, 0.5), rgba(89, 145, 48, 0.5));
+  --color-ring-warning: light-dark(rgba(128, 92, 31, 0.5), rgba(168, 120, 41, 0.5));
+  --font-sans: "anthropic-sans", sans-serif;
+  --font-mono: ui-monospace, monospace;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-text-xs-size: 12px;
+  --font-text-sm-size: 14px;
+  --font-text-md-size: 16px;
+  --font-text-lg-size: 20px;
+  --font-heading-xs-size: 12px;
+  --font-heading-sm-size: 14px;
+  --font-heading-md-size: 16px;
+  --font-heading-lg-size: 20px;
+  --font-heading-xl-size: 24px;
+  --font-heading-2xl-size: 28px;
+  --font-heading-3xl-size: 36px;
+  --font-text-xs-line-height: 1.4;
+  --font-text-sm-line-height: 1.4;
+  --font-text-md-line-height: 1.4;
+  --font-text-lg-line-height: 1.25;
+  --font-heading-xs-line-height: 1.4;
+  --font-heading-sm-line-height: 1.4;
+  --font-heading-md-line-height: 1.4;
+  --font-heading-lg-line-height: 1.25;
+  --font-heading-xl-line-height: 1.25;
+  --font-heading-2xl-line-height: 1.1;
+  --font-heading-3xl-line-height: 1;
+  --border-radius-xs: 4px;
+  --border-radius-sm: 6px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 10px;
+  --border-radius-xl: 12px;
+  --border-radius-full: 9999px;
+  --border-width-regular: 0.5px;
+  --shadow-hairline: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}</style><style>body { padding: 16px; background: var(--surface-1); }
+#vis-container { overflow: visible; }</style></head><body><svg style="position:absolute;width:0;height:0" aria-hidden="true">
+    <defs>
+      <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+      </marker>
+    </defs>
+  </svg><div id="vis-container"><h2 class="sr-only">Jogo de investigação Vila Vagalume, com tela inicial inspirada em A Noite Estrelada de Van Gogh e doze casos difíceis, criado por Laura e Emilly.</h2>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&amp;family=Nunito:wght@400;600;700&amp;display=swap">
+<style>
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+#vn{--ink:#1F2B48;--mut:#5A6785;--in:#534AB7;--ind:#3C3489;--inl:#EEEDFE;--inm:#CECBF6;--mu:#EF9F27;--mul:#FAEEDA;--mud:#854F0B;--co:#993C1D;--sg:#1D9E75;--sgl:#E1F5EE;--ln:#C9DCEE;--pp:#FFFBF2;--nv:#1B3A6B;--fs:"Fraunces",Georgia,serif;--nu:"Nunito",ui-rounded,system-ui,sans-serif;position:relative;overflow:hidden;border-radius:18px;min-height:720px;background:#DCEEFB;color:var(--ink);font-family:var(--nu);line-height:1.6;border:1.5px solid #B5D4F4}
+#vn *{box-sizing:border-box}
+#vn h1,#vn h2,#vn h3,#vn p{margin:0}
+#vn h1,#vn h2,#vn h3{font-family:var(--fs);font-weight:600;color:var(--ind)}
+#vn button{font-family:var(--nu);color:inherit;height:auto;line-height:1.3}
+#vn :focus-visible{outline:2px solid var(--in);outline-offset:2px}
+#vn .k{font-size:12px;letter-spacing:.08em;color:var(--mud);font-weight:700}
+#vn .mut{color:var(--mut)}
+#vn .row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:18px}
+#vn .err{font-size:13px;color:#A32D2D;min-height:20px;margin:4px 0 6px;font-weight:600}
+.scr{position:relative;padding:24px 20px 22px;min-height:720px;animation:vin .4s ease both;background:radial-gradient(circle,#BFDDF5 1.4px,transparent 1.9px) 0 0/22px 22px,#DCEEFB}
+.scr.ttl{color:#FBF3D5;background:#1E3C80;overflow:hidden;padding:0}
+@keyframes vin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
+@keyframes bl{50%{opacity:0}}
+.foot{text-align:center;margin-top:26px;font-family:var(--fs);font-style:italic;font-size:15px;color:#185FA5}
+#vn .b{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 18px;border-radius:12px;border:1.5px solid var(--ln);border-bottom-width:3px;background:#fff;color:var(--ind);cursor:pointer;font-size:15px;font-weight:700;transition:transform .15s,border-color .15s}
+#vn .b:hover{transform:translateY(-2px);border-color:var(--inm)}
+#vn .b:active{transform:translateY(1px)}
+#vn .b.p{background:var(--in);border-color:var(--ind);color:#EEEDFE}
+#vn .b.d{background:var(--co);border-color:#712B13;color:#FAECE7}
+#vn .b.g{background:#F7D154;border-color:#B8860B;color:#3A2604}
+#vn .b.gh{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.5);color:#fff}
+#vn .b.s{padding:7px 13px;font-size:14px}
+#vn .b i,#vn .ib i{font-size:18px}
+#vn .ib{width:40px;height:40px;border-radius:12px;border:1.5px solid var(--ln);border-bottom-width:3px;background:#fff;display:grid;place-items:center;cursor:pointer;color:var(--in);padding:0}
+#vn .ib.off{color:#B4B2A9}
+.au{position:absolute;top:14px;right:14px;z-index:30;display:flex;gap:6px}
+.vg{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.vg .vs{animation:vs 3.2s ease-in-out infinite}
+@keyframes vs{50%{opacity:.65}}
+.shade{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 48% 38% at 50% 27%,rgba(10,18,52,.62),rgba(10,18,52,0) 100%)}
+.tw{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;padding:46px 14px 0}
+.rib{font-family:var(--fs);font-style:italic;font-size:22px;color:#FBF3D5;border-top:1.5px solid rgba(247,209,84,.65);border-bottom:1.5px solid rgba(247,209,84,.65);padding:6px 22px;text-shadow:0 2px 8px rgba(0,0,0,.55)}
+.rib b{font-weight:600;color:#F7D154;font-style:normal}
+#vn .logo{font-family:var(--fs);font-weight:600;font-size:78px;line-height:1;margin:22px 0 10px;color:#FBF3D5;letter-spacing:-.01em;text-shadow:0 3px 14px rgba(0,0,0,.6)}
+.logo span{color:#F7D154;text-shadow:0 3px 0 #8A5A10,0 0 26px rgba(247,209,84,.55)}
+.sub{font-size:17px;color:#EAF1FB;margin-bottom:24px;max-width:440px;text-shadow:0 2px 8px rgba(0,0,0,.7)}
+.ta{display:flex;flex-direction:column;gap:10px;width:min(340px,100%)}
+.ta div{display:flex;gap:10px}
+.ta div .b{flex:1;padding-left:10px;padding-right:10px}
+.tbot{position:absolute;left:0;right:0;bottom:0;z-index:2;text-align:center;padding:44px 14px 14px;background:linear-gradient(180deg,rgba(8,14,36,0),rgba(8,14,36,.78))}
+.made2{font-size:13px;color:#EAF1FB;margin-top:3px;font-weight:600}
+.made2.art{font-family:var(--fs);font-style:italic;font-weight:500;color:#F7E7A8}
+.nm{display:flex;justify-content:center;padding-top:40px}
+.nc{width:min(420px,100%);text-align:center;background:#fff;border:1.5px solid var(--ln);border-bottom-width:4px;border-radius:20px;padding:28px 24px}
+.bd{width:142px;height:142px;margin:0 auto 18px;border-radius:50%;background:#FAC775;border:5px solid #EF9F27;color:#412402;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;animation:pop .5s ease both}
+.bd:after{content:'';position:absolute;inset:8px;border-radius:50%;border:2px dashed #BA7517}
+.bd b{font-size:28px;line-height:1}
+.bd small{font-size:11px;letter-spacing:.1em;font-weight:700}
+.bd .bn{font-family:var(--fs);font-size:18px;max-width:104px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nc h2{font-size:22px}
+#vn .inp{width:100%;height:auto;margin:16px 0 0;padding:12px 14px;border-radius:12px;border:1.5px solid var(--ln);background:#F3F9FE;color:var(--ink);font-size:17px;text-align:center;font-family:var(--nu)}
+#vn .inp:focus{border-color:var(--in);outline:none}
+.oh{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;flex-wrap:wrap;margin:4px 0 30px;padding-right:96px}
+.oh h2{font-size:26px;margin-top:2px}
+.scx{background:#fff;border:1.5px solid var(--ln);border-radius:12px;padding:7px 14px;font-size:15px;font-weight:700;color:var(--mud);white-space:nowrap}
+.scx span{color:var(--mu)}
+.cs{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:30px 14px}
+#vn .cc{position:relative;text-align:left;padding:24px 15px 13px;border-radius:4px 16px 16px 16px;border:1.5px solid var(--ln);border-bottom-width:4px;background:var(--pp);color:var(--ink);cursor:pointer;min-height:180px;display:flex;flex-direction:column;transition:transform .2s,border-color .2s}
+#vn .cc:hover{transform:translateY(-4px);border-color:var(--cb)}
+.cc .tb{position:absolute;top:-17px;left:-1.5px;padding:2px 12px;border-radius:8px 8px 0 0;background:var(--cb);font-size:12px;font-weight:700;color:var(--ct)}
+.cc .em{font-size:34px;line-height:1;margin-bottom:8px}
+.cc .tt{font-family:var(--fs);font-size:18px;font-weight:600;line-height:1.2;color:var(--ind)}
+.cc .pl{font-size:13px;margin-top:4px;color:var(--mut)}
+.cc .ft{margin-top:auto;padding-top:10px;display:flex;justify-content:space-between;align-items:center;font-size:12px;gap:6px}
+.cc .df{padding:2px 9px;border-radius:999px;background:var(--cb);color:var(--ct);font-weight:700;white-space:nowrap}
+.cc .st{color:var(--mu);font-size:16px;letter-spacing:1px;white-space:nowrap}
+.cc .rs{position:absolute;top:12px;right:10px;transform:rotate(8deg);border:1.5px solid var(--co);color:var(--co);background:#fff;font-size:11px;font-weight:700;padding:1px 8px;border-radius:6px}
+#vn .cc.lk{background:#F1EFE8}
+.cc.lk .tt{color:#5F5E5A}
+.of{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:30px}
+.fl{position:relative;max-width:640px;margin:34px auto 0;background:repeating-linear-gradient(180deg,#FFFBF2 0 31px,#E6EEF6 31px 32px);border:1.5px solid var(--ln);border-bottom-width:4px;border-radius:18px;padding:30px 24px 22px 46px;color:var(--ink)}
+.fl:before{content:'';position:absolute;left:30px;top:0;bottom:0;width:1.5px;background:#F5C4B3}
+.fl .tb{position:absolute;top:-16px;left:22px;background:var(--inm);padding:3px 14px;border-radius:8px;font-size:12px;font-weight:700;color:#26215C}
+.cf{position:absolute;top:18px;right:18px;transform:rotate(-7deg);border:2px solid var(--co);color:var(--co);background:#fff;padding:2px 12px;font-size:13px;font-weight:700;letter-spacing:.06em;border-radius:6px}
+.fh{display:flex;gap:14px;align-items:center;margin-bottom:16px;padding-right:130px}
+.fh .em{font-size:48px;line-height:1}
+.fh h2{font-size:26px;line-height:1.15}
+.fh p{font-size:14px;color:var(--mut);margin-top:2px}
+.ch{display:flex;gap:14px;border:1.5px solid var(--inm);border-radius:16px;padding:14px 16px;background:var(--inl)}
+.ch .em{font-size:42px;line-height:1}
+.ch b{font-size:14px;color:var(--ind)}
+.ty{font-size:17px;line-height:1.65;min-height:150px;margin-top:4px;cursor:pointer}
+.ty:after,.bu p:after{content:'▌';color:var(--in);animation:bl 1s steps(1) infinite}
+.ty.done:after,.bu p.done:after{content:''}
+.fa{display:flex;justify-content:space-between;gap:10px;margin-top:18px;flex-wrap:wrap}
+.it{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding-right:96px}
+.it .tn{flex:1;min-width:170px;font-family:var(--fs);font-weight:600;font-size:21px;line-height:1.2;color:var(--ind)}
+.it .tn small{display:block;font-family:var(--nu);font-size:12px;color:var(--mud);letter-spacing:.06em}
+.hb{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;align-items:center}
+.pl2{padding:6px 12px;border-radius:10px;background:#fff;border:1.5px solid var(--ln);font-size:14px;font-weight:600;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;color:var(--ind)}
+.pl2 .st{color:var(--mu);letter-spacing:1px;font-size:16px}
+.pg{position:relative;height:28px;margin:12px 0 14px;background:#fff;border:1.5px solid var(--ln);border-radius:999px;overflow:hidden}
+.pg .br{position:absolute;left:0;top:0;bottom:0;background:var(--inm);transition:width .6s ease}
+.pg .br.ok{background:#9FE1CB}
+.pg span{position:relative;display:flex;align-items:center;justify-content:center;height:100%;font-size:13px;font-weight:600;color:var(--ind)}
+.sl{display:flex;justify-content:space-between;gap:8px;font-size:14px;margin-bottom:8px;flex-wrap:wrap;color:var(--ind);font-weight:600}
+.sn{position:relative;aspect-ratio:16/10.5;min-height:420px;border-radius:18px;overflow:hidden;border:1.5px solid var(--ln);cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><circle cx='13' cy='13' r='9' fill='%23ffffff88' stroke='%23534AB7' stroke-width='3'/><line x1='20' y1='20' x2='29' y2='29' stroke='%23534AB7' stroke-width='4' stroke-linecap='round'/></svg>") 13 13,zoom-in}
+.sn .wl{position:absolute;left:0;right:0;top:0;height:58%}
+.sn .fr{position:absolute;left:0;right:0;bottom:0;height:42%;border-top:5px solid rgba(255,255,255,.45)}
+.sn .lt{position:absolute;inset:0;pointer-events:none;z-index:1;background:radial-gradient(ellipse 55% 70% at 50% -5%,rgba(255,226,170,.35),transparent 70%)}
+.sn:after{content:'';position:absolute;inset:0;pointer-events:none;z-index:2;background:radial-gradient(ellipse at 50% 45%,transparent 60%,rgba(38,33,92,.25))}
+.sn .lamp{position:absolute;left:50%;top:0;width:2px;height:20px;background:#26215C;z-index:2;pointer-events:none}
+.sn .lamp:after{content:'';position:absolute;left:-15px;top:20px;width:32px;height:14px;border-radius:16px 16px 4px 4px;background:#26215C;box-shadow:0 14px 26px 6px rgba(250,199,117,.55)}
+.k10 .lamp,.k11 .lamp{display:none}
+.k1 .wl{background:linear-gradient(#ffffff70 2px,transparent 2px) 0 0/34px 34px,linear-gradient(90deg,#ffffff70 2px,transparent 2px) 0 0/34px 34px,#EAD7B4}
+.k1 .fr{background:repeating-conic-gradient(#C9D6BA 0 25%,#AEBF9C 0 50%) 0 0/48px 48px}
+.k2 .wl{background:linear-gradient(transparent 78%,#9DB7A5 78%,#9DB7A5 83%,transparent 83%),#CFE0D3}
+.k2 .fr{background:repeating-linear-gradient(90deg,#D6B594 0 58px,#C29F7C 58px 61px)}
+.k3 .wl{background:repeating-linear-gradient(0deg,#6E5242 0 8px,transparent 8px 56px),repeating-linear-gradient(90deg,#B86E73 0 10px,#6F86A6 10px 18px,#C9A055 18px 25px,#4E3B30 25px 28px,#7E9670 28px 37px,#8A6C93 37px 44px,#4E3B30 44px 47px),#4E3B30}
+.k3 .fr{background:radial-gradient(circle,#ffffff30 2px,transparent 2.5px) 0 0/26px 26px,#8F4F55}
+.k4 .wl{background:repeating-linear-gradient(90deg,#9E4757 0 16px,#B5606F 16px 26px,#7E3644 26px 40px)}
+.k4 .fr{background:repeating-linear-gradient(0deg,#C9A27E 0 24px,#B58E6A 24px 27px)}
+.k5 .wl{background:repeating-linear-gradient(90deg,#DCD8E8 0 118px,#C6C1D8 118px 121px)}
+.k5 .fr{background:repeating-conic-gradient(#EEEAE2 0 25%,#CFC9BE 0 50%) 0 0/56px 56px}
+.k6 .wl{background:linear-gradient(#8F4A3A 2px,transparent 2px) 0 0/40px 20px,linear-gradient(90deg,#8F4A3A 2px,transparent 2px) 0 0/40px 40px,#B5654F}
+.k6 .fr{background:linear-gradient(transparent 8%,#FAC775 8%,#FAC775 13%,transparent 13%),repeating-linear-gradient(90deg,#9A9890 0 60px,#8A8880 60px 62px)}
+.k7 .wl{background:repeating-linear-gradient(90deg,#C0504D 0 30px,#F4E9D8 30px 60px)}
+.k7 .fr{background:radial-gradient(circle,#E2C690 1.5px,transparent 2px) 0 0/14px 14px,#C9A066}
+.k8 .wl{background:repeating-linear-gradient(90deg,#9E3B32 0 46px,#83302A 46px 49px)}
+.k8 .fr{background:repeating-linear-gradient(100deg,#E2C46E 0 6px,#D4B25A 6px 10px)}
+.k9 .wl{background:linear-gradient(transparent 76%,#E9D9B5 76%,#E9D9B5 80%,transparent 80%),repeating-linear-gradient(90deg,#2F6B66 0 22px,#3B7D77 22px 26px)}
+.k9 .fr{background:radial-gradient(circle,#B5606F 2px,transparent 2.5px) 0 0/24px 24px,#7A2E3A}
+.k10 .wl{background:radial-gradient(circle,#fff 1px,transparent 1.6px) 0 0/42px 42px,radial-gradient(circle,#ffffffaa 1px,transparent 1.6px) 21px 15px/42px 42px,#1E2350}
+.k10 .fr{background:repeating-linear-gradient(90deg,#2F5B3A 0 40px,#356842 40px 80px)}
+.k11 .wl{background:linear-gradient(180deg,#5C5AA8,#C98A9A)}
+.k11 .fr{background:repeating-linear-gradient(0deg,#2E6A8C 0 10px,#3B7FA3 10px 20px)}
+.k12 .wl{background:linear-gradient(#ffffff55 2px,transparent 2px) 0 0/56px 28px,linear-gradient(90deg,#ffffff55 2px,transparent 2px) 0 0/56px 28px,#A9A6C2}
+.k12 .fr{background:repeating-conic-gradient(#8F93AD 0 25%,#A3A7C0 0 50%) 0 0/64px 64px}
+#vn .hp{position:absolute;z-index:3;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:5px;background:none;border:none;padding:0;width:100px;cursor:inherit}
+.hp .rg{position:relative;width:62px;height:62px;border-radius:50%;display:grid;place-items:center;font-size:31px;line-height:1;background:#FFFDF8;border:2.5px dashed var(--in);box-shadow:0 4px 10px rgba(38,33,92,.25);animation:pu 2.6s ease-in-out infinite;transition:transform .2s}
+.hp:nth-of-type(even) .rg{animation-delay:-1.3s}
+.hp:hover .rg{animation:none;transform:scale(1.1);border-style:solid}
+.hp .lb{font-size:12px;font-weight:700;line-height:1.25;text-align:center;background:#FFFDF8;color:var(--ind);padding:2px 8px;border-radius:8px;border:1px solid var(--ln)}
+.hp.fd .rg{border:2.5px solid var(--sg);background:var(--sgl);animation:none}
+.hp.fd .rg:after{content:'✓';position:absolute;top:-6px;right:-6px;width:22px;height:22px;border-radius:50%;background:var(--sg);color:#E1F5EE;font-size:12px;font-weight:700;display:grid;place-items:center}
+@keyframes pu{0%,100%{box-shadow:0 0 0 0 rgba(83,74,183,.4),0 4px 10px rgba(38,33,92,.25)}60%{box-shadow:0 0 0 10px rgba(83,74,183,0),0 4px 10px rgba(38,33,92,.25)}}
+.sd{margin-top:16px;background:#fff;border:1.5px solid var(--ln);border-radius:18px;overflow:hidden}
+.tbs{display:grid;grid-template-columns:1fr 1fr;border-bottom:1.5px solid var(--ln)}
+#vn .tab{padding:12px 10px;background:transparent;border:none;border-bottom:2.5px solid transparent;border-radius:0;cursor:pointer;font-size:15px;font-weight:700;color:var(--mut);display:flex;align-items:center;justify-content:center;gap:8px}
+#vn .tab.on{color:var(--ind);border-bottom-color:var(--in);background:var(--inl)}
+.cn{display:inline-grid;place-items:center;min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:var(--in);color:#EEEDFE;font-size:12px}
+.sb{padding:14px}
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
+.su{display:grid;grid-template-columns:54px minmax(0,1fr);gap:4px 12px;padding:12px;border-radius:14px;border:1.5px solid var(--ln);background:var(--pp)}
+.su.tk{border-color:#9FE1CB;background:var(--sgl)}
+.su .av{grid-row:span 2;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;font-size:31px;background:#fff;border:1.5px solid var(--ln)}
+.su b{display:block;font-family:var(--fs);font-weight:600;font-size:16px;color:var(--ind)}
+.su small{display:block;color:var(--mud);font-size:12px;font-weight:700}
+.su p{font-size:13px;margin-top:3px}
+.su .b{grid-column:2;justify-self:start;margin-top:6px}
+.tip{font-size:13px;color:var(--mut);margin-bottom:10px}
+.nh{font-size:12px;letter-spacing:.08em;font-weight:700;color:var(--mud);margin:4px 2px 10px}
+.ng{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin-bottom:14px}
+.nt{display:flex;gap:10px;background:#FFF6E0;color:#633806;border-radius:4px 14px 14px 14px;padding:10px 12px;font-size:14px;animation:vin .3s ease both}
+.nt.sy{background:var(--inl);color:#26215C}
+.nt .em{font-size:22px;line-height:1.1}
+.nt b{display:block;font-weight:700}
+.emp{text-align:center;color:var(--mut);padding:24px 12px;font-size:14px}
+.emp .em{font-size:34px;display:block;margin-bottom:4px}
+#vn-modal{position:absolute;inset:0;z-index:50;display:none;background:rgba(27,58,107,.4)}
+#vn-modal.on{display:block}
+.md{position:absolute;left:0;right:0;margin:0 auto;width:min(520px,calc(100% - 28px));border-radius:20px;padding:24px 22px;text-align:center;animation:pop .3s ease both;background:#fff;border:1.5px solid var(--ln);border-bottom-width:4px}
+.md.pa{background:var(--pp)}
+.md.sh{animation:shk .45s}
+@keyframes shk{20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
+.md h3{font-size:22px;margin:6px 0 8px}
+.md p{font-size:16px}
+.md .em{font-size:54px;line-height:1;margin-bottom:6px;display:inline-block}
+.ad{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:13px;font-weight:700;color:#085041;background:var(--sgl);padding:3px 12px;border-radius:999px}
+.av2{width:96px;height:96px;margin:0 auto;border-radius:50%;display:grid;place-items:center;font-size:58px;line-height:1;background:var(--inl);border:2px solid var(--inm)}
+.bu{position:relative;background:var(--inl);color:#26215C;border-radius:16px;padding:14px 16px;margin-top:16px;text-align:left;min-height:96px}
+.bu:before{content:'';position:absolute;top:-9px;left:50%;margin-left:-9px;border:9px solid transparent;border-top:0;border-bottom-color:var(--inl)}
+.bu p{cursor:pointer}
+.why{background:var(--mul);border:1.5px solid #FAC775;border-radius:12px;padding:12px 14px;margin:10px 0;text-align:left;font-size:15px;color:#412402}
+.sl2{text-align:left;font-size:14px;font-weight:700;color:var(--ind);margin:14px 0 8px}
+.pk{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:8px}
+#vn .pk button{padding:10px 6px;border-radius:14px;border:2px solid var(--ln);background:#fff;cursor:pointer;font-size:13px;font-weight:600;display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--ind)}
+.pk button span{font-size:30px;line-height:1}
+#vn .pk button.sel{border-color:var(--co);background:#FAECE7}
+.ev{display:flex;flex-direction:column;gap:6px;text-align:left}
+#vn .ev button{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;border-radius:12px;border:2px solid var(--ln);background:#fff;cursor:pointer;text-align:left;font-size:14px;color:var(--ink)}
+.ev .e3{font-size:22px;line-height:1.1}
+.ev small{display:block;color:var(--mut);font-size:12px;line-height:1.4;margin-top:2px}
+#vn .ev button.sel{border-color:var(--mu);background:var(--mul)}
+.how{text-align:left;display:flex;flex-direction:column;gap:8px;margin:14px 0 4px}
+.how div{display:flex;gap:12px;align-items:flex-start;border:1.5px solid var(--ln);border-radius:12px;padding:10px 12px;background:var(--pp);font-size:14px}
+.how .e2{font-size:24px;line-height:1.2}
+.cr{border-top:1.5px solid var(--ln);padding:10px 0}
+.cr small{display:block;color:var(--mut);font-size:12px}
+.cr b{font-family:var(--fs);font-weight:600;font-size:18px;color:var(--ind)}
+.hu{text-align:left;font-size:14px;border:1.5px dashed #FAC775;border-radius:12px;padding:8px 12px;margin-top:8px;background:var(--mul)}
+.rw{display:flex;justify-content:center;padding-top:24px;position:relative;z-index:2}
+.rc{position:relative;width:min(600px,100%);text-align:center;background:#fff;border:1.5px solid var(--ln);border-bottom-width:4px;border-radius:22px;padding:36px 26px 26px}
+.stp{position:absolute;top:18px;right:14px;border:2.5px solid var(--co);color:var(--co);background:#FAECE7;font-size:14px;font-weight:700;line-height:1.15;letter-spacing:.04em;padding:6px 12px;border-radius:8px;transform:rotate(-10deg);animation:stp .5s .5s cubic-bezier(.2,1.6,.4,1) both}
+@keyframes stp{from{opacity:0;transform:rotate(-10deg) scale(2.4)}to{opacity:1;transform:rotate(-10deg) scale(1)}}
+.rc .a3{font-size:76px;line-height:1;margin:6px 0}
+.rc h2{font-size:30px}
+.rst{font-size:40px;margin:6px 0 2px;letter-spacing:6px}
+.rst span{display:inline-block;color:var(--mu);animation:si .45s cubic-bezier(.2,1.6,.4,1) both}
+.rst span.o{color:#D3D1C7}
+@keyframes si{from{opacity:0;transform:scale(0)}to{opacity:1;transform:none}}
+.rc .msg{font-family:var(--fs);font-style:italic;color:var(--in);font-size:17px}
+.rt{font-size:16px;text-align:left;background:var(--pp);border:1.5px solid var(--ln);border-radius:14px;padding:14px 16px;margin-top:12px}
+.cft{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:3}
+.cft i{position:absolute;top:-20px;width:8px;height:13px;border-radius:2px;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(780px) rotate(600deg);opacity:0}}
+.ce{max-width:620px;margin:20px auto 0;padding:10px;background:#378ADD;border-radius:20px;position:relative;z-index:2}
+.ci{background:var(--pp);border-radius:12px;padding:30px 22px;text-align:center;outline:1.5px solid #FAC775;outline-offset:-10px}
+.se{width:80px;height:80px;margin:0 auto 10px;border-radius:50%;display:grid;place-items:center;font-size:36px;background:#FAC775;border:4px solid #EF9F27}
+.ci h2{font-size:28px;margin:6px 0 10px}
+.cnm{font-family:var(--fs);font-style:italic;font-size:42px;color:var(--in);border-bottom:2px solid #FAC775;display:inline-block;padding:0 18px 2px;margin:6px 0 12px;max-width:100%;overflow-wrap:anywhere}
+.ci p{font-size:16px;max-width:460px;margin:0 auto}
+.cst{margin:14px 0 6px;font-weight:700;font-size:18px;color:var(--mud)}
+.sgn{display:flex;justify-content:space-around;gap:14px;margin-top:22px;flex-wrap:wrap}
+.sgn div{min-width:150px}
+.sig{display:block;font-family:"Segoe Script","Brush Script MT",cursive;font-size:24px;color:var(--ind);border-bottom:1.5px solid var(--ln)}
+.sgn small{display:block;font-size:12px;color:var(--mud);margin-top:4px;font-weight:700}
+@media(max-width:560px){#vn .logo{font-size:52px}.rib{font-size:17px;padding:5px 12px}.oh,.it{padding-right:0;padding-top:50px}.fh{padding-right:0;flex-wrap:wrap}.cf{top:-10px;right:8px;font-size:12px}.sn{aspect-ratio:auto;height:460px;min-height:0}#vn .hp{width:80px}.hp .rg{width:50px;height:50px;font-size:25px}.hp .lb{font-size:11px;padding:1px 5px}.fl{padding-left:40px}.tw{padding-top:60px}}
+</style>
+<div id="vn">
+<div class="au"><button class="ib" id="bmus" data-act="mus" aria-label="Ligar ou desligar a música" title="Música"><i class="ti ti-music" aria-hidden="true"></i></button><button class="ib" id="bsfx" data-act="sfx" aria-label="Ligar ou desligar os efeitos sonoros" title="Efeitos sonoros"><i class="ti ti-volume" aria-hidden="true"></i></button></div>
+<div id="vn-screen"></div>
+<div id="vn-modal"></div>
+</div>
+<script>
+(function(){
+const root=document.getElementById('vn'),scr=document.getElementById('vn-screen'),mw=document.getElementById('vn-modal');
+const $=id=>root.querySelector('#'+id);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const I=n=>`<i class="ti ti-${n}" aria-hidden="true"></i>`;
+let lastY=220;
+let standalone=false;try{standalone=window.self===window.top}catch(e){}
+if(standalone){try{document.title='Vila Vagalume - um jogo de Laura e Emilly';const m=document.createElement('meta');m.name='viewport';m.content='width=device-width,initial-scale=1';document.head.appendChild(m);document.body.style.margin='0';document.body.style.padding='16px';document.body.style.background='#BFE0F8';root.style.maxWidth='980px';root.style.margin='0 auto';}catch(e){}}
+
+const CASES=[
+{icon:"🎂",title:"O bolo desaparecido",place:"Casa da Dona Rosa",diff:"Difícil",scene:"k1",min:7,
+brief:"hoje é o aniversário da pequena Nina, neta da Dona Rosa. Às 15h10, a prima Duda viu o bolo de chocolate com glacê azul na mesa da cozinha. Às 15h30, ele tinha sumido! Tem pegadas de patinha pelo chão... mas nem tudo é o que parece.",
+items:[
+{id:"prato",e:"🍽️",l:"Prato do bolo",t:"O prato está vazio e limpinho, sem nenhuma marca de lambida. A caixa de bolo que ficava na gaveta também sumiu: o bolo foi levado inteiro."},
+{id:"pegadas",e:"🐾",l:"Pegadas no chão",t:"Pegadas de patinha com glacê azul vão da mesa até a lavanderia. Estranho: todas são idênticas, sempre a mesma pata, com a mesma distância entre elas."},
+{id:"lavanderia",e:"🧼",l:"Porta da lavanderia",t:"Bilhete na porta: 'Biscoito tomou banho às 15h. Fica trancado secando até as 16h. Duda.' O trinco está fechado por fora, e o Biscoito dorme lá dentro."},
+{id:"kit",e:"🖍️",l:"Kit de carimbos",t:"O kit de convites da Duda está na mesa da cozinha. Tem carimbos de estrela, de coração... e o espaço do carimbo de patinha está vazio."},
+{id:"baloes",e:"🎈",l:"Balões da sala",t:"Na sala, 50 balões cheios. A Dona Rosa conta que encheu todos com a Duda, das 15h15 às 15h40, sem parar. Só levantou às 15h20 para receber as caixas de suco do Seu Juca na porta da frente."},
+{id:"bola",e:"⚽",l:"Bola no quintal",t:"Choveu de manhã e o quintal está todo enlameado. Mas a bola do Téo está seca e limpinha, e não há nenhuma marca de chute na lama."},
+{id:"lixeira",e:"🗑️",l:"Lixeira",t:"Um palito de picolé e a notinha da sorveteria: 'Picolé de morango, 14h50'."},
+{id:"avental",e:"🧁",l:"Avental da Dona Lia",t:"O avental da Dona Lia, sujo de glacê azul, ficou pendurado na cozinha. No bolso, uma notinha: 'Salão Bela Unha, das 14h30 às 16h'."}],
+suspects:[
+{id:"teo",e:"👦",n:"Téo",r:"Sobrinho da Dona Rosa, 9 anos",d:"Tem uma mancha de chocolate no canto da boca.",say:"Eu tava jogando bola no quintal a tarde toda! Essa mancha de chocolate? Foi do picolé que eu comprei na sorveteria, juro!"},
+{id:"duda",e:"👧",n:"Duda",r:"Prima da Nina, 12 anos",d:"Fez os convites da festa com um kit de carimbos.",say:"Dei banho no Biscoito às 15h e tranquei ele na lavanderia pra secar. Depois fui encher balões com a vó Rosa. Meu kit de carimbos? Deixei na cozinha...",inn:"A Dona Rosa confirma que a Duda encheu balões com ela das 15h15 às 15h40, sem parar."},
+{id:"juca",e:"🧔",n:"Seu Juca",r:"Entregador de bebidas",d:"Esteve na casa bem na hora do sumiço.",say:"Entreguei as caixas de suco às 15h20, na porta da frente. A própria Dona Rosa recebeu. Nem passei da porta!",inn:"A Dona Rosa recebeu as caixas na porta da frente e voltou para os balões. O Seu Juca nunca entrou na casa."},
+{id:"lia",e:"👩",n:"Dona Lia",r:"Vizinha confeiteira",d:"O avental dela está manchado de glacê azul.",say:"Fui eu que fiz o glacê, às 14h! Depois fui direto pro salão fazer as unhas. Olha, ainda estão secando.",inn:"A notinha do salão mostra que a Dona Lia fazia as unhas das 14h30 às 16h. O glacê no avental é de quando ela preparou a cobertura."},
+{id:"biscoito",e:"🐶",n:"Biscoito",r:"Cachorro da família",d:"Está cheirando a xampu.",say:"Au! Au au! (O Biscoito boceja, ainda molhadinho do banho.)",inn:"O Biscoito estava trancado na lavanderia desde as 15h. E as pegadas eram todas idênticas: alguém usou um carimbo para culpar o cachorro!"}],
+culprit:"teo",proofs:["bola","lixeira"],
+weak:{pegadas:"As pegadas mostram que alguém quis culpar o Biscoito, mas não dizem quem.",kit:"Qualquer pessoa na cozinha podia pegar o carimbo. Quem mentiu sobre onde estava?",prato:"O prato mostra que o bolo foi levado inteiro, por uma pessoa. Mas qual?"},
+hints:["As pegadas são todas iguaizinhas. Será que foi mesmo um cachorro?","Duas coisas que alguém contou não batem com as pistas: uma tem a ver com lama, a outra com sabor."],
+sol:"Foi o Téo! Ele não jogou bola nenhuma: a bola estava seca num quintal todo enlameado. E a mancha na boca era de chocolate, não do picolé de morango. Ele levou o bolo na caixa para a casa da árvore e usou o carimbo de patinha da Duda para culpar o Biscoito. No fim, pediu desculpas, devolveu o que sobrou e ajudou a fazer um bolo novo."},
+
+{icon:"🏆",title:"O troféu sumiu",place:"Escola Raio de Sol",diff:"Difícil",scene:"k2",min:7,
+brief:"o troféu dourado da Feira de Ciências desapareceu da vitrine do corredor da Escola Raio de Sol! A premiação é às 11h e o vidro nem foi quebrado. Cinco pessoas podiam estar por perto. Cuidado: aqui, até as iniciais enganam.",
+items:[
+{id:"vitrine",e:"🏆",l:"Vitrine do corredor",t:"O vidro está intacto: a vitrine foi aberta com chave. Só existem duas: a original, presa no cinto do zelador, e uma cópia no quadro de chaves da secretaria."},
+{id:"quadro",e:"🗝️",l:"Quadro de chaves",t:"Caderno do quadro de chaves: 'Cópia da vitrine: retirada às 9h40 por O., devolvida às 10h05'. A anotação foi feita com caneta verde."},
+{id:"camera",e:"📷",l:"Câmera do Caio",t:"Fotos do Caio: o troféu está na vitrine às 9h30. Depois ele fotografou o ginásio a cada dois minutos, até as 10h08. Às 10h10, a vitrine já está vazia."},
+{id:"diario",e:"📚",l:"Diário de classe",t:"A Profa. Olívia deu aula de Artes para o 5º ano das 9h às 10h30, com 28 alunos na sala."},
+{id:"bilhete",e:"🔧",l:"Bilhete da diretora",t:"'Seu Antônio, obrigada por consertar o cano do 2º andar das 9h às 10h30!' Os pedreiros contam que ele não tirou a chave do cinto nem um minuto."},
+{id:"cartaz",e:"🌋",l:"Cartaz do ginásio",t:"'Equipe Vulcão: apresentação às 9h45.' Os três jurados assistiram à apresentação da Marina do começo ao fim, até as 10h15."},
+{id:"sala",e:"☕",l:"Sala dos professores",t:"O café do Prof. Otávio está cheio e gelado. O envelope de provas dele continua lacrado, do jeitinho que chegou."},
+{id:"jaleco",e:"🥼",l:"Jaleco no laboratório",t:"Um jaleco branco pendurado no laboratório. No bolso: uma caneta verde e um paninho sujo de pó dourado."},
+{id:"armario",e:"🗄️",l:"Armário do laboratório",t:"Um tubo de cola de metal aberto e uma alça dourada quebrada, do tamanho da alça de um troféu."}],
+suspects:[
+{id:"otavio",e:"👨‍🏫",n:"Prof. Otávio",r:"Professor de Ciências",d:"Sempre usa jaleco no laboratório. Hoje está sem ele.",say:"Fiquei a manhã inteira na sala dos professores, corrigindo provas. Nem cheguei perto do corredor!"},
+{id:"olivia",e:"👩‍🏫",n:"Profa. Olívia",r:"Professora de Artes",d:"Foi ela quem pintou o troféu de dourado, anos atrás.",say:"Esse troféu é quase um filho pra mim, fui eu que pintei! Mas passei a manhã dando aula, não saí da sala.",inn:"O diário de classe mostra a Profa. Olívia dando aula das 9h às 10h30, com 28 alunos. O 'O.' do caderno não era dela."},
+{id:"antonio",e:"👴",n:"Seu Antônio",r:"Zelador da escola",d:"Carrega a chave original da vitrine no cinto.",say:"A chave da vitrine fica aqui no meu cinto, ó. Passei a manhã consertando o cano do segundo andar.",inn:"O bilhete da diretora prova que o Seu Antônio passou a manhã no conserto, com a chave sempre no cinto."},
+{id:"marina",e:"👧🏼",n:"Marina",r:"Aluna finalista da feira",d:"Quer muito ganhar o troféu este ano.",say:"Eu quero ganhar o troféu, não pegar ele! Passei a manhã toda no ginásio com o meu vulcão.",inn:"Os jurados assistiram à apresentação da Marina das 9h45 às 10h15. E ela nem tem acesso às chaves."},
+{id:"caio",e:"🧒",n:"Caio",r:"Fotógrafo do jornal da escola",d:"Passou pela vitrine duas vezes hoje.",say:"Fotografei a vitrine às 9h30 e às 10h10. No meio-tempo fiquei no ginásio, tá tudo na câmera!",inn:"As fotos a cada dois minutos mostram que o Caio ficou no ginásio o tempo todo."}],
+culprit:"otavio",proofs:["jaleco","sala"],
+weak:{quadro:"'O.' pode ser de Otávio ou de Olívia. Que pista mostra qual dos dois foi?",vitrine:"A vitrine mostra que foi alguém com a chave... mas qual chave, e quem?",armario:"O armário mostra onde o troféu foi consertado, mas o laboratório é usado por muita gente.",camera:"As fotos mostram a hora do sumiço, mas não quem foi.",st_otavio:"O depoimento sozinho não prova nada. Alguma pista mostra que ele mentiu?"},
+hints:["A letra 'O.' do caderno de chaves serve para mais de uma pessoa. Quem tem álibi?","Repare na cor da caneta usada no caderno. Onde mais aparece uma caneta dessas?"],
+sol:"Foi o Prof. Otávio! Ele pegou a cópia da chave às 9h40, assinou 'O.' com sua caneta verde e tirou o troféu para dar um brilho antes da cerimônia. Mas a alça quebrou! Com vergonha, escondeu tudo no laboratório para colar e inventou que estava corrigindo provas. O café gelado e o envelope lacrado entregaram a mentira. No fim, ele pediu desculpas e a turma ajudou a consertar o troféu."},
+
+{icon:"🗺️",title:"O mapa antigo",place:"Biblioteca Municipal",diff:"Difícil",scene:"k3",min:7,
+brief:"o mapa mais antigo da Vila Vagalume, de 1890, sumiu da redoma de vidro da Biblioteca Municipal! A Dona Cecília percebeu às 15h30 e trancou as portas na mesma hora. Quem pegou o mapa ainda está lá dentro... e duas pessoas usam chapéu e luvas.",
+items:[
+{id:"redoma",e:"🔎",l:"Redoma do mapa",t:"A fechadura da redoma foi aberta com um grampo, sem nenhuma digital. Presa na borda do vidro, uma fibrinha de couro marrom."},
+{id:"visitas",e:"📒",l:"Livro de visitas",t:"Entradas de hoje: Rafael 13h00, Sr. Valdemar 14h00, Bia 14h30, Dona Helena 14h45. As portas foram trancadas às 15h30 e ninguém saiu."},
+{id:"fichas",e:"🗂️",l:"Fichas do balcão",t:"A Dona Cecília registrou um empréstimo a cada 10 minutos, das 14h às 15h30. A chave da redoma continua no chaveiro dela."},
+{id:"desenho",e:"✏️",l:"Caderno da Bia",t:"Um desenho das 15h: uma pessoa de chapéu e luvas mexendo na redoma, de costas. A Bia não desenhou o rosto."},
+{id:"restauro",e:"🧤",l:"Mesa de restauro",t:"Na mesa da Dona Helena: luvas de algodão branquinhas, sem nenhuma mancha, e um chapéu de palha."},
+{id:"rafael",e:"📓",l:"Caderno do Rafael",t:"Um desenho do mapa antigo, copiado à mão. As anotações têm horário: 14h10, 14h40, 15h05, 15h25, todas na seção de jornais, do outro lado da sala."},
+{id:"tempo",e:"☀️",l:"Previsão do tempo",t:"O jornal de hoje diz: 'Sol forte o dia inteiro. Chance de chuva: zero.'"},
+{id:"guarda",e:"☂️",l:"Porta-guarda-chuvas",t:"Um único guarda-chuva preto, comprido, fechado com um nó bem apertado. Está muito mais pesado do que um guarda-chuva deveria ser."},
+{id:"devolvido",e:"📕",l:"Livro devolvido",t:"Livro devolvido pelo Sr. Valdemar: 'Mapas antigos e quanto valem'. Dentro, um anúncio de leilão de mapas raros neste sábado."}],
+suspects:[
+{id:"cecilia",e:"👩‍🦳",n:"Dona Cecília",r:"Bibliotecária",d:"Guarda a chave da redoma no chaveiro.",say:"Não saí do balcão a tarde inteira! A chave da redoma está aqui comigo. Quando vi o mapa sumido, tranquei as portas.",inn:"As fichas mostram a Dona Cecília no balcão a cada 10 minutos. E a redoma foi aberta com um grampo, não com a chave dela."},
+{id:"rafael",e:"🧑‍🎓",n:"Rafael",r:"Estudante de História",d:"Tem um desenho do mapa antigo no caderno.",say:"Estou copiando o mapa para o meu trabalho de escola. Mas fiquei nos jornais antigos o tempo todo, anoto tudo com horário!",inn:"As anotações com horário mostram o Rafael do outro lado da biblioteca. Copiar o mapa não é crime: é pesquisa!"},
+{id:"valdemar",e:"🎩",n:"Sr. Valdemar",r:"Colecionador de antiguidades",d:"Usa chapéu, luvas de couro marrom e trouxe um guarda-chuva preto.",say:"Só vim devolver um livro, fiquei cinco minutinhos! E nem encostei naquela redoma. O guarda-chuva? Vai que chove, não é?"},
+{id:"helena",e:"👩‍🦰",n:"Dona Helena",r:"Restauradora de livros",d:"Usa chapéu e luvas para mexer em papéis antigos.",say:"Cheguei às 14h45 para restaurar uns livros. Uso luvas, sim, mas de algodão. Não encostei na redoma.",inn:"As luvas da Dona Helena são de algodão branco, e a fibrinha presa na redoma era de couro marrom."},
+{id:"bia",e:"👧🏽",n:"Bia",r:"Faz a lição na biblioteca",d:"Adora desenhar o que vê.",say:"Às 15h eu vi alguém de chapéu e luvas mexendo na redoma e desenhei! Mas a pessoa estava de costas.",inn:"A Bia estava fazendo a lição, e o desenho dela ajudou a resolver o caso!"}],
+culprit:"valdemar",proofs:["redoma","guarda"],
+weak:{desenho:"O desenho mostra alguém de chapéu e luvas, mas duas pessoas aqui usam chapéu e luvas.",devolvido:"Isso mostra um motivo, mas não prova que ele pegou o mapa.",visitas:"Mostra que ele mentiu sobre o tempo que ficou. Mas o que liga ele à redoma?",tempo:"Um guarda-chuva num dia de sol é suspeito, mas essa pista sozinha não aponta para ninguém.",st_valdemar:"O depoimento é estranho, mas o juiz quer uma prova."},
+hints:["Duas pessoas usam chapéu e luvas. De que material são as luvas de cada uma?","Por que um guarda-chuva estaria tão pesado num dia de sol?"],
+sol:"Foi o Sr. Valdemar! Ele queria vender o mapa num leilão. Abriu a redoma com um grampo, usando suas luvas de couro, e uma fibrinha marrom ficou presa no vidro. Depois escondeu o mapa enrolado dentro do guarda-chuva, num dia de sol! Como a Dona Cecília trancou as portas, ele não conseguiu sair. O mapa voltou para a redoma."},
+
+{icon:"👑",title:"Apagão no teatro",place:"Teatro Municipal",diff:"Difícil",scene:"k4",min:7,
+brief:"durante o ensaio da peça 'A Princesa da Lua', as luzes se apagaram às 19h15. Quando voltaram, dois minutos depois, a coroa de cristais, presente do fundador do teatro, tinha sumido dos bastidores! Três pessoas sabem mexer no quadro de força.",
+items:[
+{id:"quadro",e:"⚡",l:"Quadro de força",t:"O disjuntor geral foi desligado com a mão. Quem fez isso conhecia bem o quadro de força."},
+{id:"cartaz",e:"🖼️",l:"Cartaz do corredor",t:"Foto da equipe de luz do ano passado: Lúcio, Gina e Gabriel. Os três sabem mexer no quadro de força."},
+{id:"lanterna",e:"🔦",l:"Lanterna caída",t:"Uma lanterna de cabeça caída atrás da cortina, com um adesivo antigo: 'Equipe de luz 2025, G.'"},
+{id:"cabine",e:"🎙️",l:"Cabine de som",t:"Gravação da cabine: às 19h15 e às 19h16, a voz da Gina no microfone: 'Calma, pessoal, já vamos resolver!'. A cabine fica no fundo da plateia, longe dos bastidores."},
+{id:"palco",e:"🎭",l:"Roteiro do diretor",t:"Anotação do diretor: 'Luz voltou às 19h17. Todos no palco, menos o Gabriel, que chegou correndo e sem fôlego às 19h19.'"},
+{id:"escada",e:"👞",l:"Escada dos bastidores",t:"Purpurina dourada da coroa nos degraus e marcas de sapato com chapinhas de metal na ponta."},
+{id:"nota",e:"🧾",l:"Nota da lanchonete",t:"No casaco do Lúcio: 'Lanchonete da Esquina, 19h10'. O dono confirma que ele ficou lá comendo até as 19h30."},
+{id:"costura",e:"🧵",l:"Sala de costura",t:"A Dona Marta estava pregando cristais no vestido da Princesa. Três costureiras confirmam que ela não saiu da sala."},
+{id:"camarim",e:"💄",l:"Camarim da Sofia",t:"No celular da Sofia, um vídeo das 19h14 às 19h20: ela ensaiando a música no escuro, sem sair do camarim."}],
+suspects:[
+{id:"lucio",e:"👷",n:"Lúcio",r:"Eletricista do teatro",d:"Conhece cada fio do teatro.",say:"Na hora do apagão eu estava na lanchonete da esquina comendo um pastel. Voltei correndo quando me ligaram!",inn:"A nota da lanchonete e o próprio dono confirmam: o Lúcio estava fora do teatro na hora do apagão."},
+{id:"gina",e:"👩‍🔧",n:"Gina",r:"Técnica de som",d:"Trabalhou na equipe de luz no ano passado.",say:"Quando apagou, corri pro microfone da cabine pra acalmar o pessoal. Fiquei lá até a luz voltar.",inn:"A gravação da cabine mostra a voz da Gina no microfone durante o apagão, lá no fundo da plateia."},
+{id:"gabriel",e:"🕺",n:"Gabriel",r:"Ator substituto",d:"Faz um número de sapateado na peça. Sonha com o papel principal.",say:"Eu estava no palco com todo mundo, ensaiando a cena do baile. Não saí de lá!"},
+{id:"sofia",e:"👸",n:"Sofia",r:"Atriz principal, a Princesa",d:"Seria a primeira a usar a coroa na estreia.",say:"Eu estava no camarim me maquiando. Quando a luz apagou, continuei ensaiando no escuro. Gravei tudo no celular!",inn:"O vídeo do celular mostra que a Sofia não saiu do camarim durante o apagão."},
+{id:"marta",e:"👵",n:"Dona Marta",r:"Costureira do teatro",d:"Tem pedrinhas de cristal no bolso do avental.",say:"Eu estava pregando cristais no vestido da Princesa! Por isso tenho pedrinhas no bolso.",inn:"As três costureiras confirmam que a Dona Marta não saiu da sala de costura."}],
+culprit:"gabriel",proofs:["palco","escada"],
+weak:{lanterna:"'G.' pode ser da Gina ou do Gabriel. Qual dos dois tem álibi?",cartaz:"O cartaz mostra quem sabe mexer no quadro, mas não quem mexeu.",quadro:"O quadro mostra que foi alguém que entende de eletricidade. Mas quem?",st_gabriel:"O juiz quer uma prova de que ele mentiu."},
+hints:["A letra 'G.' da lanterna serve para duas pessoas. Quem tem álibi na hora do apagão?","Que tipo de sapato tem chapinhas de metal na ponta? E quem chegou atrasado ao palco?"],
+sol:"Foi o Gabriel! Ele trabalhou na equipe de luz e sabia qual chave desligar. No escuro, usou sua velha lanterna de cabeça, pegou a coroa e escondeu nos bastidores, torcendo para a culpa cair na Sofia. Mas os sapatos de sapateado deixaram marcas na escada, e o diretor anotou que ele chegou atrasado! A coroa voltou, e o Gabriel aprendeu que ninguém brilha apagando a luz dos outros."},
+
+{icon:"💎",title:"A safira trocada",place:"Museu da Vila",diff:"Difícil",scene:"k5",min:7,
+brief:"a Lágrima do Mar, a safira mais famosa do Museu da Vila, foi trocada por uma pedra de vidro! Um especialista percebeu às 16h. Descubra quando a troca aconteceu e quem estava sem álibi nessa hora.",
+items:[
+{id:"vitrine",e:"💎",l:"Vitrine da safira",t:"A pedra na vitrine é de vidro! A balança da vitrine não apitou porque a réplica tem exatamente o mesmo peso da verdadeira."},
+{id:"fotos",e:"📸",l:"Fotos de visitantes",t:"Às 13h, a pedra joga reflexos azuis na parede, como só uma safira verdadeira faz. Às 14h, nenhum reflexo."},
+{id:"loja",e:"🛍️",l:"Loja do museu",t:"A única réplica de vidro da Lágrima do Mar sumiu da prateleira entre 12h30 e 13h, sem ser paga."},
+{id:"chao",e:"✨",l:"Chão encerado",t:"O chão do Salão Azul foi encerado às 13h05. Pegadas de sapato de salto fino vão da porta até a vitrine e voltam. Perto da porta, só marcas de galocha."},
+{id:"cameras",e:"📹",l:"Ordem de serviço",t:"As câmeras ficaram desligadas das 13h às 14h para manutenção. O técnico e a Dona Ivone ficaram juntos na sala de controle o tempo todo."},
+{id:"excursao",e:"🦖",l:"Lista da excursão",t:"O Seu Baltazar guiou 30 alunos pelo Salão dos Dinossauros das 13h às 14h. A professora confirma."},
+{id:"oficina",e:"🏺",l:"Oficina de réplicas",t:"O Léo deu aula para 10 crianças das 13h às 14h30. Elas mostram as réplicas de argila que fizeram com ele."},
+{id:"cafe",e:"☕",l:"Comanda do café",t:"Madame Odete pediu chá às 12h40 e bolo às 14h10. O garçom conta que a mesa dela ficou vazia das 13h15 às 13h45."},
+{id:"limpeza",e:"🧹",l:"Escala da limpeza",t:"A Tânia encerou o Salão Azul às 13h05 e foi direto limpar o Salão Verde, até as 14h30. Ela trabalha de galochas amarelas."}],
+suspects:[
+{id:"ivone",e:"👩‍💼",n:"Dona Ivone",r:"Diretora do museu",d:"Sempre de tênis. Mandou desligar as câmeras hoje.",say:"Eu autorizei a manutenção das câmeras, sim, e fiquei o tempo todo com o técnico na sala de controle.",inn:"A ordem de serviço prova que a Dona Ivone ficou com o técnico das 13h às 14h."},
+{id:"baltazar",e:"👮",n:"Seu Baltazar",r:"Segurança do museu",d:"Deveria estar vigiando o Salão Azul.",say:"Hoje me pediram pra guiar a excursão da escola. Fiquei com as crianças no Salão dos Dinossauros.",inn:"A professora confirma que o Seu Baltazar guiou a excursão das 13h às 14h."},
+{id:"leo",e:"🧑‍🔬",n:"Léo",r:"Artesão de réplicas",d:"Tem pó de vidro azul nas mãos.",say:"Fui eu que fiz a réplica de vidro da loja, mês passado! Esse pó azul é do meu trabalho. Hoje passei a tarde dando aula.",inn:"As crianças da oficina confirmam que o Léo deu aula das 13h às 14h30."},
+{id:"odete",e:"👒",n:"Madame Odete",r:"Colecionadora de joias",d:"Usa chapéu de plumas e sapatos de salto fino.",say:"Passei a tarde inteira no café, tomando chá. Nem pisei no Salão Azul, querido!"},
+{id:"tania",e:"👩🏾",n:"Tânia",r:"Responsável pela limpeza",d:"Foi a última a entrar no Salão Azul antes do sumiço.",say:"Encerei o Salão Azul às 13h05 e fui direto pro Salão Verde. De galocha, olha só!",inn:"As marcas de galocha da Tânia só aparecem perto da porta. As pegadas que chegam à vitrine são de salto fino."}],
+culprit:"odete",proofs:["chao","cafe"],
+weak:{loja:"Mostra como a troca foi feita, mas não quem fez.",fotos:"As fotos mostram quando a troca aconteceu. Quem não tem álibi nessa hora?",vitrine:"A vitrine mostra o truque do peso, mas não o culpado.",st_odete:"O depoimento sozinho não prova nada. Alguma pista contradiz o que ela disse?"},
+hints:["As fotos mostram quando a pedra foi trocada. Quem não tem álibi nesse horário?","O chão encerado guarda segredos. Que tipo de sapato deixou marcas até a vitrine?"],
+sol:"Foi a Madame Odete! Ela pegou a réplica de vidro da loja e, enquanto as câmeras estavam em manutenção, saiu do café 'para ir ao toalete'. No Salão Azul, trocou a safira pela réplica de mesmo peso, e o alarme nem apitou. Mas o chão tinha acabado de ser encerado, e os saltos finos dela deixaram pegadas até a vitrine! A Lágrima do Mar voltou ao museu."},
+
+{icon:"🚂",title:"Mistério na estação",place:"Estação Central",diff:"Difícil",scene:"k6",min:7,
+brief:"o relógio de bolso de ouro do Seu Amadeu, chefe da estação, sumiu do cofre da sala dele! Ele saiu às 9h e voltou às 9h30, e o relógio já não estava lá. Cinco pessoas estavam pela estação. Confira bem os horários dos trens.",
+items:[
+{id:"cofre",e:"🔐",l:"Cofre da sala",t:"O cofre foi aberto com o código, sem arrombamento. O papelzinho com o código, que ficava colado embaixo da mesa, está caído no chão."},
+{id:"botao",e:"🔘",l:"Chão perto do cofre",t:"Um botão dourado liso, sem nenhum desenho, arrancado de uma roupa."},
+{id:"horarios",e:"📋",l:"Quadro de horários",t:"'Trem das 9h10 para Vila Serra: atrasado. Partiu às 9h40.'"},
+{id:"turistas",e:"🧳",l:"Lista dos turistas",t:"O Bento carregou as malas de um grupo de turistas das 9h às 9h30. A guia confirma que ele não saiu do lado deles."},
+{id:"banca",e:"📰",l:"Caixa da banca",t:"Vendas da banca de jornais às 9h02, 9h08, 9h15, 9h21 e 9h28. A Dona Filomena não parou de atender."},
+{id:"maquinista",e:"🚃",l:"Registro do maquinista",t:"O trem de carga do Seu Zeca só chegou à estação às 9h50, vindo da Vila Serra."},
+{id:"bilhetec",e:"🎫",l:"Bilhete da Cíntia",t:"Trem das 9h10, carimbado pelo fiscal às 9h05, quando ela entrou no vagão. O fiscal diz que ela ficou sentada lendo até o trem partir."},
+{id:"bilheter",e:"🎟️",l:"Bilhete do Sr. Renato",t:"Trem das 9h10, carimbado pelo fiscal só às 9h38, dois minutinhos antes da partida."}],
+suspects:[
+{id:"bento",e:"🧑🏻",n:"Bento",r:"Carregador de malas",d:"Uniforme com botões dourados com desenho de trenzinho.",say:"Passei a manhã carregando as malas dos turistas. Pode perguntar pra guia!",inn:"A guia confirma que o Bento ficou com o grupo das 9h às 9h30. E os botões dele têm desenho de trenzinho."},
+{id:"filomena",e:"👵🏼",n:"Dona Filomena",r:"Jornaleira",d:"A banca dela fica ao lado da sala do chefe.",say:"Vendi jornal sem parar a manhã toda! Nem tive tempo de olhar pro lado.",inn:"O caixa da banca mostra vendas a cada poucos minutos. A Dona Filomena não saiu dali."},
+{id:"renato",e:"🤵",n:"Sr. Renato",r:"Viajante de terno",d:"Terno elegante com botões dourados lisos.",say:"Peguei o trem das 9h10, pontualzinho! Às 9h15 eu já estava longe da estação."},
+{id:"cintia",e:"👩‍🎓",n:"Cíntia",r:"Estudante",d:"Também tinha bilhete para o trem das 9h10.",say:"Entrei no trem às 9h05 e fiquei lendo até ele partir. Que atraso!",inn:"O fiscal carimbou o bilhete da Cíntia às 9h05 e viu ela sentada lendo até a partida."},
+{id:"zeca",e:"👨‍🔧",n:"Seu Zeca",r:"Maquinista",d:"Sabe o código do cofre: já trabalhou na sala do chefe.",say:"Eu estava dirigindo o trem de carga, vindo da Vila Serra. Só cheguei aqui às 9h50!",inn:"O registro mostra que o trem do Seu Zeca só chegou às 9h50."}],
+culprit:"renato",proofs:["botao","bilheter"],
+weak:{horarios:"Mostra que o trem atrasou. Mas quem mentiu sobre isso?",cofre:"Qualquer um que achasse o papelzinho podia abrir o cofre.",st_renato:"O juiz quer uma prova de que ele ainda estava na estação."},
+hints:["Duas pessoas usam botões dourados. Olhe bem a descrição de cada uma.","Alguém diz que estava longe às 9h15. Será que o trem saiu na hora?"],
+sol:"Foi o Sr. Renato! Ele disse que já estava longe às 9h15, mas o trem atrasou e só saiu às 9h40, e o bilhete dele foi carimbado às 9h38. Enquanto esperava, entrou na sala do chefe, achou o código embaixo da mesa e pegou o relógio. Mas um botão dourado liso do terno dele ficou no chão! O relógio voltou para o bolso do Seu Amadeu."},
+
+{icon:"🐇",title:"O coelho do mágico",place:"Circo Estrela",diff:"Difícil",scene:"k7",min:7,
+brief:"o coelho Algodão, estrela do show do Grande Merlino, sumiu da gaiola entre 19h e 19h30! O espetáculo começa às 20h e o circo inteiro está de cabelo em pé. Às vezes, num circo, nada é o que parece.",
+items:[
+{id:"gaiola",e:"🐰",l:"Gaiola do Algodão",t:"A gaiola foi aberta com a chave, sem nenhum arranhão. Dentro, só pelinhos brancos."},
+{id:"gancho",e:"🔑",l:"Gancho da chave",t:"A chave da gaiola fica num gancho a 3 metros e 20 do chão. Ninguém alcança sem ajuda."},
+{id:"camarim",e:"🎪",l:"Camarim da Fifi",t:"As pernas de pau da Fifi estão no camarim, com serragem fresquinha do picadeiro na ponta."},
+{id:"ensaio",e:"🎺",l:"Programa do ensaio",t:"Das 19h às 19h30, a Fifi apresentou o número 'Gigante de perna de pau' no picadeiro, na frente de toda a banda."},
+{id:"trapezio",e:"🤸",l:"Ensaio do trapézio",t:"A Lola ficou lá no alto do trapézio das 19h às 19h40, e o Hércules segurou a rede de proteção embaixo o tempo todo."},
+{id:"bilheteria",e:"🎟️",l:"Bilheteria",t:"O Seu Tonico vendeu ingressos na entrada das 19h às 19h45. A fila tinha mais de cem pessoas."},
+{id:"grafica",e:"🧾",l:"Recibo da gráfica",t:"Recibo de ontem: 100 cartazes 'Merlino apresenta: o coelho que sumiu de verdade!'."},
+{id:"mala",e:"🎩",l:"Mala de mágica",t:"Na mala de mágica do Merlino: uma varinha que estica até dois metros, com um ganchinho na ponta, e uma cartola de fundo falso cheia de pelinhos brancos."}],
+suspects:[
+{id:"merlino",e:"🧙‍♂️",n:"Grande Merlino",r:"Mágico, dono do coelho",d:"Está muito preocupado... ou parece estar.",say:"Alguém roubou o meu Algodão! Eu estava no trailer me concentrando para o show. Que tragédia!"},
+{id:"fifi",e:"🤡",n:"Fifi",r:"Palhaça",d:"Anda de perna de pau e alcança lugares bem altos.",say:"Eu estava ensaiando no picadeiro! A banda toda me viu de perna de pau.",inn:"O programa do ensaio mostra a Fifi no picadeiro das 19h às 19h30, na frente da banda inteira."},
+{id:"lola",e:"🤸‍♀️",n:"Lola",r:"Trapezista",d:"Sobe em qualquer lugar alto, sem medo.",say:"Eu estava lá em cima do trapézio, ensaiando o salto triplo!",inn:"A Lola ficou no trapézio das 19h às 19h40, com o Hércules segurando a rede embaixo."},
+{id:"hercules",e:"🏋️‍♂️",n:"Hércules",r:"Homem mais forte do mundo",d:"Tem dois metros de altura.",say:"Fiquei segurando a rede da Lola o tempo todo. Se eu soltasse, já pensou?",inn:"O Hércules segurou a rede da Lola o tempo todo. E nem ele, com dois metros, alcança um gancho a 3 metros e 20."},
+{id:"tonico",e:"👨‍🦳",n:"Seu Tonico",r:"Dono do circo",d:"Tem as chaves de tudo no circo.",say:"Eu estava na bilheteria! Hoje a fila dava volta no quarteirão.",inn:"A fila de mais de cem pessoas viu o Seu Tonico vendendo ingressos o tempo todo."}],
+culprit:"merlino",proofs:["mala"],
+weak:{grafica:"Os cartazes mostram que ele planejou um show sobre o sumiço, um motivo! Mas não provam que foi ele.",gancho:"O gancho mostra que o ladrão precisou de ajuda para alcançar a chave. Que tipo de ajuda?",gaiola:"A gaiola mostra que usaram a chave. Mas quem?",st_merlino:"O depoimento sozinho não prova nada."},
+hints:["A chave estava num lugar muito alto. Quem consegue alcançar lá, e quem tem álibi?","Às vezes, quem parece a vítima tem um segredo. Já olhou as coisas de todo mundo?"],
+sol:"Foi o próprio Grande Merlino! Ele queria fazer um show famoso sobre 'o coelho que sumiu de verdade' e até mandou imprimir cartazes um dia antes. Usou sua varinha que estica para pegar a chave lá no alto e escondeu o Algodão na cartola de fundo falso. Mas os pelinhos brancos na cartola entregaram tudo! O Algodão voltou para a gaiola, e o Merlino pediu desculpas ao circo."},
+
+{icon:"🎃",title:"A abóbora gigante",place:"Fazenda Boa Vista",diff:"Difícil",scene:"k8",min:7,
+brief:"na manhã do Concurso da Abóbora Gigante, a abóbora campeã da Dona Cida, com 300 quilos, sumiu do celeiro! Ninguém carrega uma abóbora dessas no colo... Descubra como ela foi levada, e por quem.",
+items:[
+{id:"celeiro",e:"🏠",l:"Celeiro",t:"A porta estava só encostada. No chão, a marca redonda e enorme de onde a abóbora ficava."},
+{id:"marcas",e:"👣",l:"Marcas no barro",t:"Duas rodas finas e pegadas de casco de cavalo, bem nítidas no barro, saindo do celeiro. Foram feitas depois que a chuva parou."},
+{id:"chuva",e:"🌧️",l:"Pluviômetro",t:"Choveu forte até as 2h da manhã. Depois, parou de vez."},
+{id:"trator",e:"🚜",l:"Trator",t:"O trator do Seu Geraldo está com o motor quebrado desde segunda, esperando uma peça. Tem até um bilhete: 'Não ligar!'."},
+{id:"caminhonete",e:"🚙",l:"Caminhonete",t:"A caminhonete da Dona Neusa tem pneus largos e está limpinha, sem nenhum barro. Foi lavada ontem às 18h."},
+{id:"ficha",e:"🩺",l:"Ficha da veterinária",t:"A Dra. Joana veio a cavalo às 3h para atender a vaca Mimosa e foi embora às 4h. Ela veio sozinha, sem carroça."},
+{id:"estabulo",e:"🏡",l:"Estábulo do Seu Osvaldo",t:"A carroça tem barro fresco nas rodas finas, e o cavalo Trovão está cansado e suado logo cedo."},
+{id:"carrinho",e:"🛒",l:"Carrinho de mão",t:"O carrinho de mão do Pedrinho tem uma rodinha só e está cheio de teia de aranha. Não é usado há semanas."},
+{id:"fita",e:"🏅",l:"Fitas do concurso",t:"Ano passado: 1º lugar, Dona Cida. 2º lugar, Seu Osvaldo, por apenas 2 quilos de diferença."}],
+suspects:[
+{id:"geraldo",e:"👨‍🌾",n:"Seu Geraldo",r:"Fazendeiro vizinho",d:"Tem um trator enorme.",say:"Meu trator está quebrado desde segunda! Nem que eu quisesse.",inn:"O trator do Seu Geraldo está quebrado desde segunda, e as marcas no barro eram de rodas finas."},
+{id:"neusa",e:"👩‍🌾",n:"Dona Neusa",r:"Dona da granja",d:"Tem uma caminhonete forte o bastante para carregar a abóbora.",say:"Lavei minha caminhonete ontem às 18h e ela nem saiu da garagem.",inn:"A caminhonete está limpinha, sem barro: não andou depois da chuva. E os pneus dela são largos, não finos."},
+{id:"osvaldo",e:"🤠",n:"Seu Osvaldo",r:"Fazendeiro rival",d:"Tem uma carroça e um cavalo chamado Trovão.",say:"Dormi a noite inteirinha! Minha carroça nem saiu do estábulo."},
+{id:"joana",e:"👩‍⚕️",n:"Dra. Joana",r:"Veterinária",d:"Esteve na fazenda de madrugada, a cavalo.",say:"Vim às 3h, a cavalo, cuidar da vaca Mimosa, que estava com dor de barriga. Fui embora às 4h.",inn:"A Dra. Joana veio a cavalo, sem carroça. As marcas no barro tinham rodas finas."},
+{id:"pedrinho",e:"👦🏽",n:"Pedrinho",r:"Neto da Dona Cida",d:"Sonha em fazer a maior lanterna de abóbora do mundo.",say:"Eu queria mesmo fazer uma lanterna com aquela abóbora... mas a vovó disse não. Dormi a noite inteira!",inn:"O carrinho do Pedrinho não sai do lugar há semanas, e ninguém carrega 300 quilos sozinho."}],
+culprit:"osvaldo",proofs:["estabulo"],
+weak:{marcas:"As marcas mostram uma carroça puxada por cavalo. Mas de quem?",fita:"Isso mostra um motivo, mas não prova nada.",chuva:"A chuva ajuda a saber quando as marcas foram feitas. E depois?",st_osvaldo:"O depoimento dele sozinho não prova nada."},
+hints:["As marcas foram feitas depois da chuva. Que veículo deixa duas rodas finas e cascos de cavalo?","Alguém esteve na fazenda de madrugada a cavalo, mas sem rodas. Quem tem rodas finas E cavalo?"],
+sol:"Foi o Seu Osvaldo! Ele perdeu o concurso do ano passado por só 2 quilos e não queria perder de novo. Depois que a chuva parou, levou a abóbora na carroça puxada pelo Trovão e escondeu no paiol dele. Mas o barro fresco nas rodas finas e o cavalo cansado contaram tudo. A abóbora voltou a tempo, e ganhou o concurso de novo!"},
+
+{icon:"📿",title:"O colar de pérolas",place:"Hotel Bela Vista",diff:"Difícil",scene:"k9",min:7,
+brief:"enquanto a cantora Diva Rosana se apresentava no jantar do Hotel Bela Vista, das 20h às 21h, o colar de pérolas dela sumiu do quarto 12! A porta não foi arrombada. Quem entrou no quarto?",
+items:[
+{id:"fechadura",e:"🚪",l:"Fechadura do quarto 12",t:"Registro eletrônico: o quarto 12 foi aberto às 20h25 com um cartão-mestre. Só a camareira Ester e o gerente Sr. Amaral têm cartão-mestre."},
+{id:"lavanderia",e:"🧺",l:"Lavanderia",t:"A Ester dobrou toalhas com duas colegas das 20h às 21h30. O cartão-mestre dela ficou pendurado no pescoço o tempo todo."},
+{id:"sacada",e:"🌙",l:"Sacada do quarto 12",t:"A sacada do quarto 12 é colada na do quarto 13, mas a porta da sacada estava trancada por dentro."},
+{id:"fotosj",e:"📸",l:"Fotos do jantar",t:"A Dona Glória aparece na primeira fila em todas as fotos, das 20h às 21h, aplaudindo."},
+{id:"piano",e:"🎹",l:"Programa do show",t:"O pianista Juvenal tocou todas as músicas com a Diva Rosana, das 20h às 21h, sem intervalo."},
+{id:"servico",e:"🍔",l:"Serviço de quarto",t:"O Tadeu levou um lanche ao quarto 14 às 20h15. Às 20h20 voltou ao balcão da recepção e atendeu hóspedes até as 21h."},
+{id:"recepcao",e:"🛎️",l:"Livro da recepção",t:"Às 20h, o Sr. Amaral escreveu: 'Vou jantar no restaurante'. O garçom garante que ele não apareceu por lá a noite toda."},
+{id:"perola",e:"⚪",l:"Carpete do corredor",t:"Uma pérola solta perto da porta do quarto 12. No ar, um cheirinho de menta."}],
+suspects:[
+{id:"ester",e:"👩🏽",n:"Ester",r:"Camareira",d:"Tem um cartão-mestre que abre todos os quartos.",say:"Meu cartão nunca sai do meu pescoço! Passei a noite dobrando toalhas na lavanderia.",inn:"As colegas da lavanderia confirmam que a Ester ficou lá, com o cartão no pescoço, até as 21h30."},
+{id:"amaral",e:"🧑‍💼",n:"Sr. Amaral",r:"Gerente do hotel",d:"Sempre perfumado com colônia de menta. Tem um cartão-mestre.",say:"Eu estava jantando no restaurante, como faço toda noite. Não vi nada!"},
+{id:"gloria",e:"👵🏻",n:"Dona Glória",r:"Hóspede do quarto 13",d:"A sacada dela é colada na sacada do quarto 12.",say:"Eu estava no jantar, na primeira fila! Adoro a Rosana.",inn:"As fotos mostram a Dona Glória na primeira fila o tempo todo. E a porta da sacada do quarto 12 estava trancada por dentro."},
+{id:"juvenal",e:"🧓",n:"Seu Juvenal",r:"Pianista",d:"Sabia que a cantora guardava o colar no quarto.",say:"Toquei a noite toda com a Rosana. Nem levantei do banquinho!",inn:"O Seu Juvenal tocou todas as músicas, sem intervalo, das 20h às 21h."},
+{id:"tadeu",e:"🧑🏼",n:"Tadeu",r:"Mensageiro",d:"Vive mascando chiclete de menta. Passou pelo corredor do quarto 12.",say:"Levei um lanche pro quarto 14 às 20h15 e voltei pra recepção. Nem tenho cartão-mestre!",inn:"O Tadeu estava no balcão da recepção às 20h25, e ele não tem cartão-mestre."}],
+culprit:"amaral",proofs:["recepcao"],
+weak:{fechadura:"Mostra que foi um cartão-mestre, mas duas pessoas têm um.",perola:"O cheiro de menta serve para duas pessoas aqui. Que outra pista separa as duas?",st_amaral:"O juiz quer uma prova de que ele mentiu."},
+hints:["A porta foi aberta com um cartão-mestre. Quem tem um, e onde estava o cartão de cada um?","Alguém disse que estava jantando. O restaurante confirma?"],
+sol:"Foi o Sr. Amaral, o gerente! Ele disse que ia jantar, mas nunca chegou ao restaurante. Às 20h25 usou seu cartão-mestre para entrar no quarto 12 e pegar o colar. Na pressa, uma pérola caiu no corredor, junto com o cheirinho da sua colônia de menta. O colar voltou para a Diva Rosana, que cantou mais bonito do que nunca."},
+
+{icon:"🔭",title:"A lente dourada",place:"Observatório do Morro",diff:"Muito difícil",scene:"k10",min:7,
+brief:"na noite do eclipse, a lente dourada da grande luneta do Observatório do Morro sumiu entre 22h e 22h30, enquanto todos estavam no gramado vendo a lua ficar vermelha. Quem subiu até a cúpula no escuro?",
+items:[
+{id:"luneta",e:"🔭",l:"Grande luneta",t:"A lente dourada foi desparafusada com cuidado, usando uma chave especial de seis pontas."},
+{id:"chaves",e:"🔧",l:"Chaves especiais",t:"Só existem duas chaves de seis pontas no observatório: uma do Dr. Abel e uma da Profa. Celeste."},
+{id:"escada",e:"📷",l:"Câmera da escada",t:"Fotos automáticas, uma por minuto: às 22h12, alguém sobe a escada da cúpula com uma lanterna de luz vermelha. Às 22h19, desce."},
+{id:"lanternas",e:"🔦",l:"Mesa da entrada",t:"Os visitantes ganharam lanternas de luz branca. Só os astrônomos usam luz vermelha, que não atrapalha a visão do céu."},
+{id:"palestra",e:"🎤",l:"Gravação da palestra",t:"A voz da Profa. Celeste ao microfone, no gramado, das 22h às 22h30, sem parar, para 50 pessoas."},
+{id:"cadeira",e:"💺",l:"Cadeira do Dr. Abel",t:"No gramado, a cadeira com a plaquinha 'Dr. Abel' está molhada de orvalho por cima: ninguém sentou nela a noite toda."},
+{id:"chocolate",e:"☕",l:"Barraca do chocolate",t:"A Dona Selma serviu chocolate quente no gramado das 22h às 22h40. A fila nunca acabou."},
+{id:"voluntarios",e:"📋",l:"Lista de voluntários",t:"O Kauã ajudou as crianças no telescópio pequeno, no gramado, das 22h às 23h. Ele usa lanterna de luz branca."},
+{id:"vitor",e:"📸",l:"Câmera do Vítor",t:"Fotos do eclipse tiradas pelo Vítor no gramado, uma por minuto, das 22h05 às 22h35."}],
+suspects:[
+{id:"abel",e:"👨‍🔬",n:"Dr. Abel",r:"Astrônomo do observatório",d:"Usa lanterna de luz vermelha e tem uma chave de seis pontas.",say:"Fiquei sentado na minha cadeira, no gramado, assistindo ao eclipse do começo ao fim."},
+{id:"celeste",e:"👩‍🔬",n:"Profa. Celeste",r:"Astrônoma convidada",d:"Também usa lanterna vermelha e tem uma chave de seis pontas. Quer descobrir um cometa novo.",say:"Fiz a palestra do eclipse no gramado, ao microfone. Não parei de falar um minuto!",inn:"A gravação mostra a Profa. Celeste falando ao microfone das 22h às 22h30, sem parar."},
+{id:"kaua",e:"🧑🏽",n:"Kauã",r:"Voluntário do observatório",d:"Conhece a cúpula de olhos fechados.",say:"Fiquei com as crianças no telescópio pequeno, no gramado, a noite toda.",inn:"O Kauã ficou com as crianças no gramado, e a lanterna dele é de luz branca, não vermelha."},
+{id:"selma",e:"👩‍🍳",n:"Dona Selma",r:"Cozinheira do observatório",d:"Tem a chave de todas as portas do observatório.",say:"Servi chocolate quente sem parar! A fila não acabava nunca.",inn:"A fila do chocolate não deixou a Dona Selma sair da barraca das 22h às 22h40."},
+{id:"vitor",e:"🧔🏻",n:"Vítor",r:"Fotógrafo do jornal",d:"Instalou a câmera automática na escada da cúpula.",say:"Montei a câmera na escada e fui fotografar o eclipse no gramado.",inn:"As fotos do Vítor, uma por minuto, foram tiradas do gramado o tempo todo."}],
+culprit:"abel",proofs:["cadeira"],
+weak:{escada:"Mostra alguém com lanterna vermelha subindo. Mas quem?",lanternas:"Só os astrônomos usam luz vermelha... e são dois.",chaves:"Duas pessoas têm a chave especial. Qual delas tem álibi?",luneta:"A luneta mostra como a lente foi tirada, mas não quem tirou.",st_abel:"O juiz quer uma prova de que ele mentiu."},
+hints:["Só duas pessoas usam lanterna vermelha e têm a chave especial. Qual delas tem álibi?","Alguém diz que ficou sentado a noite toda. O orvalho concorda?"],
+sol:"Foi o Dr. Abel! Ele queria a lente dourada na luneta da casa dele para descobrir um cometa antes da Profa. Celeste. Enquanto ela dava a palestra, ele subiu à cúpula com sua lanterna vermelha e desparafusou a lente. Mas a cadeira dele, toda molhada de orvalho, mostrou que ele nunca sentou para ver o eclipse! A lente voltou para a luneta."},
+
+{icon:"⚓",title:"O baú do capitão",place:"Farol das Gaivotas",diff:"Muito difícil",scene:"k11",min:7,
+brief:"ontem à noite, a luz do Farol das Gaivotas apagou das 21h05 às 21h35. Quando voltou, o velho baú do Capitão Barba-Ruiva, cheio de moedas antigas, tinha sumido de dentro do farol! O mar estava cheio naquela hora... Como o ladrão chegou lá?",
+items:[
+{id:"farol",e:"💡",l:"Luz do farol",t:"A luz foi desligada à mão às 21h05 e religada às 21h35. A porta do farol foi aberta com chave."},
+{id:"gancho",e:"🔑",l:"Gancho do restaurante",t:"O gancho da chave reserva do farol, no restaurante do porto, está vazio. A chave reapareceu no balcão às 22h."},
+{id:"comanda",e:"🧾",l:"Comanda do jantar",t:"O Tiago jantou peixe às 20h40, sentado bem ao lado do gancho da chave reserva."},
+{id:"mare",e:"🌊",l:"Tábua das marés",t:"Das 21h às 21h45, a maré cobre a trilha de areia até o farol. Nesse horário, só se chega lá pela água."},
+{id:"caiaque",e:"🛶",l:"Caiaque amarelo",t:"O caiaque do restaurante, que qualquer um pode usar, está molhado e com areia escura da ilhota do farol."},
+{id:"padaria",e:"🥖",l:"Padaria da vila",t:"O Seu Mário comprou pão às 21h e ficou conversando com o padeiro até as 21h40. Voltou pela trilha às 21h50."},
+{id:"diario",e:"📓",l:"Diário de bordo",t:"Navio da Capitã Iara, descarga das 20h30 às 22h. Anotação: 'Marinheiro Tiago saiu às 21h para buscar cordas. Voltou às 21h40, ensopado.'"},
+{id:"radio",e:"📻",l:"Rádio do porto",t:"O Bóris falou pelo rádio às 21h10, 21h20 e 21h30, lá do alto-mar, a duas horas daqui."},
+{id:"festa",e:"🎂",l:"Festa no restaurante",t:"Das 21h às 21h45, a Dona Zuleica serviu uma festa de aniversário com 20 convidados, que cantaram parabéns às 21h20."}],
+suspects:[
+{id:"mario",e:"👴🏽",n:"Seu Mário",r:"Faroleiro",d:"Tem a chave do farol.",say:"Fui comprar pão na vila e fiquei proseando com o padeiro. Quando voltei, a luz já tinha acendido.",inn:"O padeiro confirma que o Seu Mário ficou na padaria até as 21h40, e a trilha estava coberta pelo mar."},
+{id:"iara",e:"👩‍✈️",n:"Capitã Iara",r:"Capitã do navio Estrela-do-Mar",d:"Diz que o baú pertenceu ao avô dela.",say:"Passei a noite comandando a descarga do navio. Está tudo no diário de bordo!",inn:"O diário de bordo e oito marinheiros confirmam que a Capitã Iara comandou a descarga o tempo todo."},
+{id:"boris",e:"🧔🏽",n:"Bóris",r:"Pescador",d:"Conhece cada pedra do mar em volta do farol.",say:"Eu estava pescando lá no alto-mar! Falei pelo rádio com o porto várias vezes.",inn:"O rádio mostra o Bóris no alto-mar, a duas horas daqui, durante todo o apagão."},
+{id:"zuleica",e:"👩‍🍳",n:"Dona Zuleica",r:"Dona do restaurante do porto",d:"Sempre disse que o baú devia ficar no restaurante, para atrair turistas.",say:"Eu estava servindo uma festa de aniversário! Cantei parabéns com todo mundo.",inn:"Os 20 convidados confirmam que a Dona Zuleica não saiu do restaurante. E o caiaque pode ser usado por qualquer um."},
+{id:"tiago",e:"👨🏻",n:"Tiago",r:"Marinheiro novato",d:"Rema muito bem e adora histórias de piratas.",say:"Passei a noite toda no navio, ajudando a descarregar as caixas. Não saí de lá!"}],
+culprit:"tiago",proofs:["diario"],
+weak:{comanda:"Mostra que ele esteve perto da chave, mas muita gente jantou lá.",caiaque:"Mostra como o ladrão chegou ao farol, mas qualquer um podia usar o caiaque.",mare:"Mostra que o ladrão foi pela água. Quem saiu de onde estava?",gancho:"Mostra que usaram a chave reserva. Mas quem pegou?",st_tiago:"O juiz quer uma prova de que ele mentiu."},
+hints:["A maré cobria a trilha: o ladrão foi pela água. Quem tinha um barco, ou pegou um emprestado?","Alguém disse que não saiu do navio. O navio tem um registro de tudo..."],
+sol:"Foi o Tiago! No jantar, ele pegou a chave reserva do farol no restaurante. Depois saiu do navio dizendo que ia buscar cordas e, como a maré cobria a trilha, remou até o farol no caiaque amarelo. Apagou a luz para não ser visto e levou o baú, porque sonhava em ser pirata de verdade. O diário de bordo mostrou que ele mentiu! O baú voltou para o farol."},
+
+{icon:"🕰️",title:"O relógio parado",place:"Torre do Relógio",diff:"Muito difícil",scene:"k12",min:7,
+brief:"o caso final! No dia do Festival da Vila Vagalume, o relógio da torre parou às 11h47, e a Chave de Ouro da Vila, guardada lá no alto, desapareceu. Cinco pessoas estiveram por perto. Preste atenção em cada horário... e em cada cor.",
+items:[
+{id:"livro",e:"📖",l:"Livro da torre",t:"Registros de hoje: 8h02, Sr. Hélio (dar corda no relógio). 11h00, Jonas e 12 turistas (entrada). 11h25, Jonas e 12 turistas (saída). Depois disso, ninguém mais assinou."},
+{id:"engrenagem",e:"⚙️",l:"Engrenagens",t:"Um pedaço de madeira foi enfiado nas engrenagens de propósito. O relógio parou às 11h47: foi nessa hora que o ladrão estava lá em cima."},
+{id:"fio",e:"🧶",l:"Prego da escada",t:"Um fiapo de tecido verde-musgo preso num prego da escada em caracol. Está limpinho, sem nenhuma gota de tinta."},
+{id:"folheto",e:"🗺️",l:"Folheto turístico",t:"Folheto da agência do Jonas: 'Novo passeio: os tesouros perdidos da Vila Vagalume!'. No verso, escrito à mão: 'encontrar a chave = ficar famoso'."},
+{id:"andaime",e:"🎨",l:"Andaime do mural",t:"Tinta fresca de cima a baixo. A janela ao lado do andaime está trancada por dentro com um cadeado enferrujado: ninguém passa por ali há anos."},
+{id:"loja",e:"🛠️",l:"Loja do relojoeiro",t:"Recibos de conserto com horário: 10h15, 11h10, 11h45 e 11h55. O Sr. Hélio atendeu clientes a manhã inteira."},
+{id:"ata",e:"🏛️",l:"Ata da prefeitura",t:"'Às 11h45, a vereadora Clara apresentou o mapa das barracas para 20 pessoas.'"},
+{id:"pipoca",e:"🍿",l:"Carrinho de pipoca",t:"O carrinho fica bem de frente para a porta da torre. As crianças da fila confirmam: a Dona Gertrudes não saiu dali a manhã toda."}],
+suspects:[
+{id:"helio",e:"👴🏻",n:"Sr. Hélio",r:"Relojoeiro",d:"Cuida do relógio da torre há 30 anos.",say:"Subi às 8h para dar corda no relógio, como faço todo santo dia. Depois fui para a minha loja e atendi clientes a manhã inteira.",inn:"Os recibos da loja mostram que o Sr. Hélio estava atendendo clientes às 11h45 e às 11h55."},
+{id:"clara",e:"👩‍💼",n:"Vereadora Clara",r:"Organizadora do festival",d:"Carrega uma prancheta para todo lado.",say:"Passei a manhã na prefeitura, numa reunião enorme sobre o festival. Está tudo anotado na ata!",inn:"A ata prova que a vereadora Clara estava falando para 20 pessoas às 11h45."},
+{id:"nico",e:"🧑‍🎨",n:"Nico",r:"Pintor do mural da torre",d:"Usa um macacão verde-musgo, todo respingado de tinta.",say:"Fiquei no andaime pintando do lado de fora a manhã toda. Nunca entrei na torre, a janela do meu lado nem abre!",inn:"A janela do andaime está trancada com cadeado enferrujado. E o fiapo da escada não tinha nenhuma gota de tinta, ao contrário do macacão do Nico."},
+{id:"gertrudes",e:"👵🏽",n:"Dona Gertrudes",r:"Pipoqueira da praça",d:"Seu carrinho fica de frente para a porta da torre.",say:"Daqui do meu carrinho eu vejo tudo! Às 11h25 o guia saiu com os turistas... e lá pelas 11h40 ele voltou sozinho, dizendo que tinha esquecido o boné lá em cima.",inn:"As crianças da fila confirmam que a Dona Gertrudes não saiu do carrinho. E o depoimento dela foi a chave do caso!"},
+{id:"jonas",e:"🧑‍🦱",n:"Jonas",r:"Guia turístico",d:"Usa um colete verde-musgo cheio de bolsos.",say:"Levei um grupo de turistas até o topo às 11h e saímos às 11h25. Depois disso, eu nem cheguei perto da torre!"}],
+culprit:"jonas",proofs:["fio","st_gertrudes"],
+weak:{folheto:"Isso mostra um motivo, mas não prova que ele esteve lá.",livro:"O livro mostra que ele saiu às 11h25, mas o relógio parou às 11h47. Alguém viu ele voltar?",engrenagem:"As engrenagens mostram a hora do crime, mas não quem estava lá.",st_jonas:"O depoimento dele sozinho não prova nada. Alguém contradiz o que ele disse?"},
+hints:["Duas pessoas usam verde-musgo. Que detalhe do fiapo separa uma da outra?","Alguém que vê tudo da praça pode ter visto quem voltou para a torre. Já interrogou todo mundo?"],
+sol:"Foi o Jonas! Depois de sair com os turistas, ele voltou sozinho dizendo que tinha esquecido o boné. Lá em cima, travou as engrenagens para o barulho não chamar atenção e pegou a Chave de Ouro: queria 'encontrá-la' depois no seu novo passeio e ficar famoso. Mas o colete verde-musgo enroscou num prego... e a Dona Gertrudes viu tudo! A Chave de Ouro voltou para a torre, e o relógio voltou a badalar."}
+];
+
+const L8=[[13,30],[37,27],[63,31],[87,29],[15,77],[39,79],[63,76],[86,78]];
+const L9=[[15,24],[50,21],[85,25],[27,52],[60,53],[88,50],[13,80],[45,81],[78,80]];
+const MAXS=CASES.length*3;
+const KEY='vila-vagalume-v2';
+const fresh=()=>({name:'',seen:false,mus:true,sfx:true,prog:CASES.map(()=>({solved:false,stars:0}))});
+let S=fresh();
+try{const d=JSON.parse(localStorage.getItem(KEY)||'null');if(d&&Array.isArray(d.prog)&&d.prog.length===CASES.length)S=Object.assign(fresh(),d);}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+const SES={};let G=null;
+const totalStars=()=>S.prog.reduce((a,p)=>a+p.stars,0);
+const allSolved=()=>S.prog.every(p=>p.solved);
+const unlocked=i=>i===0||S.prog[i-1].solved;
+const stars=n=>'★'.repeat(n)+'☆'.repeat(3-n);
+const curStars=()=>Math.max(1,3-G.errors-G.hints);
+const C=()=>CASES[G.i];
+const sus=(c,id)=>c.suspects.find(s=>s.id===id);
+const item=(c,id)=>c.items.find(x=>x.id===id);
+const pad=i=>String(i+1).padStart(2,'0');
+
+const A={ctx:null,playing:false,musicOn:S.mus!==false,sfxOn:S.sfx!==false,step:0,next:0,timer:null,spb:60/126/2,
+H:[[40,[52,55,59]],[45,[57,60,64]],[50,[54,57,62]],[43,[55,59,62]],[48,[55,60,64]],[45,[57,60,64]],[47,[54,57,63]],[47,[54,57,63]],[40,[52,55,59]],[48,[55,60,64]],[45,[57,60,64]],[50,[54,57,62]],[43,[55,59,62]],[48,[55,60,64]],[47,[54,57,63]],[40,[52,55,59]]],
+MEL:[[71,0,0,0,67,69],[72,0,0,0,71,69],[66,0,0,0,69,72],[71,0,0,0,0,0],[76,0,0,0,72,71],[69,0,0,0,72,76],[75,0,0,0,71,0],[66,0,0,0,0,0],[79,0,0,0,78,76],[76,0,0,0,72,0],[72,0,0,0,76,81],[78,0,0,0,74,0],[79,0,0,0,74,71],[72,0,0,0,76,0],[75,0,78,0,75,71],[76,0,0,0,0,0]].flat(),
+init(){if(this.ctx)return true;const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return false;try{this.ctx=new AC()}catch(e){return false}
+const c=this.ctx;this.master=c.createGain();this.master.gain.value=.85;const comp=c.createDynamicsCompressor();comp.threshold.value=-16;comp.ratio.value=4;this.master.connect(comp);comp.connect(c.destination);
+this.mus=c.createGain();this.mus.gain.value=0;this.mus.connect(this.master);this.fxg=c.createGain();this.fxg.gain.value=.6;this.fxg.connect(this.master);
+this.echo=c.createDelay(2);this.echo.delayTime.value=this.spb*2;const fb=c.createGain();fb.gain.value=.25;const lp=c.createBiquadFilter();lp.type='lowpass';lp.frequency.value=3000;this.echo.connect(lp);lp.connect(fb);fb.connect(this.echo);lp.connect(this.mus);
+this.send=c.createGain();this.send.gain.value=.32;this.send.connect(this.echo);
+const n=Math.floor(c.sampleRate*.6),b=c.createBuffer(1,n,c.sampleRate),d=b.getChannelData(0);for(let i=0;i<n;i++)d[i]=Math.random()*2-1;this.noise=b;
+const L=this.MEL.length;this.DUR=this.MEL.map((m,i)=>{if(!m)return 0;let k=1;while(k<6&&!this.MEL[(i+k)%L])k++;return k*this.spb*.95});return true},
+hz(m){return 440*Math.pow(2,(m-69)/12)},
+resume(){if(this.ctx&&this.ctx.state==='suspended')this.ctx.resume()},
+startMusic(){if(!this.init())return;this.resume();if(!this.playing){this.playing=true;this.step=0;this.next=this.ctx.currentTime+.15;this.timer=setInterval(()=>this.sched(),40)}this.applyMusic()},
+applyMusic(){if(!this.ctx)return;const g=this.mus.gain,t=this.ctx.currentTime;g.cancelScheduledValues(t);g.setValueAtTime(g.value,t);g.linearRampToValueAtTime(this.musicOn?.55:0,t+(this.musicOn?2:.4))},
+sched(){const c=this.ctx;if(this.next<c.currentTime-.3)this.next=c.currentTime+.05;while(this.next<c.currentTime+.2){if(this.musicOn)this.play(this.step,this.next);this.next+=this.spb;this.step++}},
+play(s,t){const b=Math.floor(s/6)%16,e=s%6,r=this.H[b][0],tri=this.H[b][1];
+if(e===0)this.bass(r,t);
+if(e===2||e===4){tri.forEach(m=>this.stab(m,t));this.brush(t)}
+if(e%2===1)this.harp(tri[(e-1)/2]+24,t);
+if(e===0&&b%4===0)this.chime(tri[0]+36,t);
+const i=s%this.MEL.length,m=this.MEL[i];if(m)this.flute(m,t,this.DUR[i])},
+env(g,t,a,p,d){g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(p,t+a);g.gain.exponentialRampToValueAtTime(.0001,t+a+d)},
+bass(m,t){const c=this.ctx,o=c.createOscillator(),o2=c.createOscillator(),f=c.createBiquadFilter(),g=c.createGain();o.type='triangle';o2.type='sine';o.frequency.value=this.hz(m);o2.frequency.value=this.hz(m);f.type='lowpass';f.frequency.setValueAtTime(800,t);f.frequency.exponentialRampToValueAtTime(300,t+.3);o.connect(f);o2.connect(f);f.connect(g);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.17,t+.008);g.gain.exponentialRampToValueAtTime(.04,t+.2);g.gain.exponentialRampToValueAtTime(.0001,t+.6);g.connect(this.mus);o.start(t);o2.start(t);o.stop(t+.65);o2.stop(t+.65)},
+stab(m,t){const c=this.ctx,o=c.createOscillator(),f=c.createBiquadFilter(),g=c.createGain();o.type='triangle';o.frequency.value=this.hz(m);f.type='lowpass';f.frequency.value=1800;o.connect(f);f.connect(g);this.env(g,t,.004,.026,.14);g.connect(this.mus);o.start(t);o.stop(t+.2)},
+harp(m,t){const c=this.ctx,o=c.createOscillator(),o2=c.createOscillator(),g=c.createGain(),g2=c.createGain();o.type='sine';o.frequency.value=this.hz(m);o2.type='sine';o2.frequency.value=this.hz(m)*3;g2.gain.value=.06;o.connect(g);o2.connect(g2);g2.connect(g);this.env(g,t,.003,.03,.8);g.connect(this.mus);g.connect(this.send);o.start(t);o2.start(t);o.stop(t+.9);o2.stop(t+.9)},
+chime(m,t){const c=this.ctx,o=c.createOscillator(),g=c.createGain();o.type='sine';o.frequency.value=this.hz(m);o.connect(g);this.env(g,t,.003,.025,1.8);g.connect(this.mus);g.connect(this.send);o.start(t);o.stop(t+1.9)},
+brush(t){const c=this.ctx,s=c.createBufferSource(),f=c.createBiquadFilter(),g=c.createGain();s.buffer=this.noise;f.type='bandpass';f.frequency.value=3500;f.Q.value=.8;s.connect(f);f.connect(g);this.env(g,t,.01,.018,.1);g.connect(this.mus);s.start(t,Math.random()*.3,.14)},
+flute(m,t,d){const c=this.ctx,f0=this.hz(m),o=c.createOscillator(),o2=c.createOscillator(),g=c.createGain(),g2=c.createGain(),vib=c.createOscillator(),vg=c.createGain();
+o.type='sine';o.frequency.value=f0;o2.type='triangle';o2.frequency.value=f0*2;g2.gain.value=.07;
+vib.frequency.value=5;vg.gain.setValueAtTime(0,t);vg.gain.linearRampToValueAtTime(f0*.007,t+.35);vib.connect(vg);vg.connect(o.frequency);
+o.connect(g);o2.connect(g2);g2.connect(g);
+const hold=Math.max(.1,d-.12);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.065,t+.08);g.gain.setValueAtTime(.06,t+hold);g.gain.linearRampToValueAtTime(0,t+d+.08);
+g.connect(this.mus);g.connect(this.send);
+const s=c.createBufferSource(),bf=c.createBiquadFilter(),bg=c.createGain();s.buffer=this.noise;bf.type='bandpass';bf.frequency.value=f0*2;bf.Q.value=2;s.connect(bf);bf.connect(bg);this.env(bg,t,.02,.012,.12);bg.connect(this.mus);s.start(t,Math.random()*.3,.16);
+o.start(t);o2.start(t);vib.start(t);o.stop(t+d+.12);o2.stop(t+d+.12);vib.stop(t+d+.12)},
+blip(m,t,d,type,v){const c=this.ctx,o=c.createOscillator(),g=c.createGain();o.type=type;o.frequency.value=this.hz(m);o.connect(g);this.env(g,t,.005,v,d);g.connect(this.fxg);o.start(t);o.stop(t+d+.05)},
+nz(t,f1,f2,type,v,d){const c=this.ctx,s=c.createBufferSource(),f=c.createBiquadFilter(),g=c.createGain();s.buffer=this.noise;f.type=type;f.frequency.setValueAtTime(f1,t);if(f2)f.frequency.exponentialRampToValueAtTime(f2,t+d);s.connect(f);f.connect(g);this.env(g,t,.005,v,d);g.connect(this.fxg);s.start(t,0,d+.05)},
+fx(name){if(!this.sfxOn||!this.init())return;this.resume();const t=this.ctx.currentTime+.01,R=k=>Math.floor(Math.random()*k);
+switch(name){
+case'click':this.blip(81,t,.05,'sine',.08);break;
+case'type':this.nz(t,3000,0,'highpass',.035,.02);break;
+case'talk':this.blip(62+R(8),t,.05,'triangle',.05);break;
+case'clue':[76,79,83,88].forEach((m,i)=>this.blip(m,t+i*.07,.45,'sine',.1));break;
+case'page':this.nz(t,600,2400,'bandpass',.08,.25);break;
+case'hint':[83,88].forEach((m,i)=>this.blip(m,t+i*.1,.5,'sine',.09));break;
+case'wrong':this.blip(64,t,.3,'triangle',.12);this.blip(61,t+.18,.4,'triangle',.12);break;
+case'stamp':this.blip(38,t,.25,'sine',.3);this.nz(t,500,0,'lowpass',.25,.12);break;
+case'win':[64,67,71,76].forEach((m,i)=>this.blip(m,t+i*.1,.4,'triangle',.13));[71,76,79,83].forEach(m=>this.blip(m,t+.5,1.3,'sine',.07));break}}
+};
+
+function rng(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const STARRY={};
+function starry(par){if(STARRY[par])return STARRY[par];
+const R=rng(1889),W=800,f=n=>n.toFixed(1),pick=a=>a[Math.floor(R()*a.length)];
+const mk=()=>{const g={};return{add(c,w,d){const k=c+'|'+w;(g[k]||(g[k]=[])).push(d)},svg(){return Object.keys(g).map(k=>{const p=k.split('|');return `<path d="${g[k].join('')}" stroke="${p[0]}" stroke-width="${p[1]}" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`}).join('')}}};
+const hy=x=>495+22*Math.sin(x/140)+12*Math.sin(x/53+1.3),by=x=>578+10*Math.sin(x/90+.5);
+const V=[{x:520,y:432,r:95,s:1.7},{x:392,y:418,r:60,s:-1.4},{x:245,y:330,r:55,s:1.1},{x:655,y:330,r:55,s:-1},{x:470,y:300,r:45,s:1}];
+const ST=[{x:205,y:70,r:22},{x:330,y:45,r:16},{x:455,y:95,r:18},{x:585,y:55,r:15},{x:265,y:200,r:17},{x:610,y:190,r:19},{x:760,y:240,r:22},{x:140,y:330,r:20},{x:735,y:395,r:16},{x:360,y:300,r:14},{x:560,y:300,r:13}];
+const MO={x:705,y:95,r:30},ALL=ST.concat([MO]);
+const field=(x,y)=>{let vx=1,vy=.35*Math.sin(x/105+y/65);for(const v of V){const dx=x-v.x,dy=y-v.y,d=Math.hypot(dx,dy)+1,w=v.s*Math.exp(-d/v.r)*3.2;vx+=-dy/d*w;vy+=dx/d*w}for(const s of ALL){const dx=x-s.x,dy=y-s.y,d=Math.hypot(dx,dy)+1;if(d<s.r*2.6){const w=2.4*Math.exp(-d/(s.r*.9));vx+=-dy/d*w;vy+=dx/d*w}}return Math.atan2(vy,vx)};
+const stroke=(x,y,af,len,n)=>{let d=`M${f(x)},${f(y)}`;for(let i=0;i<n;i++){const a=af(x,y);x+=Math.cos(a)*len;y+=Math.sin(a)*len;d+=`L${f(x)},${f(y)}`}return d};
+const near=(x,y)=>{let b=1e9;for(const s of ALL)b=Math.min(b,Math.hypot(x-s.x,y-s.y)/s.r);return b};
+const swirl=(x,y)=>{let b=1e9;for(const v of V)b=Math.min(b,Math.hypot(x-v.x,y-v.y)/v.r);return b};
+const SKD=['#1B3A7A','#1F4288','#264E99','#2F5BAA','#3A6ABA','#22468E'],SKL=['#5C8FD0','#7FAEE0','#A9CBEA','#CFE2EE','#4A7FCB'],SKY=['#EBD96E','#F4E7A0','#C9DB8F','#A9CBEA','#F7EFC8'],TL=['#3E8FA6','#5FA9B6','#4C9AB0'];
+const sky=mk();
+for(let y=4;y<530;y+=12)for(let x=-6;x<W+8;x+=14){const px=x+(R()-.5)*10,py=y+(R()-.5)*9;if(py>hy(px)-4)continue;const n=near(px,py),sw=swirl(px,py);let col;if(n<2.4)col=pick(SKY);else if(sw<.9)col=pick(SKL);else{const q=R();col=q<.12?pick(TL):q<.27?pick(SKL.slice(0,2)):pick(SKD)}sky.add(col,R()<.5?4:5,stroke(px,py,field,5.5,3))}
+let st='';ST.forEach((s,i)=>{st+=`<g class="vs" style="animation-delay:-${(i*.37).toFixed(2)}s"><circle cx="${s.x}" cy="${s.y}" r="${s.r}" fill="none" stroke="#F4E7A0" stroke-width="3" stroke-dasharray="6 4" opacity=".75"/><circle cx="${s.x}" cy="${s.y}" r="${f(s.r*.68)}" fill="none" stroke="#FFF6C8" stroke-width="3" stroke-dasharray="4 3"/><circle cx="${s.x}" cy="${s.y}" r="${f(s.r*.38)}" fill="#FFF3B0"/></g>`});
+st+=`<g class="vs" style="animation-duration:4.5s"><circle cx="705" cy="95" r="46" fill="none" stroke="#F2C14E" stroke-width="4" stroke-dasharray="7 4" opacity=".85"/><circle cx="705" cy="95" r="36" fill="none" stroke="#F7DC6F" stroke-width="3" stroke-dasharray="5 3"/><circle cx="705" cy="95" r="27" fill="#E9A73A"/><circle cx="705" cy="95" r="21" fill="#FBE27A"/><circle cx="714" cy="88" r="18" fill="#E9A73A"/></g>`;
+let hb=`M0,${f(hy(0))}`;for(let x=0;x<=W;x+=20)hb+=`L${x},${f(hy(x))}`;hb+=`L${W},${f(by(W)+20)}L0,${f(by(0)+20)}Z`;
+const HC=['#1E3D79','#284D8C','#33609E','#4372AE','#1A3470','#2C5598'],hill=mk();
+const ha=(x,y)=>Math.atan2(22/140*Math.cos(x/140)+12/53*Math.cos(x/53+1.3),1)+.25*Math.sin(x/40+y/25);
+for(let y=460;y<605;y+=9)for(let x=-6;x<W+8;x+=13){const px=x+(R()-.5)*8,py=y+(R()-.5)*6;if(py<hy(px)+3||py>by(px)+10)continue;hill.add(pick(HC),4,stroke(px,py,ha,6,3))}
+let fb=`M0,${f(by(0))}`;for(let x=0;x<=W;x+=20)fb+=`L${x},${f(by(x))}`;fb+=`L${W},720L0,720Z`;
+const FC=['#1C3358','#24406A','#2D4C77','#1A2C4A','#334F6A','#2F4A3E'],fg=mk();
+const fa=(x,y)=>Math.sin(x/30)*1.2+Math.cos(y/22);
+for(let y=585;y<725;y+=10)for(let x=-6;x<W+8;x+=13){const px=x+(R()-.5)*8,py=y+(R()-.5)*7;if(py<by(px)+4)continue;fg.add(pick(FC),4,stroke(px,py,fa,6,3))}
+const HS=[[250,600,30,18],[290,615,26,16],[330,598,34,20],[372,620,28,16],[410,604,30,18],[450,624,26,15],[565,606,32,19],[605,622,28,16],[642,600,30,18],[680,618,34,18],[722,604,28,17],[760,620,26,15],[300,642,30,16],[420,646,28,15],[600,650,32,15],[700,646,28,15]],HB=['#2E4E7E','#3A5C8A','#28466F','#41658F'];
+let vil='';[[230,596,18,14],[350,642,16,12],[482,604,20,15],[590,642,18,13],[745,598,16,12],[262,650,14,10]].forEach(t=>{vil+=`<ellipse cx="${t[0]}" cy="${t[1]}" rx="${t[2]}" ry="${t[3]}" fill="#1D3B3F"/>`});
+HS.forEach((h,i)=>{const[x,y,w,hh]=h;vil+=`<polygon points="${x-2},${y} ${f(x+w/2)},${f(y-hh*.6)} ${x+w+2},${y}" fill="#1F3560"/><rect x="${x}" y="${y}" width="${w}" height="${hh}" fill="${HB[i%4]}"/><rect x="${f(x+w*.22)}" y="${f(y+hh*.32)}" width="4" height="4" fill="#F4D35E"/>${i%2?'':`<rect x="${f(x+w*.62)}" y="${f(y+hh*.32)}" width="4" height="4" fill="#F4D35E"/>`}`});
+vil+=`<rect x="498" y="606" width="48" height="20" fill="#2F4E7B"/><polygon points="496,606 522,592 548,606" fill="#1F3560"/><rect x="510" y="588" width="24" height="38" fill="#2B4874"/><polygon points="512,590 522,486 532,590" fill="#1A2F57"/><rect x="519" y="600" width="6" height="8" rx="3" fill="#F4D35E"/>`;
+const cx=y=>112+14*Math.sin(y/45),hw=y=>y<66?0:58*Math.pow((y-66)/654,.8)*(1+.18*Math.sin(y/19));
+let L1='',R1='';for(let y=66;y<=720;y+=12){L1+=`${f(cx(y)-hw(y))},${y} `;R1=`${f(cx(y)+hw(y))},${y} `+R1}
+const cyp=`<polygon points="${f(cx(60))},58 ${L1}${R1}" fill="#1E2618"/>`,CY=['#1F2A1A','#2C3A22','#3B4A2B','#4C5A33','#2B3140','#5E5C36','#384028'],cy=mk();
+const ca=(x,y)=>-Math.PI/2+.7*Math.sin(y/26+x/14);
+for(let y=70;y<725;y+=8){const w=hw(y),c0=cx(y);for(let x=c0-w;x<=c0+w;x+=9){const px=x+(R()-.5)*6,py=y+(R()-.5)*6;cy.add(pick(CY),5,stroke(px,py,ca,7,3))}}
+const out=`<svg class="vg" viewBox="0 0 800 720" preserveAspectRatio="${par}" aria-hidden="true"><rect width="800" height="720" fill="#1E3C80"/>${sky.svg()}${st}<path d="${hb}" fill="#27477F"/>${hill.svg()}<path d="${fb}" fill="#17294C"/>${fg.svg()}${vil}${cyp}${cy.svg()}</svg>`;
+STARRY[par]=out;return out}
+
+let typer=null;
+function stopType(){if(typer){clearInterval(typer);typer=null}}
+function typeText(el,text,speed,snd){stopType();if(!el)return;const ch=Array.from(text);el.textContent='';el.dataset.full=text;el.classList.remove('done');let i=0;
+typer=setInterval(()=>{i++;el.textContent=ch.slice(0,i).join('');if(snd&&i%3===0&&ch[i-1]!==' ')A.fx(snd);if(i>=ch.length){stopType();el.classList.add('done')}},speed)}
+function skipType(){const el=root.querySelector('[data-full]');if(el){stopType();el.textContent=el.dataset.full;el.classList.add('done')}}
+
+function openModal(html,cls){stopType();root.style.minHeight='';
+mw.innerHTML=`<div class="md ${cls||''}" role="dialog" aria-modal="true">${html}</div>`;mw.classList.add('on');
+const box=mw.firstElementChild,h=box.offsetHeight;if(h+28>root.offsetHeight)root.style.minHeight=(h+28)+'px';
+const H=root.offsetHeight;let top=lastY-h/2;top=Math.max(14,Math.min(top,H-h-14));box.style.top=top+'px';
+const f=box.querySelector('.b.p')||box.querySelector('.b');if(f){try{f.focus({preventScroll:true})}catch(e){}}}
+function closeModal(){stopType();mw.classList.remove('on');mw.innerHTML='';root.style.minHeight=''}
+const FOOT='<p class="foot">✦ Um jogo de Laura e Emilly ✦</p>';
+function go(html,cls){closeModal();scr.innerHTML=`<div class="scr ${cls||''}">${html}${cls==='ttl'?'':FOOT}</div>`;lastY=220}
+
+const PAL=[['#CECBF6','#26215C'],['#9FE1CB','#04342C'],['#FAC775','#412402'],['#F5C4B3','#4A1B0C'],['#B5D4F4','#042C53'],['#F4C0D1','#4B1528']];
+function confetti(){const cols=['#534AB7','#EF9F27','#1D9E75','#D85A30','#378ADD','#FAC775'];let h='';for(let k=0;k<30;k++)h+=`<i style="left:${Math.round(Math.random()*98)}%;background:${cols[k%cols.length]};animation-duration:${(2.6+Math.random()*2.2).toFixed(2)}s;animation-delay:${(Math.random()*.8).toFixed(2)}s"></i>`;return h}
+
+function showTitle(){const par=root.clientWidth<560?'xMinYMid slice':'xMidYMid slice';
+go(`${starry(par)}<div class="shade"></div><div class="tw"><div class="rib">✦ <b>Laura</b> e <b>Emilly</b> apresentam ✦</div><h1 class="logo">Vila <span>Vagalume</span></h1><p class="sub">Doze mistérios difíceis. Só os detetives mais atentos chegam ao fim.</p><div class="ta"><button class="b g" data-act="start">${I('search')} ${S.name?'Continuar investigação':'Começar a investigar'}</button><div><button class="b gh" data-act="howto">${I('help')} Como jogar</button><button class="b gh" data-act="credits">${I('heart')} Créditos</button></div></div></div><div class="tbot"><p class="made2 art">Fundo: releitura de A Noite Estrelada, de Vincent van Gogh (1889)</p><p class="made2">Feito com carinho para as famílias e responsáveis</p><p class="made2">${I('headphones')} Ligue o som para ouvir a trilha</p></div>`,'ttl')}
+
+function showName(){go(`<div class="nm"><div class="nc"><div class="bd"><b>★</b><small>DETETIVE</small><span class="bn" id="bn">${S.name?esc(S.name):'???'}</span><small>VILA VAGALUME</small></div><h2>Todo detetive precisa de um distintivo</h2><p class="mut" style="margin-top:6px">Como a agência deve chamar você?</p><input class="inp" id="ni" maxlength="18" placeholder="Seu nome de detetive" autocomplete="off" value="${esc(S.name)}"><p class="err" id="ne"></p><button class="b p" style="width:100%" data-act="saveName">${I('star')} Pegar meu distintivo</button></div></div>`);
+const ni=$('ni');ni.addEventListener('input',()=>{$('bn').textContent=ni.value.trim()||'???';$('ne').textContent=''});ni.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();saveName()}});setTimeout(()=>{try{ni.focus({preventScroll:true})}catch(e){}},250)}
+function saveName(){const v=($('ni').value||'').trim();if(!v){$('ne').textContent='Digite um nome para colocar no distintivo.';A.fx('wrong');return}
+S.name=v;save();A.fx('stamp');showOffice();if(!S.seen){S.seen=true;save();lastY=280;setTimeout(openHowto,350)}}
+
+function showOffice(){const t=totalStars(),done=S.prog.filter(p=>p.solved).length;
+go(`<div class="oh"><div><span class="k">AGÊNCIA DE DETETIVES DA VILA VAGALUME</span><h2>Olá, detetive ${esc(S.name)}!</h2><p class="mut">${done} de ${CASES.length} casos resolvidos. Cada mistério resolvido libera o próximo.</p></div><div class="scx"><span>★</span> ${t} de ${MAXS} estrelas</div></div>
+<div class="cs">${CASES.map((c,i)=>{const p=S.prog[i],lk=!unlocked(i),ses=SES[i]&&(SES[i].found.length||SES[i].talked.length),pl=lk?['#D3D1C7','#2C2C2A']:PAL[i%PAL.length];return `<button class="cc${lk?' lk':''}" style="--cb:${pl[0]};--ct:${pl[1]}" data-act="openCase" data-v="${i}"><span class="tb">Caso ${pad(i)}</span><div class="em">${lk?'🔒':c.icon}</div><div class="tt">${lk?'Caso secreto':c.title}</div><div class="pl">${lk?'Resolva o caso anterior':c.place}</div><div class="ft"><span class="df">${c.diff}</span><span class="st">${p.solved?stars(p.stars):(ses?'em andamento':'')}</span></div>${p.solved?'<span class="rs">Resolvido</span>':''}</button>`}).join('')}</div>
+<div class="of">${allSolved()?`<button class="b p" data-act="cert">${I('certificate')} Ver meu certificado</button>`:''}<button class="b" data-act="howto">${I('help')} Como jogar</button><button class="b" data-act="reset">${I('user-plus')} Novo jogador</button><button class="b" data-act="title">${I('home')} Tela inicial</button></div>`)}
+
+function openCase(i){if(!unlocked(i)){A.fx('wrong');openModal(`<div class="em">🔒</div><h3>Caso trancado</h3><p>Resolva o caso ${i} para liberar este mistério.</p><div class="row"><button class="b p" data-act="closeModal">Entendi</button></div>`);return}
+const ex=SES[i];G=ex||(SES[i]={i,found:[],talked:[],hints:0,errors:0,tab:'sus'});
+if(ex&&(ex.found.length||ex.talked.length)){A.fx('page');renderCase();return}
+const c=CASES[i];A.fx('page');
+go(`<div class="it"><button class="b s" data-act="office">${I('arrow-left')} Casos</button></div><div class="fl"><span class="tb">CASO Nº ${pad(i)}</span><span class="cf">CONFIDENCIAL</span><div class="fh"><div class="em">${c.icon}</div><div><h2>${c.title}</h2><p>${c.place} · ${c.diff} · ${c.suspects.length} suspeitos · ${c.items.length} pistas</p></div></div><div class="ch"><div class="em">🦉</div><div style="flex:1"><b>Inspetora Coruja diz:</b><p class="ty" id="brief" data-act="skip"></p></div></div><div class="fa"><button class="b s" data-act="skip">${I('player-track-next')} Mostrar tudo</button><button class="b p" data-act="accept">${I('search')} Aceitar o caso</button></div></div>`);
+typeText($('brief'),`Detetive ${S.name}, ${c.brief}`,22,'type')}
+
+function renderCase(){const c=C(),L=c.items.length>8?L9:L8;
+go(`<div class="it"><button class="b s" data-act="office">${I('arrow-left')} Casos</button><div class="tn"><small>CASO ${pad(G.i)} · ${c.diff.toUpperCase()}</small>${c.title}</div></div>
+<div class="hb"><span class="pl2">${I('search')} <span id="hf">0</span> de ${c.items.length} pistas</span><span class="pl2" title="Estrelas possíveis neste caso"><span class="st" id="hst"></span></span><span style="flex:1"></span><button class="b s" data-act="hint">${I('bulb')} Dica</button><button class="b d s" data-act="accuse">${I('scale')} Acusar</button></div>
+<div class="pg"><div class="br" id="hbr"></div><span id="hnd"></span></div>
+<div class="sl"><span>${I('map-pin')} ${c.place}</span><span class="mut" style="font-weight:400">Toque nos objetos para investigar</span></div>
+<div class="sn ${c.scene}"><div class="wl"></div><div class="fr"></div><div class="lt"></div><div class="lamp"></div>${c.items.map((it,k)=>`<button class="hp" data-act="hs" data-v="${it.id}" style="left:${L[k][0]}%;top:${L[k][1]}%" aria-label="Investigar: ${it.l}"><span class="rg">${it.e}</span><span class="lb">${it.l}</span></button>`).join('')}</div>
+<div class="sd"><div class="tbs"><button class="tab" data-act="tab" data-v="sus">${I('message-circle')} Suspeitos</button><button class="tab" data-act="tab" data-v="note">${I('notebook')} Caderno <span class="cn" id="hcn">0</span></button></div><div class="sb" id="side"></div></div>`);
+renderSide();hud()}
+
+function hud(){const c=C(),f=G.found.length,n=c.items.length,ok=f>=c.min;
+$('hf').textContent=f;$('hst').textContent=stars(curStars());$('hbr').style.width=Math.round(f/n*100)+'%';$('hbr').classList.toggle('ok',ok);
+$('hnd').textContent=ok?(f===n?'Todas as pistas encontradas. Hora de acusar!':'Você já pode acusar, ou continuar investigando'):`Encontre pelo menos ${c.min} pistas para poder acusar (${f} de ${c.min})`;
+$('hcn').textContent=f+G.talked.length;root.querySelectorAll('.hp').forEach(b=>b.classList.toggle('fd',G.found.includes(b.dataset.v)))}
+
+function renderSide(){const c=C(),el=$('side');root.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t.dataset.v===G.tab));
+if(G.tab==='sus'){el.innerHTML=`<p class="tip">Converse com todos e compare o que dizem com as pistas. Alguém está mentindo, e alguém só parece suspeito.</p><div class="sg">${c.suspects.map(s=>{const t=G.talked.includes(s.id);return `<div class="su${t?' tk':''}"><div class="av">${s.e}</div><div><b>${s.n}</b><small>${s.r}</small><p>${s.d}</p></div><button class="b s${t?'':' p'}" data-act="talk" data-v="${s.id}">${t?I('check')+' Ouvir de novo':I('message-circle')+' Interrogar'}</button></div>`}).join('')}</div>`;return}
+const cl=G.found.map(id=>item(c,id)),sy=G.talked.map(id=>sus(c,id));
+if(!cl.length&&!sy.length){el.innerHTML='<div class="emp"><span class="em">📒</span>Seu caderno está vazio.<br>Investigue a cena e interrogue os suspeitos para preenchê-lo.</div>';return}
+el.innerHTML=`<p class="nh">PISTAS (${cl.length})</p>${cl.length?`<div class="ng">${cl.map(it=>`<div class="nt"><span class="em">${it.e}</span><div><b>${it.l}</b>${it.t}</div></div>`).join('')}</div>`:'<p class="tip">Nenhuma pista ainda.</p>'}<p class="nh">DEPOIMENTOS (${sy.length})</p>${sy.length?`<div class="ng">${sy.map(s=>`<div class="nt sy"><span class="em">${s.e}</span><div><b>${s.n}</b>“${s.say}”</div></div>`).join('')}</div>`:'<p class="tip">Ninguém foi interrogado ainda.</p>'}`}
+
+function inspect(id){const c=C(),it=item(c,id),nw=!G.found.includes(id);if(nw){G.found.push(id);A.fx('clue')}else A.fx('click');
+const enough=nw&&G.found.length===c.min;
+openModal(`<div class="em">${it.e}</div><br><span class="k">${nw?'NOVA PISTA':'PISTA JÁ ANOTADA'}</span><h3>${it.l}</h3><p>${it.t}</p>${nw?`<span class="ad">${I('pin')} Anotada no seu caderno</span>`:''}${enough?`<div class="why">${I('scale')} Você já tem pistas suficientes para fazer uma acusação.</div>`:''}<div class="row"><button class="b p" data-act="closeModal">Continuar investigando</button></div>`,'pa');
+hud();if(G.tab==='note')renderSide()}
+
+function talk(id){const c=C(),s=sus(c,id),nw=!G.talked.includes(id);if(nw)G.talked.push(id);A.fx('click');
+openModal(`<div class="av2">${s.e}</div><h3>${s.n}</h3><span class="k">${s.r.toUpperCase()}</span><div class="bu"><p id="say" data-act="skip"></p></div>${nw?`<span class="ad">${I('pin')} Depoimento anotado no caderno</span>`:''}<div class="row"><button class="b p" data-act="closeModal">Voltar à investigação</button></div>`);
+typeText($('say'),s.say,24,'talk');renderSide();hud()}
+
+function askHint(){const c=C();A.fx('click');const used=c.hints.slice(0,G.hints).map((h,i)=>`<div class="hu"><b>Dica ${i+1}:</b> ${h}</div>`).join('');
+if(G.hints>=c.hints.length){openModal(`<div class="em">💡</div><h3>Sem mais dicas</h3><p>Você já usou todas as dicas deste caso. Confie no seu faro de detetive!</p>${used}<div class="row"><button class="b p" data-act="closeModal">Combinado</button></div>`);return}
+openModal(`<div class="em">💡</div><h3>Precisa de uma ajudinha?</h3><p>Cada dica custa 1 estrela neste caso.</p>${used}<div class="row"><button class="b" data-act="closeModal">Agora não</button><button class="b p" data-act="useHint">Quero a dica</button></div>`)}
+function useHint(){const c=C();G.hints++;A.fx('hint');openModal(`<div class="em">🦉</div><br><span class="k">DICA ${G.hints} DE ${c.hints.length}</span><h3>A Inspetora Coruja cochicha...</h3><p>${c.hints[G.hints-1]}</p><div class="row"><button class="b p" data-act="closeModal">Entendi</button></div>`);hud()}
+
+const short=t=>t.length>78?t.slice(0,76).trim()+'…':t;
+function openAccuse(){const c=C();A.fx('click');
+if(G.found.length<c.min){openModal(`<div class="em">🔍</div><h3>Ainda é cedo para acusar</h3><p>Num caso difícil, é preciso juntar quase tudo. Encontre pelo menos ${c.min} pistas na cena (você tem ${G.found.length}).</p><div class="row"><button class="b p" data-act="closeModal">Voltar a investigar</button></div>`);return}
+G.pick={s:null,e:null};
+const evs=[...G.found.map(id=>{const it=item(c,id);return{id,e:it.e,l:it.l,t:it.t}}),...G.talked.map(id=>{const s=sus(c,id);return{id:'st_'+id,e:s.e,l:'Depoimento de '+s.n,t:s.say}})];
+openModal(`<div class="em">⚖️</div><h3>Hora da acusação</h3><p class="mut" style="font-size:14px">Escolha o culpado e a prova decisiva. Pistas que só mostram motivo ou que servem para duas pessoas não convencem o juiz.</p><p class="sl2">1. Quem é o culpado?</p><div class="pk">${c.suspects.map(s=>`<button data-act="pickS" data-v="${s.id}"><span>${s.e}</span>${s.n}</button>`).join('')}</div><p class="sl2">2. Qual prova mostra isso?</p><div class="ev">${evs.map(v=>`<button data-act="pickE" data-v="${v.id}"><span class="e3">${v.e}</span><span><b>${v.l}</b><small>${short(v.t)}</small></span></button>`).join('')}</div><p class="err" id="jerr" style="margin-top:10px"></p><div class="row" style="margin-top:4px"><button class="b" data-act="closeModal">Investigar mais</button><button class="b d" data-act="judge">${I('scale')} Acusar</button></div>`)}
+function pick(k,v){G.pick[k]=v;A.fx('click');mw.querySelectorAll(k==='s'?'.pk button':'.ev button').forEach(b=>b.classList.toggle('sel',b.dataset.v===v));const e=$('jerr');if(e)e.textContent=''}
+function judge(){const c=C(),p=G.pick;
+if(!p.s||!p.e){$('jerr').textContent=!p.s&&!p.e?'Escolha um suspeito e uma prova primeiro.':(!p.s?'Escolha quem é o culpado.':'Escolha uma prova para mostrar ao juiz.');A.fx('wrong');return}
+if(p.s!==c.culprit){G.errors++;A.fx('wrong');const x=sus(c,p.s);openModal(`<div class="em">🙈</div><h3>Acusação errada</h3><p>${x.n} é inocente.</p><div class="why">${x.inn}</div><p class="mut" style="font-size:14px">Menos uma estrela neste caso. Não desista, detetive!</p><div class="row"><button class="b p" data-act="closeModal">Voltar a investigar</button></div>`,'sh');hud();return}
+if(c.proofs.includes(p.e)){solve();return}
+G.errors++;A.fx('wrong');
+const msg=(c.weak&&c.weak[p.e])||'Essa prova não convence o juiz. Procure uma pista que mostre uma mentira, ou alguém no lugar errado na hora errada.';
+openModal(`<div class="em">🤔</div><h3>O juiz não se convenceu</h3><div class="why">${msg}</div><p class="mut" style="font-size:14px">Menos uma estrela neste caso. Tente uma prova mais forte!</p><div class="row"><button class="b p" data-act="closeModal">Voltar a investigar</button></div>`,'sh');hud()}
+
+function solve(){const c=C(),st=curStars(),i=G.i,p=S.prog[i];p.solved=true;p.stars=Math.max(p.stars,st);save();delete SES[i];
+A.fx('win');setTimeout(()=>A.fx('stamp'),550);const cu=sus(c,c.culprit),last=i===CASES.length-1;
+const msg=['','Caso resolvido! Na próxima, tente usar menos dicas.','Muito bem, detetive!','Investigação perfeita!'][st];
+go(`<div class="cft">${confetti()}</div><div class="rw"><div class="rc"><span class="stp">CASO<br>ENCERRADO</span><span class="k">O CULPADO ERA</span><br><div class="a3">${cu.e}</div><h2>${cu.n}</h2><div class="rst">${[0,1,2].map(k=>`<span class="${k<st?'':'o'}" style="animation-delay:${(0.9+k*0.18).toFixed(2)}s">★</span>`).join('')}</div><p class="msg">${msg}</p><div class="rt">${c.sol}</div><div class="row"><button class="b" data-act="office">${I('folder')} Voltar aos casos</button>${last?(allSolved()?`<button class="b p" data-act="cert">${I('certificate')} Ver meu certificado</button>`:''):`<button class="b p" data-act="openCase" data-v="${i+1}">Próximo caso ${I('arrow-right')}</button>`}</div></div></div>`)}
+
+function showCert(){const t=totalStars(),rank=t===MAXS?'lenda da investigação':t>=Math.round(MAXS*.8)?'detetive mestre':'detetive oficial';A.fx('win');
+go(`<div class="cft">${confetti()}</div><div class="ce"><div class="ci"><div class="se">🔍</div><span class="k">AGÊNCIA DE DETETIVES DA VILA VAGALUME</span><h2>Certificado de ${rank}</h2><p>Certificamos que</p><div class="cnm">${esc(S.name)}</div><p>desvendou todos os ${CASES.length} mistérios difíceis da Vila Vagalume com coragem, atenção aos detalhes e muito raciocínio.</p><div class="cst">★ ${t} de ${MAXS} estrelas</div><div class="sgn"><div><span class="sig">Inspetora Coruja</span><small>CHEFE DA AGÊNCIA</small></div><div><span class="sig">Laura e Emilly</span><small>CRIADORAS DO JOGO</small></div></div></div></div><div class="row" style="position:relative;z-index:4"><button class="b" data-act="office">${I('folder')} Voltar aos casos</button><button class="b" data-act="reset">${I('user-plus')} Novo jogador</button></div>`)}
+
+function openHowto(){openModal(`<div class="em">🦉</div><h3>Como jogar</h3><div class="how"><div><span class="e2">🔍</span><p><b>Investigue a cena.</b> Toque nos objetos com borda pontilhada. Cada caso tem 8 ou 9 pistas, e você precisa achar pelo menos 7.</p></div><div><span class="e2">🗣️</span><p><b>Interrogue os suspeitos.</b> Alguém está mentindo, e alguém só parece suspeito. Compare cada fala com as pistas.</p></div><div><span class="e2">📒</span><p><b>Consulte o caderno.</b> Horários, cores e detalhes fazem toda a diferença.</p></div><div><span class="e2">⚖️</span><p><b>Acuse com a prova decisiva.</b> Motivos e pistas que servem para duas pessoas não convencem o juiz.</p></div><div><span class="e2">⭐</span><p><b>Ganhe até 3 estrelas por caso.</b> Dicas e acusações erradas custam estrelas.</p></div></div><div class="row"><button class="b p" data-act="closeModal">Vamos investigar</button></div>`)}
+function openCredits(){openModal(`<div class="em">✨</div><h3>Créditos</h3><div class="cr"><small>Ideia, roteiro e desenvolvimento</small><b>Laura e Emilly</b></div><div class="cr"><small>Apresentado para</small><b>As famílias e responsáveis</b></div><div class="cr"><small>Tela inicial</small><b>Releitura de A Noite Estrelada (1889), de Vincent van Gogh</b></div><div class="cr"><small>Trilha de mistério</small><b>Valsa tocada ao vivo pelo próprio jogo</b></div><div class="cr"><small>Casos</small><b>${CASES.length} mistérios difíceis na Vila Vagalume</b></div><p class="mut" style="font-size:14px;margin-top:10px">Obrigada por jogar! Toda pessoa curiosa pode ser uma grande detetive.</p><div class="row"><button class="b p" data-act="closeModal">Fechar</button></div>`)}
+function askReset(){A.fx('click');openModal(`<div class="em">🔄</div><h3>Começar com um novo jogador?</h3><p>O nome, o progresso e as estrelas atuais serão apagados para outra pessoa jogar desde o início.</p><div class="row"><button class="b" data-act="closeModal">Cancelar</button><button class="b d" data-act="doReset">Sim, recomeçar</button></div>`)}
+function doReset(){S=Object.assign(fresh(),{mus:A.musicOn,sfx:A.sfxOn});Object.keys(SES).forEach(k=>delete SES[k]);G=null;save();A.fx('page');showTitle()}
+
+function syncAudio(){const m=$('bmus'),s=$('bsfx');m.classList.toggle('off',!A.musicOn);s.classList.toggle('off',!A.sfxOn);m.setAttribute('aria-pressed',String(A.musicOn));s.setAttribute('aria-pressed',String(A.sfxOn));m.firstElementChild.className='ti '+(A.musicOn?'ti-music':'ti-music-off');s.firstElementChild.className='ti '+(A.sfxOn?'ti-volume':'ti-volume-off')}
+function toggleMus(){A.musicOn=!A.musicOn;S.mus=A.musicOn;save();if(A.musicOn)A.startMusic();else A.applyMusic();syncAudio()}
+function toggleSfx(){A.sfxOn=!A.sfxOn;S.sfx=A.sfxOn;save();if(A.sfxOn)A.fx('click');syncAudio()}
+
+root.addEventListener('click',e=>{const el=e.target.closest('[data-act]');if(!el||!root.contains(el))return;
+const rr=root.getBoundingClientRect(),er=el.getBoundingClientRect();lastY=er.top+er.height/2-rr.top;
+const a=el.dataset.act,v=el.dataset.v;if(a!=='mus'&&A.musicOn&&!A.playing)A.startMusic();
+switch(a){
+case'start':A.fx('click');S.name?showOffice():showName();break;
+case'howto':A.fx('click');openHowto();break;
+case'credits':A.fx('click');openCredits();break;
+case'saveName':saveName();break;
+case'title':A.fx('click');showTitle();break;
+case'office':A.fx('click');showOffice();break;
+case'openCase':openCase(+v);break;
+case'skip':skipType();break;
+case'accept':stopType();A.fx('page');renderCase();break;
+case'hs':inspect(v);break;
+case'talk':talk(v);break;
+case'tab':A.fx('click');G.tab=v;renderSide();break;
+case'hint':askHint();break;
+case'useHint':useHint();break;
+case'accuse':openAccuse();break;
+case'pickS':pick('s',v);break;
+case'pickE':pick('e',v);break;
+case'judge':judge();break;
+case'closeModal':A.fx('click');closeModal();break;
+case'cert':showCert();break;
+case'reset':askReset();break;
+case'doReset':doReset();break;
+case'mus':toggleMus();break;
+case'sfx':toggleSfx();break}});
+mw.addEventListener('click',e=>{if(e.target===mw)closeModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&mw.classList.contains('on'))closeModal()});
+syncAudio();showTitle();
+})();
+</script></div></body></html>
